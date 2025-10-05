@@ -1902,8 +1902,8 @@
                                     </div>
                                 </div>
                                 
-                                <div :class="['match-status', crop.isMatch ? 'match-good' : 'match-bad']">
-                                    {{ crop.isMatch ? '✅ Ideal Conditions' : '⚠️ Not Ideal' }}
+                                <div :class="['match-status', crop.isMatch ? 'match-good' : 'match-bad']" style="font-size: 0.85em; font-weight: bold;">
+                                    {{ crop.isMatch ? '✅ PERFECT MATCH' : '⚠️ RISKY CHOICE' }}
                                 </div>
                             </div>
                         </div>
