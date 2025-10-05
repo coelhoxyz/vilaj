@@ -1905,34 +1905,6 @@
                                 </div>
                                 
                                 <div v-if="crop.isMatch" style="position: absolute; top: 8px; right: 8px; width: 12px; height: 12px; background: #ffd700; border-radius: 50%; box-shadow: 0 0 10px #ffd700; animation: pulse 2s infinite;"></div>
-                                
-                                <div class="crop-comparison" style="display: block !important;">
-                                    <div class="comparison-title" style="font-size: 0.85em; font-weight: bold; margin-bottom: 8px;">🎯 DATA MATCH</div>
-                                    <div class="comparison-item" :class="currentData.temp >= crop.needs.temp[0] && currentData.temp <= crop.needs.temp[1] ? 'match-yes' : 'match-no'">
-                                        <span class="comp-label">🌡️ Temp:</span>
-                                        <span class="comp-need">{{ crop.needs.temp[0] }}-{{ crop.needs.temp[1] }}°C</span>
-                                        <span class="comp-current">{{ currentData.temp }}°C</span>
-                                    </div>
-                                    <div class="comparison-item" :class="currentData.rain >= crop.needs.rain[0] && currentData.rain <= crop.needs.rain[1] ? 'match-yes' : 'match-no'">
-                                        <span class="comp-label">💧 Rain:</span>
-                                        <span class="comp-need">{{ crop.needs.rain[0] }}-{{ crop.needs.rain[1] }}mm</span>
-                                        <span class="comp-current">{{ currentData.rain }}mm</span>
-                                    </div>
-                                    <div class="comparison-item" :class="currentData.humidity >= crop.needs.humidity[0] && currentData.humidity <= crop.needs.humidity[1] ? 'match-yes' : 'match-no'">
-                                        <span class="comp-label">💨 Humidity:</span>
-                                        <span class="comp-need">{{ crop.needs.humidity[0] }}-{{ crop.needs.humidity[1] }}%</span>
-                                        <span class="comp-current">{{ currentData.humidity }}%</span>
-                                    </div>
-                                    <div class="comparison-item" :class="currentData.ndvi >= crop.needs.ndvi[0] && currentData.ndvi <= crop.needs.ndvi[1] ? 'match-yes' : 'match-no'">
-                                        <span class="comp-label">🌿 NDVI:</span>
-                                        <span class="comp-need">{{ crop.needs.ndvi[0] }}-{{ crop.needs.ndvi[1] }}</span>
-                                        <span class="comp-current">{{ currentData.ndvi.toFixed(2) }}</span>
-                                    </div>
-                                </div>
-                                
-                                <div :class="['match-status', crop.isMatch ? 'match-good' : 'match-bad']" style="font-size: 0.85em; font-weight: bold;">
-                                    {{ crop.isMatch ? '✅ PERFECT MATCH' : '⚠️ RISKY CHOICE' }}
-                                </div>
                             </div>
                         </div>
                     </div>
