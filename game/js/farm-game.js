@@ -26,15 +26,16 @@ createApp({
             selectedAnswer: null,
             
             game: {
-                year: 2015,
-                season: 0,
-                trimester: 1,
+                round: 1,
+                maxRounds: 10,
                 money: 50,
                 tree: 50,
                 prestige: 50,
                 activeCrops: [],
                 history: [],
-                usedEvents: []
+                usedEvents: [],
+                streak: 0,
+                multiplier: 1
             },
             currentEvent: null,
             selectedOption: null,
@@ -120,12 +121,19 @@ createApp({
     
     computed: {
         currentSeason() {
-            return this.seasons[this.game.season];
+            const seasonIndex = (this.game.round - 1) % 4;
+            return this.seasons[seasonIndex];
         },
         
         currentData() {
-            const yearData = this.nasaData[this.game.year] || this.nasaData[2015];
-            return yearData[this.game.season];
+            const dataIndex = (this.game.round - 1) % 12;
+            const year = 2015 + Math.floor(dataIndex / 4);
+            const season = dataIndex % 4;
+            return this.nasaData[year][season];
+        },
+        
+        roundProgress() {
+            return Math.round((this.game.round / this.game.maxRounds) * 100);
         },
         
         currentIndicators() {
@@ -453,25 +461,33 @@ createApp({
             const isCorrect = this.selectedAnswer === this.currentQuestion.correct;
             
             if (isCorrect) {
+                this.game.streak++;
+                this.game.multiplier = Math.min(1 + (this.game.streak * 0.2), 3);
                 this.setFarmerState('jumping', 1500);
-                this.farmerSay("Yes! Great job! This helps our farm!");
                 
-                // Give reward
-                this.game.money += 20;
-                this.game.tree += 10;
-                this.game.prestige += 15;
+                const baseReward = 20;
+                const bonusMoney = Math.round(baseReward * this.game.multiplier);
+                const bonusTree = Math.round(10 * this.game.multiplier);
+                const bonusPrestige = Math.round(15 * this.game.multiplier);
+                
+                this.game.money += bonusMoney;
+                this.game.tree += bonusTree;
+                this.game.prestige += bonusPrestige;
+                
+                if (this.game.streak > 1) {
+                    this.farmerSay(`${this.game.streak}x STREAK! +${bonusMoney} BONUS!`);
+                }
             } else {
+                this.game.streak = 0;
+                this.game.multiplier = 1;
                 this.setFarmerState('sad', 2000);
-                this.farmerSay("Not quite right, but that's okay! Let's see what happens...");
                 
-                // Small penalty
-                this.game.money -= 5;
-                this.game.tree -= 5;
+                this.game.money -= 10;
+                this.game.tree -= 8;
             }
             
             this.currentQuestionIndex++;
             
-            // Show result then trigger event based on answer
             setTimeout(() => {
                 this.triggerEventBasedOnAnswer(isCorrect);
             }, 2000);
@@ -588,56 +604,50 @@ createApp({
         },
         
         nextQuarter() {
-            this.game.trimester++;
-            this.game.season++;
+            this.game.round++;
             
-            if (this.game.season >= 4) {
-                this.game.season = 0;
-                this.game.year++;
-                this.farmerSay(`New year ${this.game.year}! Let's make it count!`);
-            }
-            
-            if (this.game.trimester > 40) {
+            if (this.game.round > this.game.maxRounds) {
                 this.gamePhase = 'gameover';
                 
-                // Final farmer reaction
                 const score = this.finalScore;
                 if (score >= 80) {
                     this.setFarmerState('jumping', 0);
-                    this.farmerSay("We did it! Amazing farm management! 🏆");
+                    this.farmerSay("LEGENDARY FARMER!");
                 } else if (score >= 60) {
                     this.setFarmerState('walking', 0);
-                    this.farmerSay("Great job! We learned a lot together!");
+                    this.farmerSay("Expert Level!");
                 } else {
                     this.setFarmerState('sad', 0);
-                    this.farmerSay("It was tough, but we can do better next time!");
+                    this.farmerSay("Try again for mastery!");
                 }
                 return;
             }
             
             this.setFarmerState('walking', 1500);
-            this.farmerSay(`Quarter ${this.game.trimester} - Let's keep going!`);
+            this.farmerSay(`Round ${this.game.round}/${this.game.maxRounds}`);
             this.gamePhase = 'planting';
         },
         
         restartGame() {
             this.game = {
-                year: 2015,
-                season: 0,
-                trimester: 1,
+                round: 1,
+                maxRounds: 10,
                 money: 50,
                 tree: 50,
                 prestige: 50,
                 activeCrops: [],
                 history: [],
-                usedEvents: []
+                usedEvents: [],
+                streak: 0,
+                multiplier: 1
             };
             this.gamePhase = 'welcome';
             this.currentEvent = null;
             this.selectedOption = null;
             this.farmerState = 'idle';
             this.farmerSpeech = false;
-            this.farmerSay("Ready for another journey? Let's farm smarter this time!");
+            this.currentQuestionIndex = 0;
+            this.farmerSay("READY FOR REDEMPTION?");
         }
     }
 }).mount('#app');
