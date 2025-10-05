@@ -415,8 +415,12 @@ createApp({
                 return;
             }
             
+            console.log('Starting planting phase...');
+            console.log('Available crops:', this.availableCrops);
+            console.log('Current data:', this.currentData);
+            
             this.gamePhase = 'planting';
-            this.farmerSay("Time to plant some crops! Check the NASA data!");
+            this.farmerSay("CHOOSE YOUR CROP! Match NASA data for max wins!");
         },
         
         plantCrop(cropKey) {
