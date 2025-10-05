@@ -35,8 +35,15 @@ createApp({
                 history: [],
                 usedEvents: [],
                 streak: 0,
-                multiplier: 1
+                multiplier: 1,
+                totalScore: 0,
+                achievements: [],
+                perfectRounds: 0,
+                riskMode: false,
+                comboPoints: 0
             },
+            highScore: 0,
+            lastScore: 0,
             currentEvent: null,
             selectedOption: null,
             
@@ -200,15 +207,23 @@ createApp({
         },
         
         finalScore() {
-            return Math.round((this.game.money + this.game.tree + this.game.prestige) / 3);
+            const base = Math.round((this.game.money + this.game.tree + this.game.prestige) / 3);
+            const streakBonus = this.game.perfectRounds * 10;
+            const comboBonus = Math.floor(this.game.comboPoints / 10);
+            return base + streakBonus + comboBonus;
         },
         
         finalRating() {
             const score = this.finalScore;
-            if (score >= 80) return '🏆 Excellent!';
-            if (score >= 60) return '🥈 Very Good!';
-            if (score >= 40) return '🥉 Good!';
-            return '📈 Keep practicing!';
+            if (score >= 150) return '👑 GODLIKE';
+            if (score >= 120) return '💎 LEGENDARY';
+            if (score >= 90) return '🏆 MASTER';
+            if (score >= 60) return '⭐ EXPERT';
+            return '💪 ROOKIE';
+        },
+        
+        isNewRecord() {
+            return this.finalScore > this.highScore;
         }
     },
     
@@ -221,6 +236,12 @@ createApp({
             console.log('First question:', this.questions[0].question);
         } else {
             console.error('❌ No questions loaded!');
+        }
+        
+        // Load high score from localStorage
+        const saved = localStorage.getItem('vilajHighScore');
+        if (saved) {
+            this.highScore = parseInt(saved);
         }
     },
     
@@ -400,6 +421,8 @@ createApp({
         
         plantCrop(cropKey) {
             const crop = this.cultures[cropKey];
+            const isPerfect = this.availableCrops[cropKey].isMatch;
+            
             this.game.activeCrops.push({
                 type: cropKey,
                 name: crop.name,
@@ -408,11 +431,20 @@ createApp({
                 duration: crop.duration,
                 profit: crop.profit,
                 damage: 0,
-                harvested: false
+                harvested: false,
+                isPerfect: isPerfect
             });
             
-            this.setFarmerState('walking', 1500);
-            this.farmerSay(`Planting ${crop.name}! Time to learn about farming!`);
+            // Track perfect selections
+            if (isPerfect) {
+                this.game.perfectRounds++;
+                this.game.comboPoints += 5;
+                this.setFarmerState('jumping', 1500);
+                this.farmerSay(`PERFECT MATCH! +5 COMBO`);
+            } else {
+                this.setFarmerState('walking', 1500);
+                this.farmerSay(`Risky... but might work!`);
+            }
             
             // Go to learning phase instead of event
             setTimeout(() => {
@@ -462,28 +494,43 @@ createApp({
             
             if (isCorrect) {
                 this.game.streak++;
-                this.game.multiplier = Math.min(1 + (this.game.streak * 0.2), 3);
+                this.game.multiplier = Math.min(1 + (this.game.streak * 0.3), 5);
+                this.game.comboPoints += this.game.streak;
+                
+                // Random critical hit (20% chance)
+                const isCritical = Math.random() < 0.2;
+                const critMultiplier = isCritical ? 2 : 1;
+                
                 this.setFarmerState('jumping', 1500);
                 
                 const baseReward = 20;
-                const bonusMoney = Math.round(baseReward * this.game.multiplier);
-                const bonusTree = Math.round(10 * this.game.multiplier);
-                const bonusPrestige = Math.round(15 * this.game.multiplier);
+                const bonusMoney = Math.round(baseReward * this.game.multiplier * critMultiplier);
+                const bonusTree = Math.round(10 * this.game.multiplier * critMultiplier);
+                const bonusPrestige = Math.round(15 * this.game.multiplier * critMultiplier);
                 
                 this.game.money += bonusMoney;
                 this.game.tree += bonusTree;
                 this.game.prestige += bonusPrestige;
+                this.game.totalScore += bonusMoney + bonusTree + bonusPrestige;
                 
-                if (this.game.streak > 1) {
-                    this.farmerSay(`${this.game.streak}x STREAK! +${bonusMoney} BONUS!`);
+                if (isCritical) {
+                    this.farmerSay(`⚡ CRITICAL HIT! ${this.game.streak}x STREAK! +${bonusMoney}!`);
+                } else if (this.game.streak >= 5) {
+                    this.farmerSay(`🔥 ON FIRE! ${this.game.streak}x STREAK!`);
+                } else if (this.game.streak > 1) {
+                    this.farmerSay(`${this.game.streak}x COMBO! +${bonusMoney}!`);
                 }
+                
+                // Check achievements
+                this.checkAchievements();
             } else {
                 this.game.streak = 0;
                 this.game.multiplier = 1;
                 this.setFarmerState('sad', 2000);
                 
-                this.game.money -= 10;
-                this.game.tree -= 8;
+                this.game.money -= 15;
+                this.game.tree -= 12;
+                this.farmerSay(`STREAK BROKEN!`);
             }
             
             this.currentQuestionIndex++;
@@ -491,6 +538,35 @@ createApp({
             setTimeout(() => {
                 this.triggerEventBasedOnAnswer(isCorrect);
             }, 2000);
+        },
+        
+        checkAchievements() {
+            const achievements = [];
+            
+            if (this.game.streak === 5 && !this.game.achievements.includes('hotstreak')) {
+                achievements.push({ id: 'hotstreak', name: '🔥 HOT STREAK', desc: '5 correct in a row!' });
+                this.game.achievements.push('hotstreak');
+            }
+            
+            if (this.game.streak === 10 && !this.game.achievements.includes('unstoppable')) {
+                achievements.push({ id: 'unstoppable', name: '⚡ UNSTOPPABLE', desc: '10 streak combo!' });
+                this.game.achievements.push('unstoppable');
+                this.game.money += 50;
+            }
+            
+            if (this.game.perfectRounds === 5 && !this.game.achievements.includes('perfectionist')) {
+                achievements.push({ id: 'perfectionist', name: '💎 PERFECTIONIST', desc: '5 perfect matches!' });
+                this.game.achievements.push('perfectionist');
+                this.game.tree += 50;
+            }
+            
+            if (achievements.length > 0) {
+                setTimeout(() => {
+                    achievements.forEach(ach => {
+                        this.farmerSay(`ACHIEVEMENT: ${ach.name}`);
+                    });
+                }, 1000);
+            }
         },
         
         // Trigger event based on answer correctness
@@ -610,15 +686,23 @@ createApp({
                 this.gamePhase = 'gameover';
                 
                 const score = this.finalScore;
-                if (score >= 80) {
+                this.lastScore = score;
+                
+                // Save high score
+                if (score > this.highScore) {
+                    this.highScore = score;
+                    localStorage.setItem('vilajHighScore', score.toString());
                     this.setFarmerState('jumping', 0);
-                    this.farmerSay("LEGENDARY FARMER!");
-                } else if (score >= 60) {
+                    this.farmerSay("NEW RECORD!");
+                } else if (score >= 120) {
+                    this.setFarmerState('jumping', 0);
+                    this.farmerSay("LEGENDARY!");
+                } else if (score >= 90) {
                     this.setFarmerState('walking', 0);
-                    this.farmerSay("Expert Level!");
+                    this.farmerSay("MASTER LEVEL!");
                 } else {
                     this.setFarmerState('sad', 0);
-                    this.farmerSay("Try again for mastery!");
+                    this.farmerSay("TRY AGAIN!");
                 }
                 return;
             }
@@ -639,15 +723,20 @@ createApp({
                 history: [],
                 usedEvents: [],
                 streak: 0,
-                multiplier: 1
+                multiplier: 1,
+                totalScore: 0,
+                achievements: [],
+                perfectRounds: 0,
+                riskMode: false,
+                comboPoints: 0
             };
-            this.gamePhase = 'welcome';
+            this.gamePhase = 'planting';
             this.currentEvent = null;
             this.selectedOption = null;
             this.farmerState = 'idle';
             this.farmerSpeech = false;
             this.currentQuestionIndex = 0;
-            this.farmerSay("READY FOR REDEMPTION?");
+            this.farmerSay("BEAT YOUR RECORD!");
         }
     }
 }).mount('#app');
