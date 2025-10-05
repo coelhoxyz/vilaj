@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>🌾 JosIA Farm - Learn Agriculture with NASA Data</title>
     
     <!-- Preconnect for faster font loading -->
@@ -747,6 +750,223 @@
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
+        }
+        
+        /* ===========================
+           MOBILE RESPONSIVE STYLES
+           =========================== */
+        
+        @media only screen and (max-width: 768px) {
+            /* Base font size for mobile */
+            html {
+                font-size: 10px; /* Smaller base for mobile */
+            }
+            
+            body {
+                padding: 10px;
+                overflow-x: hidden;
+            }
+            
+            /* Game container */
+            .game-container {
+                padding: 15px;
+                margin: 10px;
+            }
+            
+            /* Header adjustments */
+            .game-header {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px !important;
+            }
+            
+            .game-header h1 {
+                font-size: 1em !important;
+                margin: 0;
+            }
+            
+            /* NASA Data Cards - Stack vertically on mobile */
+            .nasa-data {
+                grid-template-columns: 1fr !important; /* Single column */
+                gap: 10px;
+            }
+            
+            .data-card {
+                padding: 10px !important;
+            }
+            
+            .data-value {
+                font-size: 1.2em !important;
+            }
+            
+            /* Season and Stats Bar */
+            .season-bar, .stats-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .stat-card {
+                width: 100% !important;
+                padding: 8px !important;
+            }
+            
+            .stat-bar {
+                height: 10px !important;
+            }
+            
+            /* Welcome screen */
+            .welcome-screen h2 {
+                font-size: 1.2em !important;
+            }
+            
+            .welcome-screen p {
+                font-size: 0.7em !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* Buttons - Make larger for touch */
+            .game-button, .action-button, .start-button {
+                width: 100% !important;
+                padding: 15px 20px !important;
+                font-size: 0.7em !important;
+                margin: 5px 0 !important;
+                box-sizing: border-box;
+            }
+            
+            /* Crop cards - 1 column on mobile */
+            .crops-grid {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+            
+            .crop-card {
+                padding: 12px !important;
+            }
+            
+            .crop-name {
+                font-size: 0.8em !important;
+            }
+            
+            .crop-stats {
+                font-size: 0.6em !important;
+            }
+            
+            /* Message boxes */
+            .message-box {
+                padding: 15px !important;
+                margin: 10px 0 !important;
+            }
+            
+            .message-title {
+                font-size: 0.9em !important;
+            }
+            
+            .message-text {
+                font-size: 0.7em !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* Event cards */
+            .event-options {
+                grid-template-columns: 1fr !important; /* Single column */
+                gap: 10px !important;
+            }
+            
+            .event-option-card {
+                padding: 12px !important;
+            }
+            
+            .option-desc {
+                font-size: 0.6em !important;
+            }
+            
+            /* Results screen */
+            .results-container {
+                padding: 15px !important;
+            }
+            
+            .results-container h2 {
+                font-size: 1.1em !important;
+            }
+            
+            /* Farmer character - smaller on mobile */
+            .farmer-character {
+                bottom: 10px;
+                right: 10px;
+                transform: scale(1.5) !important; /* Smaller on mobile */
+            }
+            
+            .farmer-character.flip {
+                transform: scale(-1.5, 1.5) !important;
+            }
+            
+            /* Speech bubble */
+            .farmer-speech {
+                bottom: 80px;
+                right: 10px;
+                left: 10px;
+                max-width: calc(100% - 20px);
+                font-size: 0.6em !important;
+            }
+            
+            /* Hide scanlines on mobile for better performance */
+            body::before {
+                display: none;
+            }
+            
+            /* Adjust pixel borders for mobile */
+            .pixel-border {
+                border-width: 3px !important;
+            }
+            
+            /* Loading screen */
+            #loading-screen {
+                padding: 20px;
+            }
+            
+            #loading-screen .loading-spinner {
+                font-size: 2em;
+            }
+            
+            #loading-screen p {
+                font-size: 0.6em !important;
+            }
+        }
+        
+        /* Extra small phones (< 400px) */
+        @media only screen and (max-width: 400px) {
+            html {
+                font-size: 8px; /* Even smaller for tiny phones */
+            }
+            
+            .game-header h1 {
+                font-size: 0.9em !important;
+            }
+            
+            .game-button {
+                font-size: 0.6em !important;
+                padding: 12px 15px !important;
+            }
+            
+            .farmer-character {
+                transform: scale(1) !important; /* Even smaller */
+            }
+            
+            .farmer-character.flip {
+                transform: scale(-1, 1) !important;
+            }
+        }
+        
+        /* Landscape phones */
+        @media only screen and (max-width: 768px) and (orientation: landscape) {
+            .farmer-character {
+                bottom: 5px;
+                right: 5px;
+            }
+            
+            .farmer-speech {
+                bottom: 60px;
+            }
         }
     </style>
 </head>
