@@ -2074,44 +2074,34 @@
                     <!-- Game Over -->
                     <div v-if="gamePhase === 'gameover'">
                         <div class="message-box" style="padding: 35px; text-align: center;">
-                            <div v-if="isNewRecord" style="position: absolute; top: 10px; right: 10px; background: #ffd700; color: #000; padding: 8px 15px; font-size: 0.8em; font-weight: bold; border-radius: 20px; animation: bounce 1s infinite;">
-                                🏆 NEW RECORD!
+                            <div v-if="isNewRecord" style="font-size: 0.9em; color: #ffd700; margin-bottom: 15px;">
+                                🏆 New Record!
                             </div>
-                            <div class="message-title" style="font-size: 2.5em; color: var(--verdin); text-shadow: 3px 3px 0 rgba(0,0,0,0.5); margin-bottom: 15px; animation: slideIn 0.5s;">
+                            <div style="font-size: 2em; color: var(--verdin); margin-bottom: 15px;">
                                 {{ finalRating }}
                             </div>
-                            <div style="font-size: 4em; font-weight: bold; color: var(--verdin); text-shadow: 4px 4px 0 rgba(0,0,0,0.5); margin: 20px 0; animation: scaleIn 0.6s;">
+                            <div style="font-size: 3.5em; font-weight: bold; color: var(--verdin); margin: 20px 0;">
                                 {{ finalScore }}
                             </div>
-                            <div v-if="highScore > 0 && !isNewRecord" style="font-size: 1em; color: #ffd700; margin-bottom: 15px;">
-                                HIGH SCORE: {{ highScore }} | LAST: {{ lastScore }}
+                            <div v-if="highScore > 0 && !isNewRecord" style="font-size: 0.95em; opacity: 0.7; margin-bottom: 15px;">
+                                High Score: {{ highScore }} | Last: {{ lastScore }}
                             </div>
-                            <div style="display: flex; gap: 10px; justify-content: center; margin: 15px 0; flex-wrap: wrap;">
-                                <span v-if="game.perfectRounds > 0" style="background: rgba(255, 215, 0, 0.2); padding: 8px 15px; border-radius: 20px; font-size: 0.8em; border: 2px solid #ffd700;">
-                                    💎 {{ game.perfectRounds }} Perfect
-                                </span>
-                                <span v-if="game.comboPoints > 0" style="background: rgba(79, 75, 219, 0.2); padding: 8px 15px; border-radius: 20px; font-size: 0.8em; border: 2px solid var(--royal-blue);">
-                                    ⚡ {{ game.comboPoints }} Combo
-                                </span>
-                                <span v-if="game.achievements.length > 0" style="background: rgba(119, 195, 7, 0.2); padding: 8px 15px; border-radius: 20px; font-size: 0.8em; border: 2px solid var(--verdin);">
-                                    🏆 {{ game.achievements.length }} Achievements
-                                </span>
-                            </div>
-                            <div class="impacts-grid" style="margin: 30px 0;">
-                                <div class="stat-card" style="background: rgba(255, 215, 0, 0.2); border-color: #ffd700;">
-                                    <div class="stat-icon">💰</div>
-                                    <div class="stat-value" style="font-size: 2em; color: #ffd700;">{{ Math.round(game.money) }}</div>
-                                    <div class="stat-label">PROFIT</div>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0;">
+                                <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 10px;">
+                                    <div style="font-size: 1.5em;">💰</div>
+                                    <div style="font-size: 1.5em; font-weight: bold; color: #ffd700; margin: 8px 0;">{{ Math.round(game.money) }}</div>
+                                    <div style="font-size: 0.85em; opacity: 0.7;">Money</div>
                                 </div>
-                                <div class="stat-card" style="background: rgba(119, 195, 7, 0.2); border-color: var(--verdin);">
-                                    <div class="stat-icon">🌳</div>
-                                    <div class="stat-value" style="font-size: 2em; color: var(--verdin);">{{ Math.round(game.tree) }}</div>
-                                    <div class="stat-label">SUSTAINABILITY</div>
+                                <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 10px;">
+                                    <div style="font-size: 1.5em;">🌳</div>
+                                    <div style="font-size: 1.5em; font-weight: bold; color: var(--verdin); margin: 8px 0;">{{ Math.round(game.tree) }}</div>
+                                    <div style="font-size: 0.85em; opacity: 0.7;">Sustain</div>
                                 </div>
-                                <div class="stat-card" style="background: rgba(79, 75, 219, 0.2); border-color: var(--royal-blue);">
-                                    <div class="stat-icon">⭐</div>
-                                    <div class="stat-value" style="font-size: 2em; color: var(--royal-blue);">{{ Math.round(game.prestige) }}</div>
-                                    <div class="stat-label">PRESTIGE</div>
+                                <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 10px;">
+                                    <div style="font-size: 1.5em;">⭐</div>
+                                    <div style="font-size: 1.5em; font-weight: bold; color: var(--roxin); margin: 8px 0;">{{ Math.round(game.prestige) }}</div>
+                                    <div style="font-size: 0.85em; opacity: 0.7;">Prestige</div>
                                 </div>
                             </div>
                         </div>
