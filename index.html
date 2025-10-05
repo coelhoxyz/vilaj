@@ -1896,7 +1896,7 @@
                             </div>
                         </div>
 
-                        <div class="crop-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
+                        <div class="crop-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
                             <div v-for="(crop, key) in availableCrops" :key="key"
                                  class="crop-card betting-card"
                                  @click="plantCrop(key)"
