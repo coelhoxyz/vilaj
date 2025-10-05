@@ -9,11 +9,14 @@ createApp({
     data() {
         return {
             gameStarted: false,
-            gamePhase: 'welcome', // welcome, planting, learnContext, question, eventResult, results, gameover
+            gamePhase: 'introduction', // introduction, playerName, locationSelect, welcome, planting, learnContext, question, eventResult, results, gameover
             farmerState: 'idle', // idle, walking, running, jumping, sad
             farmerSpeech: false,
             farmerMessage: '',
             hoveredOption: null,
+            playerName: '',
+            playerLocation: '',
+            locationSearch: '',
             
             // Quiz system - MAIN GAME MECHANIC
             questions: [],
@@ -269,6 +272,32 @@ createApp({
             setTimeout(() => {
                 this.farmerSpeech = false;
             }, duration);
+        },
+        
+        // Player name and location methods
+        savePlayerName() {
+            if (!this.playerName || this.playerName.trim().length < 2) {
+                alert('Por favor, digite um nome válido (mínimo 2 caracteres)');
+                return;
+            }
+            this.gamePhase = 'locationSelect';
+            this.farmerSay(`Bem-vindo, ${this.playerName}! Vamos escolher a localização da sua fazenda.`);
+        },
+        
+        handleLocationSearch() {
+            // Método será chamado pelo input em tempo real
+        },
+        
+        selectLocation() {
+            this.playerLocation = 'Florianópolis, Santa Catarina, Brasil';
+            this.gamePhase = 'welcome';
+            this.farmerSay(`Excelente escolha, ${this.playerName}! Florianópolis tem ótimas condições!`, 4000);
+        },
+        
+        skipIntroduction() {
+            this.playerName = 'Fazendeiro';
+            this.playerLocation = 'Florianópolis, SC, Brasil';
+            this.gamePhase = 'welcome';
         },
         
         startPlanting() {

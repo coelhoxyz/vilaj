@@ -1450,18 +1450,141 @@
 
                 <!-- Game Content -->
                 <div class="game-content">
+                    <!-- Introduction Screen -->
+                    <div v-if="gamePhase === 'introduction'">
+                        <div class="message-box" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));">
+                            <div class="message-title" style="font-size: 1.5em;">🌱 Welcome to Vilaj Farm</div>
+                            <div class="message-text" style="font-size: 1.05em;">
+                                The NASA Farm Simulator with Real Satellite Data
+                            </div>
+                        </div>
+                        
+                        <div class="message-box">
+                            <div class="message-title">👨‍🌾 Your Assistant: Josia</div>
+                            <div class="message-text">
+                                <strong>José da Inteligência Agrícola (Josia)</strong> will be your guide throughout this journey. He'll help you interpret NASA climate data and make the best decisions for your farm!
+                            </div>
+                        </div>
+                        
+                        <div class="message-box">
+                            <div class="message-title">🎯 Your Mission</div>
+                            <div class="message-text">
+                                Manage a farm for <strong>10 years (2015-2025)</strong>, making strategic decisions based on real climate data collected by NASA satellites. Your challenge is to balance three fundamental pillars:<br><br>
+                                💰 <strong>Profit</strong> - Maximize your earnings<br>
+                                🌳 <strong>Sustainability</strong> - Preserve the environment<br>
+                                ⭐ <strong>Prestige</strong> - Build your reputation
+                            </div>
+                        </div>
+                        
+                        <div class="message-box">
+                            <div class="message-title">🛰️ NASA Technology</div>
+                            <div class="message-text">
+                                You'll have access to <strong>6 climate indicators</strong> collected by NASA satellites: air temperature (MODIS), precipitation (GPM), humidity (AIRS), vegetation index NDVI (Landsat 8), soil temperature (SMAP), and solar radiation (CERES).
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large" @click="gamePhase = 'playerName'">
+                            🚀 Start Adventure
+                        </button>
+                        <button class="btn btn-secondary" @click="skipIntroduction" style="margin-left: 10px;">
+                            ⏭️ Skip Intro
+                        </button>
+                    </div>
+
+                    <!-- Player Name Screen -->
+                    <div v-if="gamePhase === 'playerName'">
+                        <div class="message-box">
+                            <div class="message-title">👤 Player Identification</div>
+                            <div class="message-text">
+                                Before we start, we need to know who will be responsible for this farm.<br><br>
+                                <strong>What would you like to be called?</strong>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <input 
+                                type="text" 
+                                v-model="playerName" 
+                                @keyup.enter="savePlayerName"
+                                class="form-input" 
+                                placeholder="Enter your name here" 
+                                maxlength="30"
+                                style="width: 100%; padding: 15px; font-size: 1.1em; border: 2px solid var(--royal-blue); border-radius: 10px; text-align: center; font-weight: 600;">
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large" @click="savePlayerName">
+                            ✅ Confirm Name
+                        </button>
+                    </div>
+
+                    <!-- Location Selection Screen -->
+                    <div v-if="gamePhase === 'locationSelect'">
+                        <div class="message-box" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(167, 243, 208, 0.2)); border-color: var(--verdin);">
+                            <div class="message-title" style="color: var(--verdin);">✅ Welcome, {{ playerName }}!</div>
+                            <div class="message-text">
+                                It's a pleasure to have you with us, <strong>{{ playerName }}</strong>!<br><br>
+                                Now let's select where your farm will be located. The location will determine the specific climate data you'll use throughout the simulation.
+                            </div>
+                        </div>
+                        
+                        <div class="message-box">
+                            <div class="message-title">🌍 Location Selection</div>
+                            <div class="message-text">
+                                <strong>{{ playerName }}</strong>, choose where your farm will be located.<br><br>
+                                Type the city name in the search below:
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <input 
+                                type="text" 
+                                v-model="locationSearch" 
+                                class="form-input" 
+                                placeholder="Type: Florianópolis or Floripa"
+                                style="width: 100%; padding: 15px; font-size: 1em; border: 2px solid var(--royal-blue); border-radius: 10px;">
+                            
+                            <div v-if="locationSearch.length < 3" style="padding: 15px; text-align: center; color: #6b7280; font-size: 0.85em; margin-top: 10px;">
+                                💡 Minimum 3 characters
+                            </div>
+                            
+                            <div v-else-if="locationSearch.toLowerCase().includes('florianopolis') || locationSearch.toLowerCase().includes('florianópolis') || locationSearch.toLowerCase().includes('floripa')" 
+                                 class="message-box" 
+                                 @click="selectLocation"
+                                 style="margin-top: 10px; cursor: pointer; border-color: var(--verdin); transition: all 0.3s;"
+                                 onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(119,195,7,0.2)'"
+                                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
+                                <div class="message-title" style="font-size: 1.1em;">📍 Florianópolis</div>
+                                <div class="message-text">
+                                    Santa Catarina, Brazil<br>
+                                    <small>🌡️ Humid subtropical climate | 📊 Data: 2015-2017</small>
+                                </div>
+                            </div>
+                            
+                            <div v-else class="message-box" style="margin-top: 10px; background: rgba(239, 68, 68, 0.1); border-color: #ef4444;">
+                                <div class="message-title" style="color: #ef4444;">⚠️ Location Not Available</div>
+                                <div class="message-text" style="color: #991b1b;">
+                                    Currently only <strong>Florianópolis, SC</strong> has available data. More regions coming soon!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Welcome Screen -->
                     <div v-if="gamePhase === 'welcome'">
-                        <div class="message-box">
-                            <div class="message-title">🌱 Josia</div>
+                        <div class="message-box" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(167, 243, 208, 0.2)); border-color: var(--verdin);">
+                            <div class="message-title" style="color: var(--verdin);">✅ Location Confirmed</div>
                             <div class="message-text">
-                                Welcome to Vilaj Farm!<br><br>
-                                I'm Josia (José da Inteligência Agrícola) and I'll help you manage your farm for 10 years (40 quarters) using real NASA satellite data.<br><br>
-                                ⚠️ Each quarter you'll face climate & agricultural challenges. Your decisions have consequences!
+                                <strong>Excellent choice, {{ playerName }}!</strong><br><br>
+                                📍 <strong>Florianópolis, Santa Catarina</strong><br>
+                                Coordinates: -27.59°S, -48.55°W<br>
+                                Climate: Humid subtropical<br>
+                                Period: 2015-2017 (NASA Data)<br><br>
+                                You'll manage this farm for <strong>10 years (40 quarters)</strong>. Your decisions will impact: 💰 Profit, 🌳 Sustainability, and ⭐ Prestige.<br><br>
+                                Use NASA climate data (in the sidebar) to make smart decisions!
                             </div>
                         </div>
                         <button class="btn btn-primary btn-large" @click="startPlanting">
-                            🚜 Start Journey
+                            🚜 Start Simulation
                         </button>
                     </div>
 
@@ -1470,7 +1593,8 @@
                         <div class="message-box">
                             <div class="message-title">🌱 Josia</div>
                             <div class="message-text">
-                                {{ currentSeason.name }} {{ game.year }}. Choose your crop by comparing with NASA data! →
+                                <strong>{{ playerName }}</strong>, we're in <strong>{{ currentSeason.name }} {{ game.year }}</strong>.<br><br>
+                                Choose your crop by comparing each plant's needs with the NASA data in the sidebar! →
                             </div>
                         </div>
 
