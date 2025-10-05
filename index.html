@@ -333,6 +333,22 @@
             background: rgba(12, 12, 53, 0.95);
             border-bottom: 4px solid var(--royal-blue);
             padding: 15px 20px;
+            position: relative;
+        }
+        
+        .game-logo {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60px;
+            width: auto;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .game-logo:hover {
+            opacity: 1;
         }
         
         .season-display {
@@ -1351,6 +1367,7 @@
             <div class="main-game">
                 <!-- Top Stats Bar -->
                 <div class="top-stats">
+                    <img src="game/assets/JosIA Farm Logo.png" alt="Vilaj Farm" class="game-logo">
                     <div class="season-display">
                         {{ currentSeason.icon }} {{ currentSeason.name }} {{ game.year }} - Quarter {{ game.trimester }}/40
                     </div>
@@ -1685,6 +1702,7 @@
         <!-- Initial Loading/Welcome -->
         <div v-if="!gameStarted" class="screen active">
             <div class="welcome-content">
+                <img src="game/assets/JosIA Farm Logo.png" alt="Vilaj Farm Logo" style="max-width: 400px; margin-bottom: 20px; border-radius: 15px;">
                 <h1>🌾 Vilaj Farm</h1>
                 <p class="tagline">NASA Farm Simulator with Real Satellite Data - Powered by Josia AI</p>
                 
