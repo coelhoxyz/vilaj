@@ -823,7 +823,11 @@
         
         /* Jumping Animation - Big jump */
         .farmer-character.jumping {
-            animation: farmer-jump 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1;
+            animation: farmer-jump 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1;
+        }
+        
+        .farmer-character.jumping:not(.sad)::after {
+            content: '🤩';
         }
         
         @keyframes farmer-jump {
@@ -831,13 +835,13 @@
                 transform: translateY(0) scale(1, 1);
             }
             30% { 
-                transform: translateY(-40px) scale(1.1, 0.9);
+                transform: translateY(-50px) scale(1.15, 0.85);
             }
             50% { 
-                transform: translateY(-50px) scale(0.95, 1.05) rotate(10deg);
+                transform: translateY(-60px) scale(0.95, 1.1) rotate(5deg);
             }
             70% { 
-                transform: translateY(-40px) scale(1.05, 0.95);
+                transform: translateY(-45px) scale(1.1, 0.9);
             }
             100% { 
                 transform: translateY(0) scale(1, 1);
@@ -1278,14 +1282,16 @@
             }
             
             .farmer-character {
-                width: 90px;
-                height: 110px;
+                width: 100px;
+                height: 130px;
                 bottom: 15px;
-                right: 15px;
+                right: 20px;
+                padding-top: 25px;
             }
             
-            .farmer-character::after {
-                font-size: 70px;
+            .farmer-character:not(.sad)::after {
+                font-size: 22px;
+                top: 25px;
             }
             
             /* Hide scanlines on mobile for better performance */
