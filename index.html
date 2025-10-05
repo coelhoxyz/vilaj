@@ -2043,32 +2043,32 @@
                         </button>
                     </div>
 
-                    <!-- Quarter Results -->
+                    <!-- Results Phase -->
                     <div v-if="gamePhase === 'results'">
-                        <div class="message-box" style="background: linear-gradient(135deg, rgba(119, 195, 7, 0.2), rgba(79, 75, 219, 0.1)); border-color: var(--verdin);">
-                            <div class="message-title" style="color: var(--verdin); font-size: 1.2em;">🎯 ROUND {{ game.round }} COMPLETE</div>
-                            <div class="progress-bar" style="margin-top: 15px; height: 30px; border: 3px solid var(--verdin);">
-                                <div class="progress-fill" :style="{width: roundProgress + '%', background: 'linear-gradient(90deg, var(--verdin), #9fef00)'}">
-                                    {{ roundProgress }}% COMPLETE
+                        <div class="message-box" style="padding: 35px; text-align: center;">
+                            <div style="font-size: 3.5em; margin-bottom: 25px;">
+                                {{ resultEmoji }}
+                            </div>
+                            <div style="font-size: 1.5em; font-weight: bold; margin-bottom: 20px;">
+                                Round {{ game.round }} Complete
+                            </div>
+                            <div style="font-size: 1.15em; line-height: 1.7; margin: 25px 0; opacity: 0.9;">
+                                {{ resultMessage }}
+                            </div>
+                            
+                            <div style="background: rgba(0, 0, 0, 0.4); border-radius: 12px; overflow: hidden; height: 8px; margin: 30px 0;">
+                                <div style="background: var(--verdin); height: 100%; transition: width 0.5s;"
+                                     :style="{ width: ((game.round / game.maxRounds) * 100) + '%' }">
                                 </div>
                             </div>
-                        </div>
-
-                        <div v-for="(crop, index) in game.activeCrops" :key="index" class="result-panel">
-                            <div class="message-title">{{ crop.icon }} {{ crop.name }}</div>
-                            <div class="progress-bar" style="margin: 10px 0;">
-                                <div class="progress-fill" :style="{width: (crop.progress / crop.duration * 100) + '%'}">
-                                    {{ Math.round(crop.progress / crop.duration * 100) }}%
-                                </div>
+                            <div style="font-size: 0.9em; margin-bottom: 25px; opacity: 0.7;">
+                                Round {{ game.round }}/{{ game.maxRounds }}
                             </div>
-                            <div v-if="crop.harvested" class="message-text impact-positive">
-                                ✅ Harvest complete! +{{ crop.finalProfit }} 💰
-                            </div>
+                            
+                            <button class="btn btn-primary" @click="nextRound" style="width: 100%; padding: 15px; font-size: 1.1em;">
+                                Continue
+                            </button>
                         </div>
-
-                        <button class="btn btn-primary" @click="nextQuarter">
-                            Next Quarter →
-                        </button>
                     </div>
 
                     <!-- Game Over -->
