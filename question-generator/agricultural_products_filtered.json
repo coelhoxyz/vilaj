@@ -1,0 +1,2074 @@
+[
+  {
+    "Product": "MCD12Q1",
+    "Platform": "Combined MODIS",
+    "Description": "Land Cover Type",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Yearly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD12Q1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2001-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD12Q1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD12Q1.061"
+  },
+  {
+    "Product": "MCD12Q2",
+    "Platform": "Combined MODIS",
+    "Description": "Land Cover Dynamics",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Yearly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD12Q2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2001-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD12Q2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD12Q2.061"
+  },
+  {
+    "Product": "MCD15A2H",
+    "Platform": "Combined MODIS",
+    "Description": "Leaf Area Index (LAI) and Fraction of Photosynthetically Active Radiation (FPAR)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD15A2H.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD15A2H.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD15A2H.061"
+  },
+  {
+    "Product": "MCD15A3H",
+    "Platform": "Combined MODIS",
+    "Description": "Leaf Area Index (LAI) and Fraction of Photosynthetically Active Radiation (FPAR)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "4 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD15A3H.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD15A3H.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD15A3H.061"
+  },
+  {
+    "Product": "MCD43A1",
+    "Platform": "Combined MODIS",
+    "Description": "Bidirectional Reflectance Distribution Function (BRDF) and Albedo",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD43A1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-16",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD43A1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD43A1.061"
+  },
+  {
+    "Product": "MCD43A2",
+    "Platform": "Combined MODIS",
+    "Description": "Bidirectional Reflectance Distribution Function (BRDF) and Albedo",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD43A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-16",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD43A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD43A2.061"
+  },
+  {
+    "Product": "MCD43A3",
+    "Platform": "Combined MODIS",
+    "Description": "Bidirectional Reflectance Distribution Function (BRDF) and Albedo",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD43A3.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-16",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD43A3.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD43A3.061"
+  },
+  {
+    "Product": "MCD43A4",
+    "Platform": "Combined MODIS",
+    "Description": "Bidirectional Reflectance Distribution Function (BRDF) and Albedo",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD43A4.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-16",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD43A4.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD43A4.061"
+  },
+  {
+    "Product": "MCD64A1",
+    "Platform": "Combined MODIS",
+    "Description": "Burned Area (fire)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Monthly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MCD64A1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-11-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MCD64A1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MCD64A1.061"
+  },
+  {
+    "Product": "MOD09A1",
+    "Platform": "Terra MODIS",
+    "Description": "Surface Reflectance Bands 1-7",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD09A1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-24",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD09A1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD09A1.061"
+  },
+  {
+    "Product": "MOD09GA",
+    "Platform": "Terra MODIS",
+    "Description": "Surface Reflectance Bands 1-7",
+    "RasterType": "Tile",
+    "Resolution": "500/1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD09GA.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-24",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD09GA.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD09GA.061"
+  },
+  {
+    "Product": "MOD09GQ",
+    "Platform": "Terra MODIS",
+    "Description": "Surface Reflectance Bands 1-2",
+    "RasterType": "Tile",
+    "Resolution": "250m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD09GQ.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-24",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD09GQ.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD09GQ.061"
+  },
+  {
+    "Product": "MOD09Q1",
+    "Platform": "Terra MODIS",
+    "Description": "Surface Reflectance Bands 1-2",
+    "RasterType": "Tile",
+    "Resolution": "250m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD09Q1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-24",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD09Q1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD09Q1.061"
+  },
+  {
+    "Product": "MOD11A1",
+    "Platform": "Terra MODIS",
+    "Description": "Land Surface Temperature & Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD11A1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-24",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD11A1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD11A1.061"
+  },
+  {
+    "Product": "MOD11A2",
+    "Platform": "Terra MODIS",
+    "Description": "Land Surface Temperature & Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD11A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD11A2.061"
+  },
+  {
+    "Product": "MOD13A1",
+    "Platform": "Terra MODIS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "16 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD13A1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD13A1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD13A1.061"
+  },
+  {
+    "Product": "MOD13A2",
+    "Platform": "Terra MODIS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "16 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD13A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD13A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD13A2.061"
+  },
+  {
+    "Product": "MOD13A3",
+    "Platform": "Terra MODIS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Monthly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD13A3.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD13A3.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD13A3.061"
+  },
+  {
+    "Product": "MOD13Q1",
+    "Platform": "Terra MODIS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "250m",
+    "TemporalGranularity": "16 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD13Q1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD13Q1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD13Q1.061"
+  },
+  {
+    "Product": "MOD14A2",
+    "Platform": "Terra MODIS",
+    "Description": "Thermal Anomalies and Fire",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD14A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD14A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD14A2.061"
+  },
+  {
+    "Product": "MOD15A2H",
+    "Platform": "Terra MODIS",
+    "Description": "Leaf Area Index (LAI) and Fraction of Photosynthetically Active Radiation (FPAR)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD15A2H.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD15A2H.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD15A2H.061"
+  },
+  {
+    "Product": "MOD16A2",
+    "Platform": "Terra MODIS",
+    "Description": "Evapotranspiration (ET & LE)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD16A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2001-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD16A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD16A2.061"
+  },
+  {
+    "Product": "MOD16A2GF",
+    "Platform": "Terra MODIS",
+    "Description": "Net Evapotranspiration Gap-Filled (ET & LE)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD16A2GF.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD16A2GF.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD16A2GF.061"
+  },
+  {
+    "Product": "MOD16A3GF",
+    "Platform": "Terra MODIS",
+    "Description": "Net Evapotranspiration Gap-Filled (ET & LE)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Yearly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD16A3GF.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD16A3GF.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD16A3GF.061"
+  },
+  {
+    "Product": "MOD17A2H",
+    "Platform": "Terra MODIS",
+    "Description": "Gross Primary Productivity (GPP)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD17A2H.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD17A2H.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD17A2H.061"
+  },
+  {
+    "Product": "MOD17A2HGF",
+    "Platform": "Terra MODIS",
+    "Description": "Gross Primary Productivity (GPP)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD17A2HGF.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD17A2HGF.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD17A2HGF.061"
+  },
+  {
+    "Product": "MOD17A3HGF",
+    "Platform": "Terra MODIS",
+    "Description": "Net Primary Production (NPP) Gap-Filled",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Yearly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD17A3HGF.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-02-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD17A3HGF.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD17A3HGF.061"
+  },
+  {
+    "Product": "MOD44B",
+    "Platform": "Terra MODIS",
+    "Description": "Vegetation Continuous Fields (VCF)",
+    "RasterType": "Tile",
+    "Resolution": "250m",
+    "TemporalGranularity": "Yearly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MOD44B.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-03-05",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MOD44B.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MOD44B.061"
+  },
+  {
+    "Product": "MYD09A1",
+    "Platform": "Aqua MODIS",
+    "Description": "Surface Reflectance Bands 1-7",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD09A1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD09A1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD09A1.061"
+  },
+  {
+    "Product": "MYD09GA",
+    "Platform": "Aqua MODIS",
+    "Description": "Surface Reflectance Bands 1-7",
+    "RasterType": "Tile",
+    "Resolution": "500/1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD09GA.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD09GA.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD09GA.061"
+  },
+  {
+    "Product": "MYD09GQ",
+    "Platform": "Aqua MODIS",
+    "Description": "Surface Reflectance Bands 1-2",
+    "RasterType": "Tile",
+    "Resolution": "250m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD09GQ.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD09GQ.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD09GQ.061"
+  },
+  {
+    "Product": "MYD09Q1",
+    "Platform": "Aqua MODIS",
+    "Description": "Surface Reflectance Bands 1-2",
+    "RasterType": "Tile",
+    "Resolution": "250m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD09Q1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD09Q1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD09Q1.061"
+  },
+  {
+    "Product": "MYD11A1",
+    "Platform": "Aqua MODIS",
+    "Description": "Land Surface Temperature & Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD11A1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD11A1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD11A1.061"
+  },
+  {
+    "Product": "MYD11A2",
+    "Platform": "Aqua MODIS",
+    "Description": "Land Surface Temperature & Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD11A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD11A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD11A2.061"
+  },
+  {
+    "Product": "MYD13A1",
+    "Platform": "Aqua MODIS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "16 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD13A1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD13A1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD13A1.061"
+  },
+  {
+    "Product": "MYD13A2",
+    "Platform": "Aqua MODIS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "16 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD13A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD13A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD13A2.061"
+  },
+  {
+    "Product": "MYD13A3",
+    "Platform": "Aqua MODIS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Monthly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD13A3.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD13A3.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD13A3.061"
+  },
+  {
+    "Product": "MYD13Q1",
+    "Platform": "Aqua MODIS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "250m",
+    "TemporalGranularity": "16 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD13Q1.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD13Q1.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD13Q1.061"
+  },
+  {
+    "Product": "MYD14A2",
+    "Platform": "Aqua MODIS",
+    "Description": "Thermal Anomalies and Fire",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD14A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD14A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD14A2.061"
+  },
+  {
+    "Product": "MYD15A2H",
+    "Platform": "Aqua MODIS",
+    "Description": "Leaf Area Index (LAI) and Fraction of Photosynthetically Active Radiation (FPAR)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD15A2H.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD15A2H.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD15A2H.061"
+  },
+  {
+    "Product": "MYD16A2",
+    "Platform": "Aqua MODIS",
+    "Description": "Evapotranspiration (ET & LE)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD16A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD16A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD16A2.061"
+  },
+  {
+    "Product": "MYD16A2GF",
+    "Platform": "Aqua MODIS",
+    "Description": "Net Evapotranspiration Gap-Filled (ET & LE)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD16A2GF.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD16A2GF.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD16A2GF.061"
+  },
+  {
+    "Product": "MYD16A3GF",
+    "Platform": "Aqua MODIS",
+    "Description": "Net Evapotranspiration Gap-Filled (ET & LE)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Yearly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD16A3GF.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD16A3GF.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD16A3GF.061"
+  },
+  {
+    "Product": "MYD17A2H",
+    "Platform": "Aqua MODIS",
+    "Description": "Gross Primary Productivity (GPP)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD17A2H.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD17A2H.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD17A2H.061"
+  },
+  {
+    "Product": "MYD17A2HGF",
+    "Platform": "Aqua MODIS",
+    "Description": "Gross Primary Productivity (GPP) Gap-Filled",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD17A2HGF.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD17A2HGF.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD17A2HGF.061"
+  },
+  {
+    "Product": "MYD17A3HGF",
+    "Platform": "Aqua MODIS",
+    "Description": "Net Primary Production (NPP) Gap-Filled",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Yearly",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD17A3HGF.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD17A3HGF.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD17A3HGF.061"
+  },
+  {
+    "Product": "MYD21A1D",
+    "Platform": "Aqua MODIS",
+    "Description": "Land Surface Temperature & Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD21A1D.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD21A1D.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD21A1D.061"
+  },
+  {
+    "Product": "MYD21A1N",
+    "Platform": "Aqua MODIS",
+    "Description": "Land Surface Temperature & Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD21A1N.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD21A1N.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD21A1N.061"
+  },
+  {
+    "Product": "MYD21A2",
+    "Platform": "Aqua MODIS",
+    "Description": "Land Surface Temperature & Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "061",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MODIS/MYD21A2.061",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2002-07-04",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MODIS/MYD21A2.061",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "MYD21A2.061"
+  },
+  {
+    "Product": "SPL3SMP_E",
+    "Platform": "SMAP",
+    "Description": "Enhanced L3 Radiometer Soil Moisture",
+    "RasterType": "Tile",
+    "Resolution": "9000m",
+    "TemporalGranularity": "Daily",
+    "Version": "006",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/M20OXIZHY3RJ",
+    "Source": "NSIDC DAAC",
+    "TemporalExtentStart": "2015-03-31",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/M20OXIZHY3RJ",
+    "Info": {
+      "provider_id": "nsidc_cumulus_prod",
+      "concept_id": "C2938664763-NSIDC_CPRD"
+    },
+    "ProductAndVersion": "SPL3SMP_E.006"
+  },
+  {
+    "Product": "SPL3SMP",
+    "Platform": "SMAP",
+    "Description": "Soil Moisture",
+    "RasterType": "Tile",
+    "Resolution": "36000m",
+    "TemporalGranularity": "Daily",
+    "Version": "009",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/4XXOGX0OOW1S",
+    "Source": "NSIDC DAAC",
+    "TemporalExtentStart": "2015-03-31",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/4XXOGX0OOW1S",
+    "Info": {
+      "provider_id": "nsidc_cumulus_prod",
+      "concept_id": "C2938664585-NSIDC_CPRD"
+    },
+    "ProductAndVersion": "SPL3SMP.009"
+  },
+  {
+    "Product": "SPL4SMGP",
+    "Platform": "SMAP",
+    "Description": "Surface and Root Zone Soil Moisture",
+    "RasterType": "Tile",
+    "Resolution": "9000m",
+    "TemporalGranularity": "Daily",
+    "Version": "008",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/T5RUATAQREF8",
+    "Source": "NSIDC DAAC",
+    "TemporalExtentStart": "2015-03-31",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/T5RUATAQREF8",
+    "Info": {
+      "provider_id": "nsidc_cumulus_prod",
+      "concept_id": "C3480440870-NSIDC_CPRD",
+      "cmr_date_parse": "datetime"
+    },
+    "ProductAndVersion": "SPL4SMGP.008"
+  },
+  {
+    "Product": "VNP22Q2",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Global Land Surface Phenology (GLSP)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Yearly",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP22Q2.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2013-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP22Q2.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP22Q2.002"
+  },
+  {
+    "Product": "VNP43IA1",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "BRDF/Albedo Model Parameters",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP43IA1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP43IA1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP43IA1.002"
+  },
+  {
+    "Product": "VJ143IA1",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "BRDF/Albedo Model Parameters",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ143IA1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ143IA1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ143IA1.002"
+  },
+  {
+    "Product": "VNP43IA2",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "BRDF-Albedo Quality",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP43IA2.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP43IA2.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP43IA2.002"
+  },
+  {
+    "Product": "VJ143IA2",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "BRDF-Albedo Quality",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ143IA2.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ143IA2.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ143IA2.002"
+  },
+  {
+    "Product": "VNP43IA3",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Albedo (BRDF)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP43IA3.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP43IA3.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP43IA3.002"
+  },
+  {
+    "Product": "VJ143IA3",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Albedo (BRDF)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ143IA3.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ143IA3.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ143IA3.002"
+  },
+  {
+    "Product": "VNP43MA1",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "BRDF/Albedo Model Parameters",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP43MA1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP43MA1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP43MA1.002"
+  },
+  {
+    "Product": "VJ143MA1",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "BRDF/Albedo Model Parameters",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ143MA1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ143MA1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ143MA1.002"
+  },
+  {
+    "Product": "VNP43MA2",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "BRDF-Albedo Quality",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP43MA2.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP43MA2.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP43MA2.002"
+  },
+  {
+    "Product": "VJ143MA2",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "BRDF-Albedo Quality",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ143MA2.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ143MA2.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ143MA2.002"
+  },
+  {
+    "Product": "VNP43MA3",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Albedo (BRDF)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP43MA3.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP43MA3.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP43MA3.002"
+  },
+  {
+    "Product": "VJ143MA3",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Albedo (BRDF)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ143MA3.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ143MA3.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ143MA3.002"
+  },
+  {
+    "Product": "L04",
+    "Platform": "Landsat ARD",
+    "Description": "Landsat Collection 2 ARD Surface Reflectance - Landsat 4",
+    "RasterType": "Tile",
+    "Resolution": "30m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://www.usgs.gov/landsat-missions/landsat-collection-2-us-analysis-ready-data",
+    "Source": "USGS",
+    "TemporalExtentStart": "1982-11-12",
+    "TemporalExtentEnd": "1992-12-29",
+    "Deleted": false,
+    "DOI": "10.5066/P960F8OC",
+    "Info": {
+      "provider_id": "landsat_prod",
+      "platform": "LANDSAT_4",
+      "extension": "tif"
+    },
+    "ProductAndVersion": "L04.002"
+  },
+  {
+    "Product": "L05",
+    "Platform": "Landsat ARD",
+    "Description": "Landsat Collection 2 ARD Surface Reflectance - Landsat 5",
+    "RasterType": "Tile",
+    "Resolution": "30m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://www.usgs.gov/landsat-missions/landsat-collection-2-us-analysis-ready-data",
+    "Source": "USGS",
+    "TemporalExtentStart": "1984-03-16",
+    "TemporalExtentEnd": "2012-05-05",
+    "Deleted": false,
+    "DOI": "10.5066/P960F8OC",
+    "Info": {
+      "provider_id": "landsat_prod",
+      "platform": "LANDSAT_5",
+      "extension": "tif"
+    },
+    "ProductAndVersion": "L05.002"
+  },
+  {
+    "Product": "L07",
+    "Platform": "Landsat ARD",
+    "Description": "Landsat Collection 2 ARD Surface Reflectance - Landsat 7",
+    "RasterType": "Tile",
+    "Resolution": "30m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://www.usgs.gov/landsat-missions/landsat-collection-2-us-analysis-ready-data",
+    "Source": "USGS",
+    "TemporalExtentStart": "1999-06-29",
+    "TemporalExtentEnd": "2022-04-06",
+    "Deleted": false,
+    "DOI": "10.5066/P960F8OC",
+    "Info": {
+      "provider_id": "landsat_prod",
+      "platform": "LANDSAT_7",
+      "extension": "tif"
+    },
+    "ProductAndVersion": "L07.002"
+  },
+  {
+    "Product": "L08",
+    "Platform": "Landsat ARD",
+    "Description": "Landsat Collection 2 ARD Surface Reflectance - Landsat 8",
+    "RasterType": "Tile",
+    "Resolution": "30m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://www.usgs.gov/landsat-missions/landsat-collection-2-us-analysis-ready-data",
+    "Source": "USGS",
+    "TemporalExtentStart": "2013-03-18",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5066/P960F8OC",
+    "Info": {
+      "provider_id": "landsat_prod",
+      "platform": "LANDSAT_8",
+      "extension": "tif"
+    },
+    "ProductAndVersion": "L08.002"
+  },
+  {
+    "Product": "L09",
+    "Platform": "Landsat ARD",
+    "Description": "Landsat Collection 2 ARD Surface Reflectance - Landsat 9",
+    "RasterType": "Tile",
+    "Resolution": "30m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://www.usgs.gov/landsat-missions/landsat-collection-2-us-analysis-ready-data",
+    "Source": "USGS",
+    "TemporalExtentStart": "2021-10-31",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5066/P960F8OC",
+    "Info": {
+      "provider_id": "landsat_prod",
+      "platform": "LANDSAT_9",
+      "extension": "tif"
+    },
+    "ProductAndVersion": "L09.002"
+  },
+  {
+    "Product": "ECO_L2_LSTE",
+    "Platform": "ECOSTRESS",
+    "Description": "Swath Land Surface Temperature and Emissivity Instantaneous",
+    "RasterType": "Swath",
+    "Resolution": "70m",
+    "TemporalGranularity": "ISS-dependent",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/ECOSTRESS/ECO_L2_LSTE.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-07-09",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/ECOSTRESS/ECO2LSTE.001",
+    "Info": {},
+    "ProductAndVersion": "ECO_L2_LSTE.002"
+  },
+  {
+    "Product": "ECO_L2T_LSTE",
+    "Platform": "ECOSTRESS",
+    "Description": "Tiled Land Surface Temperature and Emissivity",
+    "RasterType": "Tile",
+    "Resolution": "70m",
+    "TemporalGranularity": "ISS-dependent",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://dx.doi.org/10.5067/ECOSTRESS/ECO_L2T_LSTE.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-05-07",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/ECOSTRESS/ECO_L2T_LSTE.002",
+    "Info": {
+      "provider_id": "lp_prod",
+      "is_utm_zonal": true,
+      "extension": "tif",
+      "cmr_date_parse": "datetime"
+    },
+    "ProductAndVersion": "ECO_L2T_LSTE.002"
+  },
+  {
+    "Product": "ECO_L3T_JET",
+    "Platform": "ECOSTRESS",
+    "Description": "Tiled Evapotranspiration Instantaneous and Daytime L3 Global",
+    "RasterType": "Tile",
+    "Resolution": "70m",
+    "TemporalGranularity": "ISS-dependent",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://dx.doi.org/10.5067/ECOSTRESS/ECO_L3T_JET.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-07-09",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/ECOSTRESS/ECO_L3T_JET.002",
+    "Info": {
+      "provider_id": "lp_prod",
+      "is_utm_zonal": true,
+      "extension": "tif",
+      "cmr_date_parse": "datetime"
+    },
+    "ProductAndVersion": "ECO_L3T_JET.002"
+  },
+  {
+    "Product": "ECO_L2T_STARS",
+    "Platform": "ECOSTRESS",
+    "Description": "Tiled Ancillary NDVI and Albedo L2 Global",
+    "RasterType": "Tile",
+    "Resolution": "70m",
+    "TemporalGranularity": "ISS-dependent",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://dx.doi.org/10.5067/ECOSTRESS/ECO_L2T_STARS.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-07-09",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/ECOSTRESS/ECO_L2T_STARS.002",
+    "Info": {
+      "provider_id": "lp_prod",
+      "is_utm_zonal": true,
+      "extension": "tif",
+      "cmr_date_parse": "datetime"
+    },
+    "ProductAndVersion": "ECO_L2T_STARS.002"
+  },
+  {
+    "Product": "ECO_L3T_SM",
+    "Platform": "ECOSTRESS",
+    "Description": "Tiled Downscaled Soil Moisture Instantaneous L3 Global",
+    "RasterType": "Tile",
+    "Resolution": "70m",
+    "TemporalGranularity": "ISS-dependent",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://dx.doi.org/10.5067/ECOSTRESS/ECO_L3T_SM.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-07-09",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/ECOSTRESS/ECO_L3T_SM.002",
+    "Info": {
+      "provider_id": "lp_prod",
+      "is_utm_zonal": true,
+      "extension": "tif",
+      "cmr_date_parse": "datetime"
+    },
+    "ProductAndVersion": "ECO_L3T_SM.002"
+  },
+  {
+    "Product": "HLSS30",
+    "Platform": "Harmonized Landsat and Sentinel-2",
+    "Description": "Land Surface Reflectance",
+    "RasterType": "Tile",
+    "Resolution": "30m",
+    "TemporalGranularity": "Daily",
+    "Version": "020",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/HLS/HLSS30.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2015-12-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/HLS/HLSS30.002",
+    "Info": {
+      "provider_id": "lp_prod",
+      "is_utm_zonal": true,
+      "extension": "tif",
+      "cmr_date_parse": "date"
+    },
+    "ProductAndVersion": "HLSS30.020"
+  },
+  {
+    "Product": "HLSL30",
+    "Platform": "Harmonized Landsat and Sentinel-2",
+    "Description": "Land Surface Reflectance",
+    "RasterType": "Tile",
+    "Resolution": "30m",
+    "TemporalGranularity": "Daily",
+    "Version": "020",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/HLS/HLSL30.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2013-04-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/HLS/HLSL30.002",
+    "Info": {
+      "provider_id": "lp_prod",
+      "is_utm_zonal": true,
+      "extension": "tif",
+      "cmr_date_parse": "date"
+    },
+    "ProductAndVersion": "HLSL30.020"
+  },
+  {
+    "Product": "GEOLST4KHR",
+    "Platform": "MEaSUREs LSTE",
+    "Description": "Geostationary Earth Orbit Land Surface Temperature Hourly North and South America 4KM V002",
+    "RasterType": "Swath",
+    "Resolution": "4000m",
+    "TemporalGranularity": "Hourly",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/MEaSUREs/LSTE/GEOLST4KHR.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2000-04-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/MEaSUREs/LSTE/GEOLST4KHR.002",
+    "Info": {},
+    "ProductAndVersion": "GEOLST4KHR.002"
+  },
+  {
+    "Product": "VNP14A1",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Thermal Anomalies and Fire",
+    "RasterType": "Tile",
+    "Resolution": "750m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP14A1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP14A1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP14A1.002"
+  },
+  {
+    "Product": "VJ114A1",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Thermal Anomalies and Fire",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ114A1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ114A1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ114A1.002"
+  },
+  {
+    "Product": "VNP15A2H",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Leaf Area Index (LAI) and Fraction of Photosynthetically Active Radiation (FPAR)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP15A2H.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP15A2H.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP15A2H.002"
+  },
+  {
+    "Product": "VJ115A2H",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Leaf Area Index (LAI) and Fraction of Photosynthetically Active Radiation (FPAR)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ115A2H.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-17",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ115A2H.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ115A2H.002"
+  },
+  {
+    "Product": "VNP13A1",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP13A1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-19",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP13A1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP13A1.002"
+  },
+  {
+    "Product": "VJ113A1",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ113A1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ113A1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ113A1.002"
+  },
+  {
+    "Product": "VNP13A2",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ113A1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ113A1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP13A2.002"
+  },
+  {
+    "Product": "VJ113A2",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "16 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ113A2.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ113A2.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ113A2.002"
+  },
+  {
+    "Product": "VNP13A3",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Monthly",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP13A3.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-19",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP13A3.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP13A3.002"
+  },
+  {
+    "Product": "VJ113A3",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Vegetation Indices (NDVI & EVI)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Monthly",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ113A3.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ113A3.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ113A3.002"
+  },
+  {
+    "Product": "VNP21A1D",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Land Surface Temperature and Emissivity (LST&E) Day",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP21A1D.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-19",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP21A1D.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP21A1D.002"
+  },
+  {
+    "Product": "VJ121A1D",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Land Surface Temperature and Emissivity (LST&E) Day",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ121A1D.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-19",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ121A1D.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ121A1D.002"
+  },
+  {
+    "Product": "VNP21A1N",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Land Surface Temperature and Emissivity (LST&E) Night",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP21A1N.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-19",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP21A1N.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP21A1N.002"
+  },
+  {
+    "Product": "VJ121A1N",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Land Surface Temperature and Emissivity (LST&E) Night",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ121A1N.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ121A1N.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ121A1N.002"
+  },
+  {
+    "Product": "VNP21A2",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Land Surface Temperature and Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP21A2.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP21A2.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP21A2.002"
+  },
+  {
+    "Product": "VJ121A2",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Land Surface Temperature and Emissivity (LST&E)",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ121A2.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-05",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ121A2.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ121A2.002"
+  },
+  {
+    "Product": "VNP09A1",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Surface Reflectance",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP09A1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-05",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP09A1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP09A1.002"
+  },
+  {
+    "Product": "VJ109A1",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Surface Reflectance",
+    "RasterType": "Tile",
+    "Resolution": "1000m",
+    "TemporalGranularity": "8 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ109A1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-05",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ109A1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ109A1.002"
+  },
+  {
+    "Product": "VNP09GA",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Surface Reflectance",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP09GA.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-19",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP09GA.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP09GA.002"
+  },
+  {
+    "Product": "VJ109GA",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Surface Reflectance",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "Daily",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ109GA.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ109GA.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ109GA.002"
+  },
+  {
+    "Product": "VNP09H1",
+    "Platform": "Suomi NPP VIIRS",
+    "Description": "Surface Reflectance",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VNP09H1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2012-01-19",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VNP09H1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VNP09H1.002"
+  },
+  {
+    "Product": "VJ109H1",
+    "Platform": "NOAA-20 VIIRS",
+    "Description": "Surface Reflectance",
+    "RasterType": "Tile",
+    "Resolution": "500m",
+    "TemporalGranularity": "8 day",
+    "Version": "002",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/VIIRS/VJ109H1.002",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2018-01-01",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/VIIRS/VJ109H1.002",
+    "Info": {
+      "provider_id": "lp_prod"
+    },
+    "ProductAndVersion": "VJ109H1.002"
+  },
+  {
+    "Product": "EMIT_L2A_RFL",
+    "Platform": "EMIT",
+    "Description": "Estimated Surface Reflectance",
+    "RasterType": "Swath",
+    "Resolution": "60m",
+    "TemporalGranularity": "ISS-dependent",
+    "Version": "001",
+    "Available": true,
+    "DocLink": "https://doi.org/10.5067/EMIT/EMITL2ARFL.001",
+    "Source": "LP DAAC",
+    "TemporalExtentStart": "2022-08-09",
+    "TemporalExtentEnd": "Present",
+    "Deleted": false,
+    "DOI": "10.5067/EMIT/EMITL2ARFL.001",
+    "Info": {
+      "source_file_prefix": "EMIT_L2A_RFL_",
+      "cmr_product": "EMITL2ARFL",
+      "cmr_product_version": "001",
+      "revisit_interval_days": 20,
+      "spectral": {
+        "graph": {
+          "y": {
+            "label": "Reflectance",
+            "unit": null,
+            "var": "reflectance",
+            "naReplace": [
+              -0.01
+            ]
+          },
+          "x": {
+            "label": "Wavelengths",
+            "unit": "nm",
+            "var": "wavelength",
+            "range": [
+              350,
+              2500
+            ]
+          }
+        }
+      }
+    },
+    "ProductAndVersion": "EMIT_L2A_RFL.001"
+  }
+]

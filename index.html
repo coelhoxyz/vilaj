@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌾 JosIA Farm - Learn Agriculture with NASA Data</title>
+    
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
+    <link rel="stylesheet" href="game/css/style.css">
+    <style>
+        /* Custom Color Palette */
+        :root {
+            --haiti: #0c0c35;
+            --roxin: #D1C3F6;
+            --royal-blue: #4f4bdb;
+            --verdin: #77C307;
+        }
+        
+        /* Additional styles for farm simulator */
+        body {
+            background: var(--haiti);
+        }
+        
+        .game-container {
+            display: flex;
+            height: 100vh;
+            background: var(--haiti);
+        }
+        
+        .sidebar-panel {
+            width: 320px;
+            background: rgba(12, 12, 53, 0.95);
+            border-right: 4px solid var(--royal-blue);
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .sidebar-panel h2 {
+            font-size: 0.9em;
+            color: var(--roxin);
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 2px 2px 0 var(--haiti);
+        }
+        
+        .indicator {
+            background: rgba(12, 12, 53, 0.6);
+            border: 2px solid rgba(79, 75, 219, 0.3);
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .indicator:hover {
+            border-color: var(--royal-blue);
+            background: rgba(79, 75, 219, 0.2);
+        }
+        
+        .indicator-image {
+            font-size: 1.5em;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(79, 75, 219, 0.2);
+            border: 2px solid var(--royal-blue);
+            flex-shrink: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .indicator-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .indicator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .indicator-title {
+            font-size: 0.7em;
+            color: var(--roxin);
+            font-weight: bold;
+        }
+        
+        .indicator-desc {
+            font-size: 0.6em;
+            color: rgba(79, 75, 219, 0.7);
+            margin-top: 2px;
+        }
+        
+        .indicator-value-container {
+            text-align: right;
+        }
+        
+        .indicator-value {
+            font-size: 0.8em;
+            color: var(--verdin);
+            font-weight: bold;
+        }
+        
+        .stat-card {
+            background: rgba(12, 12, 53, 0.8);
+            border: 2px solid var(--royal-blue);
+            padding: 10px 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-icon {
+            font-size: 1.5em;
+            font-family: Arial, sans-serif;
+            line-height: 1;
+            filter: drop-shadow(2px 2px 0 var(--haiti));
+        }
+        
+        .stat-label {
+            font-size: 0.5em;
+            color: var(--roxin);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-value {
+            font-size: 0.9em;
+            color: var(--verdin);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        /* Stat Progress Bars */
+        .stat-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(79, 75, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        
+        .stat-bar-fill {
+            height: 100%;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: 0 0 10px currentColor;
+        }
+        
+        /* Animated shine effect */
+        .stat-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+        
+        /* Individual bar colors */
+        .money-bar {
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+            color: #ffd700;
+        }
+        
+        .sustain-bar {
+            background: linear-gradient(90deg, #77C307, #9fef00);
+            color: #77C307;
+        }
+        
+        .prestige-bar {
+            background: linear-gradient(90deg, #4f4bdb, #7d7aff);
+            color: #4f4bdb;
+        }
+        
+        /* Pulse animation when value changes */
+        @keyframes pulse-bar {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.2); }
+        }
+        
+        .progress-bar {
+            background: var(--haiti);
+            border: 2px solid var(--royal-blue);
+            height: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: var(--verdin);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            color: var(--haiti);
+            font-weight: bold;
+            transition: width 0.3s;
+        }
+        
+        .screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: var(--haiti);
+            padding: 20px;
+        }
+        
+        .screen.active {
+            display: flex;
+        }
+        
+        .welcome-content {
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .welcome-content h1 {
+            font-size: 2.5em;
+            color: var(--roxin);
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0 var(--royal-blue);
+        }
+        
+        .tagline {
+            font-size: 1em;
+            color: var(--verdin);
+            margin-bottom: 30px;
+        }
+        
+        .mission-brief {
+            background: rgba(79, 75, 219, 0.2);
+            border: 4px solid var(--royal-blue);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .mission-brief h2 {
+            font-size: 1.2em;
+            color: var(--verdin);
+            margin-bottom: 15px;
+        }
+        
+        .mission-brief p {
+            font-size: 0.8em;
+            line-height: 1.8;
+            color: var(--roxin);
+        }
+        
+        .main-game {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .top-stats {
+            background: rgba(12, 12, 53, 0.95);
+            border-bottom: 4px solid var(--royal-blue);
+            padding: 15px 20px;
+        }
+        
+        .season-display {
+            font-size: 0.9em;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--verdin);
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .game-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: var(--haiti);
+        }
+        
+        .crop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .crop-card {
+            background: rgba(12, 12, 53, 0.7);
+            border: 4px solid rgba(79, 75, 219, 0.5);
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .crop-card:hover {
+            border-color: var(--royal-blue);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--royal-blue);
+        }
+        
+        .crop-card.selected {
+            border-color: var(--verdin);
+            background: rgba(119, 195, 7, 0.2);
+        }
+        
+        /* Game Button - Retro Pixel Style */
+        .game-button {
+            background: var(--verdin);
+            color: var(--haiti);
+            border: 4px solid var(--haiti);
+            padding: 18px 40px;
+            font-size: 0.85em;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+            transition: all 0.2s ease;
+            position: relative;
+            box-shadow: 
+                4px 4px 0 var(--haiti),
+                0 0 20px rgba(119, 195, 7, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .game-button:hover {
+            background: var(--royal-blue);
+            color: var(--roxin);
+            transform: translate(-2px, -2px);
+            box-shadow: 
+                6px 6px 0 var(--haiti),
+                0 0 30px rgba(79, 75, 219, 0.8);
+            border-color: var(--verdin);
+        }
+        
+        .game-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 
+                2px 2px 0 var(--haiti),
+                0 0 15px rgba(119, 195, 7, 0.6);
+        }
+        
+        .game-button::before {
+            content: '▶';
+            margin-right: 10px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .crop-icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .crop-name {
+            font-size: 0.9em;
+            text-align: center;
+            color: var(--roxin);
+            margin-bottom: 10px;
+        }
+        
+        .crop-profit {
+            background: var(--verdin);
+            color: var(--haiti);
+            padding: 4px 8px;
+            text-align: center;
+            font-size: 0.7em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .crop-needs {
+            font-size: 0.6em;
+            color: var(--roxin);
+            line-height: 1.6;
+            opacity: 0.7;
+        }
+        
+        .match-status {
+            margin-top: 10px;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+        
+        .match-good {
+            background: rgba(119, 195, 7, 0.2);
+            border: 2px solid var(--verdin);
+            color: var(--verdin);
+        }
+        
+        .match-bad {
+            background: rgba(209, 195, 246, 0.1);
+            border: 2px solid rgba(209, 195, 246, 0.5);
+            color: var(--roxin);
+        }
+        
+        .message-box {
+            background: rgba(79, 75, 219, 0.2);
+            border: 4px solid var(--royal-blue);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .message-title {
+            font-size: 1em;
+            color: var(--verdin);
+            margin-bottom: 10px;
+        }
+        
+        .message-text {
+            font-size: 0.7em;
+            line-height: 1.8;
+            color: var(--roxin);
+        }
+        
+        .event-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .result-panel {
+            background: rgba(12, 12, 53, 0.8);
+            border: 4px solid var(--royal-blue);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .impacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .impact-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(12, 12, 53, 0.6);
+            border: 2px solid rgba(79, 75, 219, 0.5);
+        }
+        
+        .impact-label {
+            font-size: 0.6em;
+            color: var(--roxin);
+            margin-bottom: 5px;
+        }
+        
+        .impact-value {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .impact-positive {
+            color: var(--verdin);
+        }
+        
+        .impact-negative {
+            color: var(--roxin);
+            opacity: 0.7;
+        }
+        
+        /* Event Animations */
+        .event-alert {
+            animation: alertPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes alertPulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(119, 195, 7, 0.3);
+            }
+            50% { 
+                transform: scale(1.02);
+                box-shadow: 0 0 40px rgba(119, 195, 7, 0.6);
+            }
+        }
+        
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .event-icon-container {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        
+        .event-icon-main {
+            font-size: 3em;
+            animation: bounce 1s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px currentColor);
+            font-family: Arial, sans-serif;
+        }
+        
+        .event-icon-extra {
+            font-size: 2em;
+            opacity: 0;
+            animation: iconRain 2s ease-in-out infinite;
+            font-family: Arial, sans-serif;
+        }
+        
+        .event-icon-extra:nth-child(2) { animation-delay: 0.2s; }
+        .event-icon-extra:nth-child(3) { animation-delay: 0.4s; }
+        .event-icon-extra:nth-child(4) { animation-delay: 0.6s; }
+        .event-icon-extra:nth-child(5) { animation-delay: 0.8s; }
+        
+        @keyframes iconRain {
+            0% { 
+                opacity: 0;
+                transform: translateY(-20px) scale(0.5);
+            }
+            50% { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% { 
+                opacity: 0;
+                transform: translateY(20px) scale(0.5);
+            }
+        }
+        
+        .event-option-card {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .event-option-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(79, 75, 219, 0.5);
+            border-color: var(--verdin) !important;
+        }
+        
+        .event-option-card.selected {
+            border-color: var(--verdin) !important;
+            background: rgba(119, 195, 7, 0.2);
+            box-shadow: 0 0 20px var(--verdin);
+            transform: scale(1.02);
+        }
+        
+        .event-option-icons {
+            position: relative;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .crop-icon-main {
+            font-size: 3em;
+            animation: float 3s ease-in-out infinite;
+            font-family: Arial, sans-serif;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .option-impacts {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .impact-badge {
+            font-size: 0.6em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            white-space: nowrap;
+            animation: badgePop 0.5s ease-out;
+        }
+        
+        .impact-badge.positive {
+            background: rgba(119, 195, 7, 0.2);
+            border: 2px solid var(--verdin);
+            color: var(--verdin);
+        }
+        
+        .impact-badge.negative {
+            background: rgba(209, 195, 246, 0.2);
+            border: 2px solid var(--roxin);
+            color: var(--roxin);
+        }
+        
+        @keyframes badgePop {
+            0% { 
+                transform: scale(0);
+                opacity: 0;
+            }
+            60% { 
+                transform: scale(1.2);
+            }
+            100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Farmer Character Sprite */
+        .farmer-character {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 46px;
+            background-image: url('game/assets/farmer-sprite.png');
+            background-size: 540px 230px;
+            image-rendering: pixelated;
+            z-index: 50;
+            transform: scale(2);
+            transform-origin: bottom right;
+        }
+        
+        /* Idle Animation (Row 1) */
+        .farmer-character.idle {
+            animation: sprite-idle 1s steps(9) infinite;
+        }
+        
+        @keyframes sprite-idle {
+            from { background-position: 0 0; }
+            to { background-position: -540px 0; }
+        }
+        
+        /* Walking Animation (Row 2) */
+        .farmer-character.walking {
+            animation: sprite-walk 0.8s steps(9) infinite;
+        }
+        
+        @keyframes sprite-walk {
+            from { background-position: 0 -46px; }
+            to { background-position: -540px -46px; }
+        }
+        
+        /* Running Animation (Row 3) */
+        .farmer-character.running {
+            animation: sprite-run 0.6s steps(9) infinite;
+        }
+        
+        @keyframes sprite-run {
+            from { background-position: 0 -92px; }
+            to { background-position: -540px -92px; }
+        }
+        
+        /* Jump Animation (Row 4) */
+        .farmer-character.jumping {
+            animation: sprite-jump 0.5s steps(9) 1;
+        }
+        
+        @keyframes sprite-jump {
+            from { background-position: 0 -138px; }
+            to { background-position: -540px -138px; }
+        }
+        
+        /* Dead/Sad Animation (Row 5) */
+        .farmer-character.sad {
+            animation: sprite-sad 1.2s steps(9) infinite;
+        }
+        
+        @keyframes sprite-sad {
+            from { background-position: 0 -184px; }
+            to { background-position: -540px -184px; }
+        }
+        
+        /* Flip character to face left */
+        .farmer-character.flip {
+            transform: scale(-2, 2);
+        }
+        
+        /* Character speech bubble */
+        .farmer-speech {
+            position: fixed;
+            bottom: 140px;
+            right: 40px;
+            background: rgba(12, 12, 53, 0.95);
+            border: 3px solid var(--royal-blue);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.5em;
+            color: var(--roxin);
+            max-width: 200px;
+            z-index: 51;
+            display: none;
+            animation: bounce 0.5s;
+        }
+        
+        .farmer-speech.show {
+            display: block;
+        }
+        
+        .farmer-speech::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 12px solid var(--royal-blue);
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-spinner">🌾</div>
+        <p style="margin-top: 20px; font-size: 0.8em;">Loading JosIA Farm...</p>
+    </div>
+    
+    <div id="app" v-cloak>
+        <!-- Animated Farmer Character -->
+        <div :class="['farmer-character', farmerState]" v-if="gameStarted"></div>
+        <div class="farmer-speech" :class="{ show: farmerSpeech }" v-if="gameStarted">
+            {{ farmerMessage }}
+        </div>
+        
+        <div class="game-container" v-if="gameStarted">
+            <!-- Sidebar with NASA Data -->
+            <div class="sidebar-panel">
+                <h2>📊 NASA DATA</h2>
+                <div v-for="indicator in currentIndicators" :key="indicator.title" class="indicator">
+                    <div class="indicator-image">{{ indicator.icon }}</div>
+                    <div class="indicator-info">
+                        <div class="indicator-header">
+                            <div>
+                                <span class="indicator-title">{{ indicator.title }}</span>
+                                <div class="indicator-desc">{{ indicator.desc }}</div>
+                            </div>
+                            <div class="indicator-value-container">
+                                <span class="indicator-value">{{ indicator.value }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Game Area -->
+            <div class="main-game">
+                <!-- Top Stats Bar -->
+                <div class="top-stats">
+                    <div class="season-display">
+                        {{ currentSeason.icon }} {{ currentSeason.name }} {{ game.year }} - Quarter {{ game.trimester }}/40
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <span class="stat-icon">💰</span>
+                            <span class="stat-label">Money</span>
+                            <span class="stat-value">{{ Math.round(game.money) }}/100</span>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill money-bar" :style="{ width: Math.min(Math.max(game.money, 0), 100) + '%' }"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">🌳</span>
+                            <span class="stat-label">Sustain</span>
+                            <span class="stat-value">{{ Math.round(game.tree) }}/100</span>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill sustain-bar" :style="{ width: Math.min(Math.max(game.tree, 0), 100) + '%' }"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-label">Prestige</span>
+                            <span class="stat-value">{{ Math.round(game.prestige) }}/100</span>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill prestige-bar" :style="{ width: Math.min(Math.max(game.prestige, 0), 100) + '%' }"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Content -->
+                <div class="game-content">
+                    <!-- Welcome Screen -->
+                    <div v-if="gamePhase === 'welcome'">
+                        <div class="message-box">
+                            <div class="message-title">🌱 JosIA</div>
+                            <div class="message-text">
+                                Welcome to AgriSpace Quest!<br><br>
+                                Manage your farm for 10 years (40 quarters) using real NASA satellite data.<br><br>
+                                ⚠️ Each quarter you'll face climate & agricultural challenges. Your decisions have consequences!
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-large" @click="startPlanting">
+                            🚜 Start Journey
+                        </button>
+                    </div>
+
+                    <!-- Planting Phase -->
+                    <div v-if="gamePhase === 'planting'">
+                        <div class="message-box">
+                            <div class="message-title">🌱 JosIA</div>
+                            <div class="message-text">
+                                {{ currentSeason.name }} {{ game.year }}. Choose your crop by comparing with NASA data! →
+                            </div>
+                        </div>
+
+                        <div class="crop-grid">
+                            <div v-for="(crop, key) in availableCrops" :key="key"
+                                 class="crop-card"
+                                 @click="plantCrop(key)">
+                                <div class="crop-icon">{{ crop.icon }}</div>
+                                <div class="crop-name">{{ crop.name }}</div>
+                                <div class="crop-profit">+{{ crop.profit }} 💰 | {{ crop.duration }} quarters</div>
+                                <div class="crop-needs">
+                                    🌡️ Temp: {{ crop.needs.temp[0] }}-{{ crop.needs.temp[1] }}°C<br>
+                                    💧 Rain: {{ crop.needs.rain[0] }}-{{ crop.needs.rain[1] }}mm<br>
+                                    💨 Humidity: {{ crop.needs.humidity[0] }}-{{ crop.needs.humidity[1] }}%<br>
+                                    🌿 NDVI: {{ crop.needs.ndvi[0] }}-{{ crop.needs.ndvi[1] }}
+                                </div>
+                                <div :class="['match-status', crop.isMatch ? 'match-good' : 'match-bad']">
+                                    {{ crop.isMatch ? '✅ Ideal Conditions' : '⚠️ Not Ideal' }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Learning Context Phase - Teach Before Asking -->
+                    <div v-if="gamePhase === 'learnContext' && currentQuestion">
+                        <div class="message-box" style="border-color: var(--verdin); background: rgba(119, 195, 7, 0.1);">
+                            <div class="message-title" style="color: var(--verdin);">
+                                📚 Learn Something New!
+                            </div>
+                            <div class="message-text" style="font-size: 0.9em; line-height: 1.6;">
+                                {{ currentQuestion.educational_context }}
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; margin-top: 20px;">
+                            <button @click="continueToQuestion()" class="game-button">
+                                ✅ I Understand! Continue
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question Phase - Answer the Question -->
+                    <div v-if="gamePhase === 'question' && currentQuestion">
+                        <div class="message-box" style="border-color: var(--royal-blue); background: rgba(79, 75, 219, 0.1);">
+                            <div class="message-title" style="color: var(--royal-blue);">
+                                ❓ {{ currentQuestion.category }}
+                            </div>
+                            <div class="message-text" style="font-size: 0.95em; line-height: 1.6; margin: 15px 0;">
+                                {{ currentQuestion.question }}
+                            </div>
+                        </div>
+
+                        <div class="event-options">
+                            <div v-for="(option, index) in currentQuestion.options" :key="index"
+                                 class="crop-card event-option-card"
+                                 :class="{ 'selected': selectedAnswer === option.charAt(0) }"
+                                 @click="selectAnswer(option.charAt(0))"
+                                 style="cursor: pointer;">
+                                <div class="crop-name" style="font-size: 0.9em; text-align: left;">
+                                    {{ option }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-if="selectedAnswer" style="display: flex; justify-content: center; margin-top: 20px;">
+                            <button @click="submitAnswer()" class="game-button">
+                                ✅ Submit Answer
+                            </button>
+                        </div>
+
+                        <!-- Show Explanation after submission -->
+                        <div v-if="selectedAnswer && gamePhase === 'question'" 
+                             class="message-box" 
+                             style="margin-top: 20px; border-color: var(--roxin); background: rgba(209, 195, 246, 0.1);">
+                            <div class="message-title" style="color: var(--roxin);">
+                                💡 Explanation
+                            </div>
+                            <div class="message-text" style="font-size: 0.85em;">
+                                {{ currentQuestion.explanation }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Phase -->
+                    <div v-if="gamePhase === 'event' && currentEvent">
+                        <div class="message-box event-alert" style="border-color: var(--verdin); background: rgba(119, 195, 7, 0.1);">
+                            <div class="event-header">
+                                <div class="event-icon-container">
+                                    <span class="event-icon-main">{{ currentEvent.icon }}</span>
+                                    <span v-for="n in getEventSeverity()" :key="n" class="event-icon-extra">{{ currentEvent.icon }}</span>
+                                </div>
+                                <div class="message-title" style="color: var(--verdin);">
+                                    ⚠️ {{ currentEvent.title }}
+                                </div>
+                            </div>
+                            <div class="message-text">
+                                {{ currentEvent.description }}
+                            </div>
+                        </div>
+
+                        <div class="event-options">
+                            <div v-for="(option, index) in currentEvent.options" :key="index"
+                                 class="crop-card event-option-card"
+                                 @click="selectEventOption(index)"
+                                 @mouseenter="hoveredOption = index"
+                                 @mouseleave="hoveredOption = null">
+                                <div class="event-option-icons">
+                                    <span class="crop-icon-main">{{ currentEvent.icon }}</span>
+                                </div>
+                                <div class="crop-name">{{ option.text }}</div>
+                                <div class="message-text">{{ option.desc }}</div>
+                                <div class="option-impacts">
+                                    <span v-if="option.money !== 0" class="impact-badge" :class="option.money > 0 ? 'positive' : 'negative'">
+                                        💰 {{ option.money > 0 ? '+' : '' }}{{ option.money }}
+                                    </span>
+                                    <span v-if="option.tree !== 0" class="impact-badge" :class="option.tree > 0 ? 'positive' : 'negative'">
+                                        🌳 {{ option.tree > 0 ? '+' : '' }}{{ option.tree }}
+                                    </span>
+                                    <span v-if="option.prestige !== 0" class="impact-badge" :class="option.prestige > 0 ? 'positive' : 'negative'">
+                                        ⭐ {{ option.prestige > 0 ? '+' : '' }}{{ option.prestige }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result Phase -->
+                    <div v-if="gamePhase === 'eventResult'">
+                        <div class="message-box" style="border-color: var(--pixel-blue); background: rgba(0, 170, 255, 0.1);">
+                            <div class="message-title" style="color: var(--pixel-blue);">
+                                📋 Decision Result
+                            </div>
+                            <div class="message-text">
+                                <strong>{{ selectedOption.message }}</strong>
+                            </div>
+                        </div>
+
+                        <div class="result-panel">
+                            <div class="message-title">Impacts of your choice:</div>
+                            <div class="impacts-grid">
+                                <div class="impact-item" v-if="selectedOption.money !== 0">
+                                    <div class="impact-label">💰 Money</div>
+                                    <div :class="['impact-value', selectedOption.money > 0 ? 'impact-positive' : 'impact-negative']">
+                                        {{ selectedOption.money > 0 ? '+' : '' }}{{ selectedOption.money }}
+                                    </div>
+                                </div>
+                                <div class="impact-item" v-if="selectedOption.tree !== 0">
+                                    <div class="impact-label">🌳 Sustain</div>
+                                    <div :class="['impact-value', selectedOption.tree > 0 ? 'impact-positive' : 'impact-negative']">
+                                        {{ selectedOption.tree > 0 ? '+' : '' }}{{ selectedOption.tree }}
+                                    </div>
+                                </div>
+                                <div class="impact-item" v-if="selectedOption.prestige !== 0">
+                                    <div class="impact-label">⭐ Prestige</div>
+                                    <div :class="['impact-value', selectedOption.prestige > 0 ? 'impact-positive' : 'impact-negative']">
+                                        {{ selectedOption.prestige > 0 ? '+' : '' }}{{ selectedOption.prestige }}
+                                    </div>
+                                </div>
+                                <div class="impact-item" v-if="selectedOption.cropDamage > 0">
+                                    <div class="impact-label">🌾 Crop Damage</div>
+                                    <div class="impact-value impact-negative">
+                                        -{{ selectedOption.cropDamage }}%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="message-box">
+                            <div class="message-title">🎓 Analysis</div>
+                            <div class="message-text">{{ selectedOption.explanation }}</div>
+                        </div>
+
+                        <button class="btn btn-primary" @click="showResults">
+                            Continue →
+                        </button>
+                    </div>
+
+                    <!-- Quarter Results -->
+                    <div v-if="gamePhase === 'results'">
+                        <div class="message-box">
+                            <div class="message-title">📋 Quarter {{ game.trimester }} Results</div>
+                        </div>
+
+                        <div v-for="(crop, index) in game.activeCrops" :key="index" class="result-panel">
+                            <div class="message-title">{{ crop.icon }} {{ crop.name }}</div>
+                            <div class="progress-bar" style="margin: 10px 0;">
+                                <div class="progress-fill" :style="{width: (crop.progress / crop.duration * 100) + '%'}">
+                                    {{ Math.round(crop.progress / crop.duration * 100) }}%
+                                </div>
+                            </div>
+                            <div v-if="crop.harvested" class="message-text impact-positive">
+                                ✅ Harvest complete! +{{ crop.finalProfit }} 💰
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" @click="nextQuarter">
+                            Next Quarter →
+                        </button>
+                    </div>
+
+                    <!-- Game Over -->
+                    <div v-if="gamePhase === 'gameover'">
+                        <div class="message-box">
+                            <div class="message-title">🎉 Journey Complete!</div>
+                            <div class="message-text">
+                                10 years (2015-2025) managed!<br><br>
+                                <strong>Final Score: {{ finalScore }}/100</strong><br>
+                                {{ finalRating }}<br><br>
+                                💰 Money: {{ Math.round(game.money) }}<br>
+                                🌳 Sustainability: {{ Math.round(game.tree) }}<br>
+                                ⭐ Prestige: {{ Math.round(game.prestige) }}
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-large" @click="restartGame">
+                            🌱 New Journey
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Initial Loading/Welcome -->
+        <div v-if="!gameStarted" class="screen active">
+            <div class="welcome-content">
+                <h1>🌾 AgriSpace Quest</h1>
+                <p class="tagline">NASA Farm Simulator with Real Satellite Data</p>
+                
+                <div class="mission-brief">
+                    <h2>🚀 Your Mission</h2>
+                    <p>Manage a farm for 10 years using real NASA satellite data. Make smart decisions about crops, handle climate events, and balance money, sustainability, and prestige!</p>
+                </div>
+
+                <button class="btn btn-primary btn-large" @click="gameStarted = true">
+                    Launch Mission 🚀
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vue.js CDN (Production Build - Faster!) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js" defer></script>
+    
+    <!-- Game Data & Logic -->
+    <script src="game/js/farm-game.js" defer></script>
+
+    <style>
+    /* Hide app until Vue loads */
+    [v-cloak] { 
+        display: none; 
+    }
+    
+    /* Simple loading screen */
+    #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--haiti);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        font-family: 'Press Start 2P', cursive;
+        color: var(--verdin);
+    }
+    
+    #loading-screen.hidden {
+        display: none;
+    }
+    
+    .loading-spinner {
+        font-size: 3em;
+        animation: spin 2s linear infinite;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    </style>
+    
+    <script>
+    // Hide loading screen once page is fully loaded
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('loading-screen').classList.add('hidden');
+        }, 500);
+    });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,421 @@
+[
+  {
+    "educational_context": "Land cover is like a map showing what's on the ground: farms, forests, or cities. Satellites help us see how land changes over time. This helps farmers plan what to grow and protect the environment.",
+    "question": "A satellite image shows a forest next to your farm has been turned into a new field. What's the FIRST thing you should think about?",
+    "options": [
+      "A) Growing the same crop as the new field.",
+      "B) How this change might affect the animals and water flow on your farm.",
+      "C) Building a taller fence to block the view.",
+      "D) Asking the new farmer for advice on what to grow."
+    ],
+    "correct": "B",
+    "explanation": "Changing land can affect water and animals. Think about protecting your farm's resources and the environment around you. The forest used to absorb a lot of water, now that water will run into your farm more easily.",
+    "difficulty": "medium",
+    "category": "Land Cover"
+  },
+  {
+    "educational_context": "Leaf Area Index (LAI) tells us how many leaves a plant has. More leaves mean the plant can soak up more sunshine to grow. Satellites measure LAI to see if crops are growing strong!",
+    "question": "A satellite shows your cornfield has a low LAI of 1.0, but your neighbor's field has a high LAI of 4.0. What does this mean about your corn?",
+    "options": [
+      "A) Your corn is growing faster than your neighbor's.",
+      "B) Your corn has fewer leaves and might not be growing as well.",
+      "C) Your corn is getting more sunlight.",
+      "D) Your corn doesn't need as much water."
+    ],
+    "correct": "B",
+    "explanation": "A low LAI means your corn has fewer leaves. You should check if your corn has enough water and nutrients to grow healthy leaves. Less leaves means that the corn plant cannot soak up as much sunshine to grow.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Albedo tells us how much sunlight bounces off the ground. Light-colored surfaces like snow bounce back a lot of sunlight and stay cooler. Dark surfaces absorb more sunlight and get hotter.",
+    "question": "On a hot day, you notice the soil in your field is very hot. What could you do to LOWER the soil temperature and help your plants?",
+    "options": [
+      "A) Add dark-colored mulch to absorb more heat.",
+      "B) Plant a cover crop that shades the soil.",
+      "C) Remove all the plants to let the soil dry out.",
+      "D) Use a lot of fertilizer to make the plants grow faster."
+    ],
+    "correct": "B",
+    "explanation": "Planting a cover crop creates shade. Shading the soil will lower the temperature and stop water from evaporating quickly. Mulch might help too, but light-colored mulch would be best!",
+    "difficulty": "medium",
+    "category": "Soil Health"
+  },
+  {
+    "educational_context": "Burned area maps show where fires have happened. Farmers need to know this to protect their crops and animals from danger.",
+    "question": "A satellite map shows a large burned area close to your farm. What's the MOST important thing to do first?",
+    "options": [
+      "A) Plant new crops right away.",
+      "B) Evacuate your animals to a safe place.",
+      "C) Ignore the map, it is probably not correct.",
+      "D) Wait for the fire to come closer."
+    ],
+    "correct": "B",
+    "explanation": "Your animals' safety is always the most important! Move them to a safe area to avoid getting hurt by the fire. Make sure that all people are safe too.",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Vegetation indices (like NDVI) measure how green plants are. Healthy plants are very green! This tells farmers if crops are getting enough water and nutrients.",
+    "question": "You see on a satellite map that the NDVI score of your wheat field is much lower than last year. What could be the problem?",
+    "options": [
+      "A) There are too many ladybugs in the field.",
+      "B) The wheat is not getting enough water or nutrients.",
+      "C) The satellite is not working properly.",
+      "D) Your neighbor planted something different."
+    ],
+    "correct": "B",
+    "explanation": "A lower NDVI means the wheat is not as green or healthy. It might need more water, fertilizer, or have a disease.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Land Surface Temperature (LST) tells us how hot the ground is. Too hot or too cold can hurt crops. Satellites help us track LST to know when to water plants or protect them from frost.",
+    "question": "A satellite shows that the LST in your potato field is very high. What could happen to your potatoes?",
+    "options": [
+      "A) They might grow bigger and faster.",
+      "B) They might get burned or dry out.",
+      "C) They might attract more bees.",
+      "D) They might turn blue."
+    ],
+    "correct": "B",
+    "explanation": "High temperatures can damage the potatoes. You might need to water them more or find a way to shade the ground.",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Healthy soil is like a good home for plants! It has lots of nutrients and holds water well. Bare soil can be blown away by wind or washed away by rain, so farmers try to keep the soil covered.",
+    "question": "After harvesting your corn, you notice a lot of bare soil. What's a good way to protect the soil before planting your next crop?",
+    "options": [
+      "A) Leave the soil bare so it can dry out.",
+      "B) Plant a cover crop like clover or rye.",
+      "C) Burn all the leftover stalks.",
+      "D) Dig up the soil and move it somewhere else."
+    ],
+    "correct": "B",
+    "explanation": "Cover crops protect the soil from wind and rain, add nutrients, and keep weeds from growing. Leaving soil bare will cause erosion.",
+    "difficulty": "medium",
+    "category": "Soil Health"
+  },
+  {
+    "educational_context": "Farmers can use different types of land covers: either natural or planted! Knowing where the land is being used helps track deforestation and agriculture.",
+    "question": "You have an area of land, and you need to decide what to do with it! What data could help you make an informed decision?",
+    "options": [
+      "A) MOD12Q1 Land Cover Type",
+      "B) Your favorite snack",
+      "C) Color of the land",
+      "D) Smell of the land"
+    ],
+    "correct": "A",
+    "explanation": "The MOD12Q1 product gives you information on different types of land! This can help you make an informed decision.",
+    "difficulty": "easy",
+    "category": "Land Cover"
+  },
+  {
+    "educational_context": "Plants soak up sunlight to help them grow! The fraction of Photosynthetically Active Radiation (FPAR) shows how much sunlight plants are absorbing!",
+    "question": "You see that the FPAR for your plants is low. What could be the problem?",
+    "options": [
+      "A) There's too much sunlight",
+      "B) There's too little sunlight",
+      "C) The soil is too fertile",
+      "D) Too many leaves"
+    ],
+    "correct": "B",
+    "explanation": "A low FPAR score means that your plants are not able to soak up sunlight! More sunlight might help your plants grow!",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Sometimes plants need to be rotated! Rotating plants allows you to use more sustainable practices to help with the growth and health of your crops!",
+    "question": "Your neighbor rotates wheat and barley. What is the MOST likely reason for their choice?",
+    "options": [
+      "A) They do not know what they are doing",
+      "B) They like the way it looks",
+      "C) It helps with sustainability",
+      "D) They want to use more fertilizer"
+    ],
+    "correct": "C",
+    "explanation": "Rotating crops helps control pests and disease, improves soil health and can also help with water management!",
+    "difficulty": "medium",
+    "category": "Sustainable Farming Practices"
+  },
+  {
+    "educational_context": "NDVI, or Normalized Difference Vegetation Index, helps measure the health of a plant by measuring its greenness! It's like a report card for plant health.",
+    "question": "If you had an NDVI value of -1, what would that indicate?",
+    "options": [
+      "A) Dense and healthy vegetation",
+      "B) Water or snow",
+      "C) Healthy plant",
+      "D) Nothing is there"
+    ],
+    "correct": "B",
+    "explanation": "NDVI values of -1 can indicate water or snow! This is because these surfaces reflect different wavelengths of light!",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Land Surface Temperature (LST) tells you how hot the ground is. If the ground is too hot, plants may not have enough moisture!",
+    "question": "If your LST values are high, what does this imply?",
+    "options": [
+      "A) You need to use more pesticides",
+      "B) You need to use more fertilizer",
+      "C) You need to water your plants more",
+      "D) Your crops are healthy"
+    ],
+    "correct": "C",
+    "explanation": "If your LST values are high, then you should water your plants more! The water can help cool down the plants, making them more healthy!",
+    "difficulty": "easy",
+    "category": "Water Management"
+  },
+  {
+    "educational_context": "Fire and Thermal Anomalies allow for real time fire detection. This is useful in order to prevent massive fires!",
+    "question": "MOD14A2 allows you to view fire activity. What can this help you with?",
+    "options": [
+      "A) Prevent fires",
+      "B) Make fires",
+      "C) See where fires were",
+      "D) Cause fires"
+    ],
+    "correct": "A",
+    "explanation": "By tracking fire activity, you are able to prevent major outbreaks from starting!",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Leaf Area Index (LAI) is super important for crops! The amount of leaves helps determine how much sunlight plants are soaking up.",
+    "question": "Your neighbor used too much fertilizer, and they now have little to no leaves on their plants. How does this affect the LAI values for their plants?",
+    "options": [
+      "A) Increase",
+      "B) Decrease",
+      "C) Constant",
+      "D) No effect"
+    ],
+    "correct": "B",
+    "explanation": "If there are little to no leaves on the plants, then the Leaf Area Index (LAI) for these plants decreases!",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Albedo tells us how much sunlight bounces off the ground. Surfaces with high albedo are light colored and bounce more light, causing them to stay cooler! Surfaces with low albedo are darker and absorb more light, causing them to get hotter!",
+    "question": "You have the choice between darker soils and lighter soils for your crops. You live in a climate that is very sunny. Which type of soil do you choose?",
+    "options": [
+      "A) Light soils",
+      "B) Dark soils",
+      "C) Either soils",
+      "D) No soils"
+    ],
+    "correct": "A",
+    "explanation": "Light soils have a higher albedo, allowing them to stay cooler because they reflect more light! This is good in sunny locations!",
+    "difficulty": "medium",
+    "category": "Soil Health"
+  },
+  {
+    "educational_context": "MODIS can help with water management! Soil moisture is super important for crops, since it determines if plants are able to grow!",
+    "question": "You see on the MODIS satellite that there is very low soil moisture for your plants. What do you do?",
+    "options": [
+      "A) Stop watering your plants",
+      "B) Water your plants more",
+      "C) Nothing",
+      "D) Switch plant types"
+    ],
+    "correct": "B",
+    "explanation": "You should start to water your plants more! Soil moisture is low, meaning that your plants do not have enough water!",
+    "difficulty": "easy",
+    "category": "Water Management"
+  },
+  {
+    "educational_context": "Vegetation Indices are used to calculate how green an area is! This is a good indicator of how healthy your plants are!",
+    "question": "You use Vegetation Indices to calculate the greenness of your plants. You get a low number. What does this mean?",
+    "options": [
+      "A) There are less leaves on your plants",
+      "B) There are more leaves on your plants",
+      "C) Nothing",
+      "D) You need to change where you live"
+    ],
+    "correct": "A",
+    "explanation": "A low value in Vegetation Indices can mean that there are less leaves on your plants! This could mean they are unhealthy!",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Land Surface Temperature can help indicate different weather patterns that can affect your crops! Very hot weather can affect the amount of water and nutrients your crops need!",
+    "question": "You see that the Land Surface Temperature for your area is very low. What weather pattern should you look out for?",
+    "options": [
+      "A) Sunny weather",
+      "B) Heat wave",
+      "C) Drought",
+      "D) Frost"
+    ],
+    "correct": "D",
+    "explanation": "If the Land Surface Temperature is low, this can indicate a frost! You need to watch out to see if this affects your crops!",
+    "difficulty": "medium",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Land cover data helps identify what type of land something is! With this knowledge, you can pick the best plants that match the type of land!",
+    "question": "If you have an area of land that is primarily a forest, what is one thing you should NOT do?",
+    "options": [
+      "A) Keep the forest",
+      "B) Plant trees",
+      "C) Cut down all trees and plant crops"
+    ],
+    "correct": "C",
+    "explanation": "You should NOT cut down all the trees and plant crops! This is not good land cover for crops, and you would be destroying the environment!",
+    "difficulty": "easy",
+    "category": "Land Cover"
+  },
+  {
+    "educational_context": "Fires can be very detrimental to plants and crops! Fire monitoring can help determine if there has been an affected area so you can prevent larger fires and damage!",
+    "question": "You see that the monthly burned area shows that some land was burned. What does this affect?",
+    "options": [
+      "A) Soil Health",
+      "B) Animal Health",
+      "C) Air quality",
+      "D) All of the above"
+    ],
+    "correct": "D",
+    "explanation": "If a land has been burned, it affects everything! Animals are displaced, soil health is affected, and air quality is compromised!",
+    "difficulty": "medium",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Different areas bounce off different amounts of sunlight! Areas with snow bounce off more light and stay cooler!",
+    "question": "Which of the following scenarios has the highest albedo?",
+    "options": [
+      "A) Snow covered land",
+      "B) Urban area",
+      "C) Forests",
+      "D) Grass land"
+    ],
+    "correct": "A",
+    "explanation": "The snow covered land has the highest albedo because it bounces off the most amount of sunlight!",
+    "difficulty": "easy",
+    "category": "Soil Health"
+  },
+  {
+    "educational_context": "NDVI is a plant health score! It is important to keep these values high, since that means that your plants are healthy!",
+    "question": "Your NDVI scores are very low, and you notice there is a lot of erosion on your land. What could you do to increase both soil health and plant health?",
+    "options": [
+      "A) Keep it the same",
+      "B) Plant plants",
+      "C) Let soil erode",
+      "D) Decrease number of plants"
+    ],
+    "correct": "B",
+    "explanation": "You can plant plants! This helps increase the NDVI score, and helps with the erosion on your land!",
+    "difficulty": "medium",
+    "category": "Sustainable Farming Practices"
+  },
+  {
+    "educational_context": "Sometimes it is hard to detect fires on land. MODIS is a great tool for detecting fires from above!",
+    "question": "You see that a fire is about to break out near your property. You use MODIS and see it breaking out. What do you do?",
+    "options": [
+      "A) Ignore it",
+      "B) Let your crops burn",
+      "C) Contact authorities",
+      "D) Start another fire"
+    ],
+    "correct": "C",
+    "explanation": "You should call authorities! This is important because you do not want the fire to spread further!",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Plant leaves can indicate health. If the leaves are dark green, this means that plants are healthy. Less leaves can be an indicator of soil moisture content, amount of sunlight, or the plant's health!",
+    "question": "You notice that all your plant leaves are browning. What is ONE thing you should investigate?",
+    "options": [
+      "A) Soil moisture",
+      "B) More sunlight",
+      "C) Less Leaves",
+      "D) None of the above"
+    ],
+    "correct": "A",
+    "explanation": "You should start to investigate the soil moisture! Plants need water to grow! If they do not have water, their leaves will be browning!",
+    "difficulty": "medium",
+    "category": "Water Management"
+  },
+  {
+    "educational_context": "Sometimes different parts of a land can be dry or wet. MODIS can help indicate this! It is important to identify these spots, since you can apply fertilizer or water as needed!",
+    "question": "You notice some dry spots on your land. What data product can help you identify this?",
+    "options": [
+      "A) LST",
+      "B) NDVI",
+      "C) MODIS",
+      "D) All of the above"
+    ],
+    "correct": "D",
+    "explanation": "MODIS, NDVI, and LST are all data products that can help identify dry spots! LST shows land temperature, while NDVI shows plant health. MODIS gives a general overview!",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Land is always changing! The uses of the land can also change, with some being forests, urbanized, or used for agriculture. It is important to know these!",
+    "question": "You notice that a forest is now a farm! What could this cause?",
+    "options": [
+      "A) It is okay!",
+      "B) Nothing",
+      "C) Loss of habitat",
+      "D) Gain of habitat"
+    ],
+    "correct": "C",
+    "explanation": "This could cause a loss of habitat for animals in that area! Since forests used to be there, a wide array of animals can be affected!",
+    "difficulty": "easy",
+    "category": "Land Cover"
+  },
+  {
+    "educational_context": "Different types of soils absorb different amounts of light! This means that the temperature of different soils will also be different! Darker soils tend to absorb more light, while lighter soils tend to deflect more light!",
+    "question": "Which color soil has the highest temperature?",
+    "options": [
+      "A) White soils",
+      "B) Light soils",
+      "C) Dark soils",
+      "D) Clear soils"
+    ],
+    "correct": "C",
+    "explanation": "The darker the soil, the more light it absorbs! This also means that the soil will be hotter!",
+    "difficulty": "easy",
+    "category": "Soil Health"
+  },
+  {
+    "educational_context": "Sometimes plants can need more sunlight! The LAI (Leaf Area Index) can determine how many leaves a plant has, and how well it absorbs sunlight!",
+    "question": "Your plants have low LAI. What should you do?",
+    "options": [
+      "A) Move it to the shade",
+      "B) More sunlight",
+      "C) More water",
+      "D) More fertilizer"
+    ],
+    "correct": "B",
+    "explanation": "Low LAI means less leaves! You need more sunlight in order to help your plants grow more leaves!",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Sometimes we need to determine the use of land. Certain data products are useful for this! MODIS can help determine the use of land!",
+    "question": "You need to determine how much land has changed to agricultural land in an area. What data product is useful for this?",
+    "options": [
+      "A) MOD12Q1",
+      "B) LST",
+      "C) LAI",
+      "D) Albedo"
+    ],
+    "correct": "A",
+    "explanation": "MOD12Q1 (Land Cover Type) is useful for determining the amount of different types of land! It can help you identify how much land has transitioned to agricultural use!",
+    "difficulty": "medium",
+    "category": "Land Cover"
+  },
+  {
+    "educational_context": "MODIS detects fire! This can help you be aware of dangers and help prevent large fires! It is very important to manage risks and call authorities if necessary!",
+    "question": "You see that MODIS is detecting large thermal anomalies very close to your field. What do you do?",
+    "options": [
+      "A) Ignore it",
+      "B) Call authorities",
+      "C) Wait to see what happens",
+      "D) Start watering your plants"
+    ],
+    "correct": "B",
+    "explanation": "You should contact authorities! This is important in order to prevent the spread of fires!",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  }
+]

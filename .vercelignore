@@ -1,0 +1,9 @@
+question-generator/
+venv/
+.git/
+.DS_Store
+*.pyc
+__pycache__/
+debug_response.txt
+.env
+

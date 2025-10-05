@@ -1,0 +1,401 @@
+```json
+[
+  {
+    "educational_context": "NDVI is like a plant's report card. A high NDVI (close to 1) means the plants are very green and healthy, while a low NDVI (close to 0) means they might be stressed or not growing well. Satellites help us see these report cards from space!",
+    "question": "Your family's garden usually has an NDVI of 0.8, but this year it's only 0.4. What's the first thing you should check to see why the plants aren't as healthy?",
+    "options": ["A) The amount of water the plants are getting", "B) How sunny it is each day", "C) If there are bugs eating the plants", "D) All of the above"],
+    "correct": "D",
+    "explanation": "A lower NDVI could mean the plants need more water, more sun, or are being eaten by pests. Checking all of these is a good first step.",
+    "difficulty": "easy",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Land Cover Type tells us what kind of things are on the ground, like forests, farms, or cities. Knowing this helps us plan what to grow and how to take care of the land. The satellite MCD12Q1 helps us map these cover types.",
+    "question": "You're helping your neighbor plan a garden on a patch of land. The satellite data (MCD12Q1) shows the land was grassland last year. What would be a good idea before planting?",
+    "options": ["A) Plant any seeds right away", "B) Test the soil to see if it's good for growing vegetables", "C) Build a house on the land", "D) Cover the grass with plastic"],
+    "correct": "B",
+    "explanation": "Testing the soil is important! Grassland might have different soil needs than a vegetable garden. Building a house or covering the grass isn't helpful for gardening.",
+    "difficulty": "medium",
+    "category": "Land Use"
+  },
+  {
+    "educational_context": "Albedo is how much sunlight a surface reflects. A bright surface like snow reflects a lot of sunlight and has a high albedo. A dark surface like a forest absorbs more sunlight and has a low albedo. The MCD43A1 product helps us monitor changes in albedo.",
+    "question": "A farmer paints their barn roof white. What effect will this have on the barn's temperature and why?",
+    "options": ["A) Make it hotter because white absorbs more heat", "B) Make it cooler because white reflects more sunlight", "C) No effect on the temperature", "D) Make it colder because white attracts cold air"],
+    "correct": "B",
+    "explanation": "White reflects more sunlight (has a higher albedo), so the barn will stay cooler in the summer.",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Leaf Area Index (LAI) tells us how much leaf cover a plant has. A high LAI means lots of leaves, which means the plant is good at capturing sunlight to grow! Satellites measure LAI using MCD15A2H, MCD15A3H.",
+    "question": "Two fields have different LAI values. Field A has an LAI of 5, and Field B has an LAI of 2. Which field is likely capturing more sunlight for photosynthesis?",
+    "options": ["A) Field A", "B) Field B", "C) Both fields are the same", "D) It depends on the color of the plants"],
+    "correct": "A",
+    "explanation": "Field A has a higher LAI, meaning it has more leaf cover and can capture more sunlight to grow.",
+    "difficulty": "easy",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Burned Area data (MCD64A1) shows us where fires have happened. This helps farmers protect their crops and plan for the future. Fires can be dangerous but also sometimes helpful in managing certain ecosystems.",
+    "question": "A satellite map (MCD64A1) shows that a nearby forest had a large fire. What should the farmers in that area do to protect their farms?",
+    "options": ["A) Ignore the fire; it won't affect them", "B) Increase irrigation to keep their crops wet and less likely to catch fire", "C) Clear all vegetation around their farms to create a fire break", "D) Plant more trees"],
+    "correct": "C",
+    "explanation": "Clearing vegetation around farms creates a fire break, which can help stop the fire from spreading to their crops. Increasing irrigation can help, but isn't as effective as a fire break. Planting more trees wouldn't help in the short term.",
+    "difficulty": "medium",
+    "category": "Climate Impact"
+  },
+    {
+    "educational_context": "Surface Reflectance Bands (MOD09A1) are like different colors of light that bounce off the ground. Satellites measure these colors to see how healthy the plants are. Different plants reflect different colors!",
+    "question": "A farmer notices that the surface reflectance band for red light is very high in their field. What could this mean about the plants?",
+    "options": ["A) The plants are very healthy and green.", "B) The plants might be stressed or not very healthy.", "C) The plants are producing a lot of fruit.", "D) It doesn't tell us anything about the plants."],
+    "correct": "B",
+    "explanation": "Healthy green plants absorb most of the red light and reflect little. If the reflectance is high, it means the plants aren't absorbing much light, which is often a sign of stress.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Land Surface Temperature (LST - MOD11A1, MOD11A2) is the temperature of the ground. Farmers use this to know when to plant and harvest their crops. If the ground is too hot or too cold, the plants won't grow well.",
+    "question": "The Land Surface Temperature has been very high for several days. What's the best thing a farmer can do to help their plants?",
+    "options": ["A) Water the plants more often", "B) Add fertilizer to the soil", "C) Cover the plants with blankets", "D) Plant more seeds"],
+    "correct": "A",
+    "explanation": "High temperatures can dry out the soil and stress the plants. Watering them more often will help them stay cool and hydrated.",
+    "difficulty": "easy",
+    "category": "Water Management"
+  },
+  {
+    "educational_context": "Vegetation Indices like NDVI and EVI (MOD13A1, MOD13A2, MOD13A3, MOD13Q1) are like scores that tell us how green and healthy plants are. A higher score means healthier plants!",
+    "question": "You compare the NDVI of two fields. Field A has an NDVI of 0.9, and Field B has an NDVI of 0.5. Which field is likely to produce a better harvest?",
+    "options": ["A) Field A", "B) Field B", "C) Both fields will produce the same harvest", "D) The field with more bugs"],
+    "correct": "A",
+    "explanation": "Field A has a higher NDVI, which means the plants are healthier and more likely to produce a good harvest.",
+    "difficulty": "easy",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Thermal Anomalies (MOD14A2) are unusually hot spots that could be wildfires. Knowing where these hot spots are helps us prevent and fight fires, protecting forests and farms.",
+    "question": "A satellite detects a thermal anomaly near a forest. What is the most important first step to take?",
+    "options": ["A) Ignore it; it's probably just a hot day", "B) Alert firefighters and investigate the area", "C) Plant more trees in the area", "D) Have a picnic near the hot spot"],
+    "correct": "B",
+    "explanation": "Thermal anomalies can indicate a wildfire. Alerting firefighters is crucial to prevent the fire from spreading and causing damage.",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Fraction of Photosynthetically Active Radiation (FPAR - MCD15A2H, MCD15A3H) is how much sunlight the plants are actually using to grow. A higher FPAR means the plants are using more sunlight!",
+    "question": "Two fields have the same amount of sunlight, but Field A has a higher FPAR than Field B. What does this likely mean about Field A?",
+    "options": ["A) The plants in Field A are growing faster.", "B) The plants in Field A are getting less water.", "C) The plants in Field A are getting eaten by bugs.", "D) The plants in Field A are turning brown."],
+    "correct": "A",
+    "explanation": "A higher FPAR means the plants are using more sunlight for photosynthesis, which means they are likely growing faster.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Farmers make lots of choices! They have to decide what to plant, when to water, and how to keep their plants healthy. These decisions impact the environment.",
+    "question": "A farmer decides to use a lot of fertilizer to make their crops grow faster. What's one possible negative consequence of using too much fertilizer?",
+    "options": ["A) The crops will taste better.", "B) The extra fertilizer can pollute nearby rivers and lakes.", "C) The crops will grow taller.", "D) The crops will need less water."],
+    "correct": "B",
+    "explanation": "Too much fertilizer can run off into nearby water sources, causing pollution.",
+    "difficulty": "easy",
+    "category": "Sustainable Farming Practices"
+  },
+  {
+    "educational_context": "Water is super important for plants to grow! But too much or too little water can be bad. Farmers need to find the right balance.",
+    "question": "A farmer notices that their plants are wilting even though it rained recently. What could be the problem?",
+    "options": ["A) The soil might be too dry.", "B) The soil might be too wet and the roots are rotting.", "C) The plants are getting too much sunlight.", "D) The plants need more fertilizer."],
+    "correct": "B",
+    "explanation": "Wilting can happen when the soil is waterlogged and the roots can't get enough air, causing them to rot.",
+    "difficulty": "medium",
+    "category": "Water Management"
+  },
+  {
+    "educational_context": "Soil is like a home for plants! Healthy soil has lots of good stuff in it, like nutrients and helpful bugs. Farmers need to take care of the soil to grow healthy crops.",
+    "question": "A farmer decides to plant the same crop in the same field every year. What might happen to the soil over time?",
+    "options": ["A) The soil will become healthier and richer.", "B) The soil will become depleted of certain nutrients.", "C) The soil will need less water.", "D) The soil will attract more helpful bugs."],
+    "correct": "B",
+    "explanation": "Planting the same crop repeatedly can deplete the soil of the nutrients that the crop needs most.",
+    "difficulty": "medium",
+    "category": "Soil Health"
+  },
+  {
+    "educational_context": "Sustainable farming means growing food in a way that doesn't harm the environment. This helps us have food for a long time!",
+    "question": "A farmer decides to use natural methods to control pests instead of using pesticides. What's one benefit of this decision?",
+    "options": ["A) It will save the farmer money.", "B) It will protect helpful insects and animals.", "C) It will make the crops grow faster.", "D) It will require less work."],
+    "correct": "B",
+    "explanation": "Using natural methods helps protect the environment, including helpful insects and animals.",
+    "difficulty": "easy",
+    "category": "Sustainable Farming Practices"
+  },
+  {
+    "educational_context": "The climate is changing, and this affects farming. Things like temperature and rainfall are changing, which can make it harder to grow food.",
+    "question": "A farmer notices that their area is getting less rain each year. What's one way they can adapt to this change?",
+    "options": ["A) Plant crops that need less water.", "B) Use more fertilizer to make the crops grow faster.", "C) Stop farming and move to a different area.", "D) Waste water so that they receive future allocations."],
+    "correct": "A",
+    "explanation": "Planting drought-resistant crops is a good way to adapt to a drier climate.",
+    "difficulty": "medium",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Sometimes farmers have to make tough choices. They need to think about what's best for their farm, the environment, and the people who eat their food.",
+    "question": "A farmer has a choice between using a lot of water to grow a certain crop or using less water to grow a different crop. Which choice is more sustainable in an area with water scarcity?",
+    "options": ["A) Using a lot of water to grow the first crop.", "B) Using less water to grow the second crop.", "C) It doesn't matter which crop they choose.", "D) Plant the crop that will earn them the most money."],
+    "correct": "B",
+    "explanation": "In an area with water scarcity, it's more sustainable to use less water, even if it means growing a different crop.",
+    "difficulty": "medium",
+    "category": "Decision Making"
+  },
+  {
+    "educational_context": "Surface Reflectance (MOD09GQ) are the colors reflected off the Earth. Different things on Earth reflect different colors, helping scientists determine crop type or plant health.",
+    "question": "If the red reflectance is high and the near-infrared (NIR) reflectance is low, what does this suggest?",
+    "options": ["A) Healthy, growing vegetation", "B) Stressed or sparse vegetation", "C) Dense forest", "D) A lake of water"],
+    "correct": "B",
+    "explanation": "Healthy vegetation absorbs red light and reflects NIR. Stressed vegetation reflects more red.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Albedo (MCD43A2, MCD43A3, MCD43A4) refers to how reflective a surface is. Lower albedo surfaces absorb more sunlight (like dark soil), while higher albedo surfaces reflect more sunlight (like snow or light-colored crops).",
+    "question": "A farmer plants a dark-colored crop. How does this affect the soil temperature?",
+    "options": ["A) Increases the soil temperature", "B) Decreases the soil temperature", "C) Has no effect on soil temperature", "D) Makes the soil more reflective"],
+    "correct": "A",
+    "explanation": "Darker colors absorb more sunlight, leading to increased soil temperatures.",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "LAI (MCD15A3H, MCD15A2H) is the amount of leaves a plant has! The higher the LAI, the more leaves, and the more photosynthesis it can do.",
+    "question": "If LAI values are dropping rapidly for a farmer's wheat crop, what is the possible cause?",
+    "options": ["A) The crop is experiencing a growth spurt.", "B) The crop might be reaching maturity or is experiencing stress.", "C) The crop is becoming more resistant to disease", "D) The crop is starting to flower"],
+    "correct": "B",
+    "explanation": "A drop in LAI can indicate the crop is reaching maturity and leaves are dying, or that it is experiencing drought, nutrient deficiency, or disease, causing leaves to fall.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "EVI and NDVI are plant health indicators! A higher value tells us the plants are growing, absorbing sunlight and transpiring.",
+    "question": "A Farmer's corn field had an NDVI of 0.3 last month, but now it is reading 0.8! What could be a reason for the increase?",
+    "options": ["A) The corn is experiencing drought", "B) There was a recent wildfire", "C) There was a recent rainstorm and the corn is growing", "D) There was recent insect infestation"],
+    "correct": "C",
+    "explanation": "Recent rain would cause plants to grow, and the NDVI would show that!",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Fires can devastate farmland, but they can also be useful for controlling weeds in certain regions. Satellites measure these events.",
+    "question": "A farmer notices a large area that has been burned (MCD64A1 data) near their fields. What is one way to make sure the fire doesn't impact their fields?",
+    "options": ["A) Plant more trees to create a fire break", "B) Do not plant anything along the edge of the farm.", "C) Create a plowed boundary (fire break) around their field to prevent spreading.", "D) Remove all of the irrigation systems from the edges of the farm"],
+    "correct": "C",
+    "explanation": "Fire breaks stop the fire from spreading, and is an important way to protect a field from wildfires.",
+    "difficulty": "medium",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Land surface temperature is important for many reasons, including influencing plant growth. This measurement tells us how hot the ground is!",
+    "question": "A farmer notices that their land surface temperature (LST) has been steadily increasing for 2 weeks. What might happen?",
+    "options": ["A) The plants will grow even faster.", "B) The plants will experience heat stress and need more water.", "C) The plant's roots will grow deeper.", "D) The plants will need less water"],
+    "correct": "B",
+    "explanation": "High land surface temperatures cause plants to experience heat stress. The plants will need more water to stay cool and to continue to grow. If heat stress continues they may die.",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Different plants reflect different amounts of light! The amount of light reflected can tell farmers whether they need to take action on their crops.",
+    "question": "A farmer notices that the surface reflectance (MOD09Q1) is showing high reflectance of red light from their spinach crops. What does this say about the spinach?",
+    "options": ["A) The spinach is extremely healthy", "B) The spinach is experiencing some type of stress or disease", "C) It is time to harvest the spinach", "D) The spinach needs more fertilizer."],
+    "correct": "B",
+    "explanation": "Healthy green plants usually absorb red light and reflect near infrared light. If they are reflecting red light, they are probably unhealthy.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+    {
+    "educational_context": "Albedo is how much sunlight a surface reflects. Higher albedo means more sunlight is reflected back into the atmosphere.",
+    "question": "A farmer decides to use no-till farming which leaves more crop residue on the surface. How does this impact the albedo?",
+    "options": ["A) Increases Albedo", "B) Decreases Albedo", "C) Has no effect on Albedo", "D) Makes the ground hotter"],
+    "correct": "B",
+    "explanation": "No-till farming usually increases soil organic matter, which makes it darker. Darker soil absorbs more light (lower albedo) and reduces overall warming.",
+    "difficulty": "medium",
+    "category": "Soil Health"
+  },
+  {
+    "educational_context": "Land cover tells us what the land is used for, like farmland, forest, or cities. This information is important for farmers to protect the environment.",
+    "question": "A farmer wants to convert a forest area into farmland. What is a possible negative impact of this conversion on the environment?",
+    "options": ["A) Increased biodiversity", "B) Reduced soil erosion", "C) Loss of habitat for wildlife", "D) Increased carbon sequestration"],
+    "correct": "C",
+    "explanation": "Converting forest to farmland can destroy habitats for animals and reduce biodiversity.",
+    "difficulty": "medium",
+    "category": "Land Use"
+  },
+  {
+    "educational_context": "Leaf Area Index (LAI) is the measurement of the amount of leaf area on a plant. LAI changes as crops grow.",
+    "question": "If a farmer monitors the LAI of their soybean crop throughout the growing season, when should they expect to see the highest LAI values?",
+    "options": ["A) Early in the season when the plants are just starting to sprout", "B) Mid-season when the plants are fully grown with abundant leaves", "C) Late in the season as the plants are starting to mature and drop leaves", "D) During the harvest"],
+    "correct": "B",
+    "explanation": "LAI increases as leaves grow! Mid-season when the crop is healthy, green, and full of leaves the LAI will be the highest.",
+    "difficulty": "easy",
+    "category": "Crop Health Monitoring"
+  },
+    {
+    "educational_context": "Thermal anomalies and fire can quickly damage crops. Satellite data provides valuable information for farmers to prepare for these events.",
+    "question": "A farmer sees MOD14A2 data that indicates a large, rapidly spreading fire is nearby. What is the most immediate action they should take?",
+    "options": ["A) Wait for the fire to reach their farm and then react", "B) Immediately start harvesting all crops regardless of maturity", "C) Focus on creating firebreaks and protecting property and livestock", "D) Ignore the threat and assume the fire will not reach their fields"],
+    "correct": "C",
+    "explanation": "Focus on creating firebreaks (clearing vegetation) to protect their property, ensuring the safety of livestock, and contacting local fire services is the best course of action.",
+    "difficulty": "medium",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "EVI and NDVI give us insight on how healthy plants are. They are like a grade for the plants' health!",
+    "question": "A farmer notices that the EVI values in one section of their wheat field are significantly lower than in other sections. What could be the reason for the low EVI values?",
+    "options": ["A) Overwatering", "B) Optimal plant growth", "C) A plant disease or insect infestation", "D) Increased Soil Nutrients"],
+    "correct": "C",
+    "explanation": "Low EVI values often indicate plant stress due to disease, insect infestation, nutrient deficiency, or water stress.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Land surface temperature is important when choosing what crops to grow! Different crops grow best at different temperatures.",
+    "question": "A farmer wants to decide between planting corn or soybeans. The MOD11A1 data indicates that the LST is consistently high (above 30°C). Which crop would be more suitable?",
+    "options": ["A) Corn, because it thrives in high temperatures", "B) Soybeans, because they are more tolerant to high temperatures", "C) Any plants, since temperature doesnt matter.", "D) Neither, as it is too hot for crops"],
+    "correct": "B",
+    "explanation": "Soybeans are typically more heat-tolerant than corn and can withstand high land surface temperatures.",
+    "difficulty": "medium",
+    "category": "Decision Making"
+  },
+  {
+    "educational_context": "If a surface such as a farm is not reflective, then it absorbs the sun's energy! Farmers want some light absorbed and some light reflected from their fields.",
+    "question": "After harvesting, a farmer leaves crop residue on the field (no-till farming). How does this practice affect the albedo (MCD43A1) of the field?",
+    "options": ["A) Increases albedo", "B) Decreases albedo", "C) Has no effect on albedo", "D) Increases the heat"],
+    "correct": "B",
+    "explanation": "Leaving crop residue often darkens the soil surface, causing more absorption of sunlight and reducing albedo.",
+    "difficulty": "medium",
+    "category": "Soil Health"
+  },
+    {
+    "educational_context": "MOD09A1 measures the amount of light reflected from a surface! Green, healthy plants absorb and reflect this light in different ways than stressed or unhealthy plants.",
+    "question": "A farmer observes that the MOD09A1 data indicates higher reflectance in the near-infrared (NIR) band for a wheat field compared to the previous year. What does it suggest about the crop health?",
+    "options": ["A) The crop is experiencing drought stress", "B) The crop is growing and extremely healthy", "C) The crop is suffering from a nutrient deficiency", "D) There has been a fire on the field"],
+    "correct": "B",
+    "explanation": "Higher reflectance in the NIR band often indicates vigorous and healthy vegetation, as healthy plants reflect more NIR light.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Burned area is the amount of ground that has caught fire. Satellites keep track of this and measure it!",
+    "question": "A MOD64A1 map shows that a significant portion of a nearby grassland has been burned. What would be a good practice to help avoid this in the future?",
+    "options": ["A) Reduce grazing to increase the fire risk", "B) Implementing controlled burns during the right seasons to reduce fuel load.", "C) Encourage open fires", "D) Increasing fertilizer in the area"],
+    "correct": "B",
+    "explanation": "Controlled burns reduce the build up of dry vegetation that can cause very large wildfires.",
+    "difficulty": "medium",
+    "category": "Sustainable Farming Practices"
+  },
+  {
+    "educational_context": "LAI is the measurement of all the leaves on a plant. Think of it like how much a plant is growing!",
+    "question": "A farmer wants to know if their crops are growing well, so they use the Leaf Area Index (LAI) to measure leaf cover. What would you expect to see happen to LAI as crops grow?",
+    "options": ["A) Decrease steadily during the growing season", "B) Increase at the start and decline as they mature.", "C) Remain constant throughout the growing season.", "D) Fluctuate randomly."],
+    "correct": "B",
+    "explanation": "LAI typically increases during early stages of growth but will decline as plants mature and eventually senesce (die).",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Plants reflect light and satellites measure this reflection! If they are reflecting more light in a particular spectrum, that means they may be unhealthy or are experiencing stress.",
+    "question": "A farmer wants to know the Surface Reflectance for their farm. They look at satellite data and see high reflectance in the red band. What does it mean?",
+    "options": ["A) Healthy and dense vegetation.", "B) Sparse or stressed vegetation.", "C) Abundant water in the soil.", "D) The plants are growing well."],
+    "correct": "B",
+    "explanation": "Higher reflectance in the red band is associated with lower chlorophyll content and can indicate stress or less healthy vegetation.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Land surface temperature can be very important for figuring out how well your crops can grow. Too hot and they will wither, too cold and they will die!",
+    "question": "A farmer monitors the Land Surface Temperature (LST) using MOD11A1 and finds that the LST is consistently very high (over 40°C) during the day. What measure might the farmer use to address this issue?",
+    "options": ["A) Use irrigation, planting drought-resistant varieties and providing shade.", "B) Apply fertilizers to encourage rapid growth", "C) Increase planting densities to prevent sunlight from touching the surface.", "D) Grow plants in an area that reflects more sunlight."],
+    "correct": "A",
+    "explanation": "Methods like irrigation, drought-resistant crops, and shading help to reduce the negative impacts of high temperatures.",
+    "difficulty": "medium",
+    "category": "Water Management"
+  },
+  {
+    "educational_context": "NDVI and EVI are used to see how healthy plants are! The higher the number, the greener and healthier the plant!",
+    "question": "A farmer checks MOD13Q1 (NDVI and EVI) data for their tomato field and finds that the NDVI values are decreasing. What could be the most likely reason for the drop?",
+    "options": ["A) The tomato plants are rapidly growing", "B) The tomato plants are coming to maturity.", "C) The tomato plants are experiencing water stress or disease.", "D) The plants are reflecting the heat."],
+    "correct": "C",
+    "explanation": "A decrease in NDVI often corresponds to lower chlorophyll content, which indicates vegetation stress due to water, disease, or nutrient deficiency.",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "If there are wildfires, that affects the plant quality of the region and the air. That is something farmers need to keep in mind!",
+    "question": "After a fire occurs in a nearby forest, how should farmers respond?",
+    "options": ["A) Ignore it", "B) Plant fire tolerant plants", "C) Plant more highly flammable plants", "D) Plant a mix of fire tolerant plants and put in fire breaks"],
+    "correct": "D",
+    "explanation": "If there is a wildfire, planting fire tolerant plants can help, but so can firebreaks, which keep future wildfires from damaging plants.",
+    "difficulty": "hard",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "LAI tells you how many leaves a plant has! FPAR tells you how much sunshine the leaves are grabbing to grow. The more sun the plant grabs, the better it can grow!",
+    "question": "A farmer wants to increase FPAR, what are some things they could do?",
+    "options": ["A) Plant more plants close together", "B) Clear out any weeds that block sunlight", "C) Water and fertilize the plants", "D) All of the Above"],
+    "correct": "D",
+    "explanation": "All of these actions will increase FPAR and are good practices to do!",
+    "difficulty": "hard",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "When thinking about what to plant, knowing the land cover is important! Should you plant crops in the desert? Maybe not.",
+    "question": "A farmer wants to see if the crops they were growing are the right crops for the land they have. What satellite data would they use?",
+    "options": ["A) MCD12Q1", "B) MCD15A2H", "C) MCD43A1", "D) MOD11A1"],
+    "correct": "A",
+    "explanation": "MCD12Q1 describes the land cover and allows farmers to see what the land looks like.",
+    "difficulty": "easy",
+    "category": "Land Use"
+  },
+  {
+    "educational_context": "NDVI tells us how green plants are. If you're a farmer, that can be important information!",
+    "question": "What are some reasons that NDVI might be low?",
+    "options": ["A) Because plants are healthy and growing well", "B) Plants are being grazed on", "C) High fertilizer", "D) High temperatures"],
+    "correct": "B",
+    "explanation": "If the plants are being grazed on, they might not have enough leaves, and not be as green. This decreases NDVI!",
+    "difficulty": "medium",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "Sometimes farmers burn their land! If you do a controlled burn, that can get rid of the bad plants or weeds so that the good plants can grow.",
+    "question": "What is a downside of doing a controlled burn?",
+    "options": ["A) You might lose control of the burn and damage more crops", "B) More crops will grow afterwards", "C) Weeds are cleared out", "D) Plants are cleared so that new seeds can be planted"],
+    "correct": "A",
+    "explanation": "A big risk of doing controlled burns is losing control and burning more plants than you expected to!",
+    "difficulty": "medium",
+    "category": "Sustainable Farming Practices"
+  },
+  {
+    "educational_context": "Farmers sometimes want to measure the heat of their land! Land surface temperature tells them how hot it is and what actions to take.",
+    "question": "Which of these satellite data products measures land surface temperature?",
+    "options": ["A) MOD11A1", "B) MCD15A2H", "C) MCD64A1", "D) MOD13A1"],
+    "correct": "A",
+    "explanation": "MOD11A1 gives farmers information on land surface temperature",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Farmers want to protect their land from fire, so they need to see what has already burned. What data product can tell them that?",
+    "question": "A farmer wants to measure what areas have been burned. Which of these data products does that?",
+    "options": ["A) MCD64A1", "B) MOD13A1", "C) MOD09A1", "D) MOD11A1"],
+    "correct": "A",
+    "explanation": "MCD64A1 describes burned area, and will allow farmers to protect themselves!",
+    "difficulty": "easy",
+    "category": "Climate Impact"
+  },
+  {
+    "educational_context": "Surface reflectance bands are different colors of light that bounce off crops! If there is a lot of reflection off a red color, that tells a farmer something is wrong!",
+    "question": "A plant's red surface reflectance is high. What should farmers do?",
+    "options": ["A) Water the crops more", "B) Test and add nutrients to the soil", "C) Spray a pesticide", "D) All of the Above"],
+    "correct": "D",
+    "explanation": "Red surface reflectance might mean there are a lot of issues with the plants, so testing all these options can help!",
+    "difficulty": "hard",
+    "category": "Crop Health Monitoring"
+  },
+  {
+    "educational_context": "When farmers think about farming sustainably, they need to think about the types of land cover in their region. Turning forests into farms might not be sustainable!",
+    "question": "What is a downside

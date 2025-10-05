@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JosIA Farm</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        body { background: linear-gradient(135deg, #1a1a2e, #0f3460); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .container { background: white; border-radius: 20px; max-width: 1400px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.5); overflow: hidden; max-height: 90vh; display: flex; flex-direction: column; }
+        .top-section { display: flex; }
+        .sidebar { width: 320px; background: white; padding: 0; display: flex; flex-direction: column; }
+        .sidebar-header { background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899); color: white; padding: 20px; text-align: center; }
+        .sidebar-header h1 { font-size: 1.5em; margin-bottom: 5px; }
+        .sidebar-header p { font-size: 0.85em; opacity: 0.95; }
+        .sidebar-content { padding: 15px; overflow-y: auto; flex: 1; }
+        .sidebar-content h3 { color: #5b21b6; margin-bottom: 15px; text-align: center; font-size: 1em; }
+        .main { display: flex; flex: 1; overflow: hidden; flex-direction: column; }
+        .game-area { flex: 1; display: flex; flex-direction: column; }
+        .stats { background: #f8f9fa; padding: 15px 20px; border-bottom: 3px solid #8b5cf6; }
+        .season { text-align: center; font-size: 1em; font-weight: 600; margin-bottom: 10px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .stat { background: white; padding: 10px; border-radius: 8px; }
+        .stat-label { font-size: 0.85em; font-weight: 600; margin-bottom: 5px; }
+        .stat-bar { background: #e9ecef; height: 18px; border-radius: 9px; overflow: hidden; }
+        .stat-fill { height: 100%; color: white; font-size: 0.75em; font-weight: 600; display: flex; align-items: center; justify-content: center; transition: width 0.3s ease; }
+        .money { background: linear-gradient(90deg, #f59e0b, #d97706); }
+        .tree { background: linear-gradient(90deg, #10b981, #059669); }
+        .prestige { background: linear-gradient(90deg, #8b5cf6, #7c3aed); }
+        .content { flex: 1; padding: 20px; overflow-y: auto; }
+        .indicator { background: #f8f9fa; border-radius: 8px; padding: 10px; margin-bottom: 8px; border: 2px solid #e5e7eb; display: flex; align-items: flex-start; gap: 10px; position: relative; }
+        .indicator-image { width: 50px; height: 50px; border-radius: 6px; flex-shrink: 0; background: linear-gradient(135deg, #8b5cf6, #ec4899); display: flex; align-items: center; justify-content: center; font-size: 1.8em; }
+        .indicator-info { flex: 1; min-width: 0; }
+        .indicator-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px; gap: 8px; }
+        .indicator-title { font-weight: 600; color: #1f2937; font-size: 0.85em; }
+        .indicator-value-container { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+        .indicator-value { font-weight: 700; font-size: 1em; white-space: nowrap; }
+        .info-icon { width: 14px; height: 14px; background: #8b5cf6; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; cursor: help; opacity: 0.2; transition: opacity 0.3s; }
+        .info-icon:hover { opacity: 1; }
+        .tooltip { position: fixed; background: #1f2937; color: white; padding: 10px; border-radius: 8px; font-size: 0.75em; width: 260px; z-index: 10000; display: none; line-height: 1.4; box-shadow: 0 4px 6px rgba(0,0,0,0.3); margin-top: -10px; }
+        .tooltip::after { content: ''; position: absolute; bottom: -6px; right: 30px; border: 6px solid transparent; border-top-color: #1f2937; }
+        .info-icon:hover + .tooltip { display: block; }
+        .indicator-desc { font-size: 0.7em; color: #6b7280; margin-top: 2px; }
+        .indicator-value { font-weight: 700; font-size: 1em; }
+        .indicator-desc { font-size: 0.7em; color: #6b7280; margin-top: 3px; }
+        .message { background: linear-gradient(135deg, #e0e7ff, #f3e8ff); border: 3px solid #8b5cf6; border-radius: 12px; padding: 15px; margin-bottom: 15px; }
+        .msg-name { font-size: 1em; font-weight: 700; color: #5b21b6; margin-bottom: 8px; }
+        .msg-text { color: #1e1b4b; font-size: 0.95em; line-height: 1.5; }
+        .btn { background: linear-gradient(135deg, #8b5cf6, #ec4899); color: white; border: none; padding: 12px 30px; font-size: 1em; border-radius: 10px; cursor: pointer; font-weight: 600; margin-top: 10px; transition: transform 0.2s; }
+        .btn:hover { transform: translateY(-2px); }
+        .culture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 15px; }
+        .culture-card { background: #f8f9fa; border: 3px solid #e5e7eb; border-radius: 12px; padding: 12px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .culture-card:hover { border-color: #8b5cf6; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2); }
+        .culture-icon { font-size: 2em; margin-bottom: 8px; }
+        .culture-name { font-size: 1em; font-weight: 700; margin-bottom: 6px; }
+        .culture-profit { background: #10b981; color: white; padding: 4px 10px; border-radius: 15px; font-size: 0.85em; display: inline-block; margin: 6px 0; }
+        .culture-needs { font-size: 0.75em; color: #6b7280; margin: 8px 0; text-align: left; padding: 6px; background: white; border-radius: 6px; }
+        .need-item { display: flex; justify-content: space-between; margin: 3px 0; padding: 2px 0; }
+        .match-good { background: #d1fae5; color: #065f46; padding: 6px; border-radius: 6px; margin-top: 8px; font-weight: 600; font-size: 0.8em; }
+        .match-bad { background: #fee2e2; color: #991b1b; padding: 6px; border-radius: 6px; margin-top: 8px; font-weight: 600; font-size: 0.8em; }
+        .result-card { background: white; border: 3px solid #e5e7eb; border-radius: 12px; padding: 15px; margin: 10px 0; }
+        .result-title { font-size: 1.1em; font-weight: 700; color: #1f2937; margin-bottom: 10px; }
+        .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 10px 0; }
+        .result-item { background: #f8f9fa; padding: 10px; border-radius: 8px; }
+        .result-label { font-size: 0.85em; color: #6b7280; margin-bottom: 5px; }
+        .result-value { font-size: 1.2em; font-weight: 700; }
+        .positive { color: #10b981; }
+        .negative { color: #ef4444; }
+        .progress-bar { background: #e5e7eb; height: 20px; border-radius: 10px; overflow: hidden; margin: 10px 0; position: relative; }
+        .progress-label { font-size: 0.7em; color: #6b7280; margin-bottom: 4px; font-weight: 500; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75em; font-weight: 700; transition: width 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-section">
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h1>🌱 JosIA Farm</h1>
+                    <p>Simulador NASA (2015-2025)</p>
+                </div>
+                <div class="sidebar-content">
+                    <h3>📊 Dados NASA</h3>
+                    <div id="indicators"></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="game-area">
+                    <div class="stats">
+                        <div class="season" id="season">🌸 Primavera 2015 - Trimestre 1/40</div>
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <div class="stat-label">💰 Dinheiro</div>
+                                <div class="stat-bar"><div class="stat-fill money" id="money" style="width:50%">50</div></div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">🌳 Sustentabilidade</div>
+                                <div class="stat-bar"><div class="stat-fill tree" id="tree" style="width:50%">50</div></div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">⭐ Prestígio</div>
+                                <div class="stat-bar"><div class="stat-fill prestige" id="prestige" style="width:50%">50</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content" id="content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var game = { 
+            year: 2015, season: 0, trimester: 1, money: 50, tree: 50, prestige: 50, 
+            activeCrops: [], history: [], usedEvents: []
+        };
+        
+        var seasons = [
+            { name: 'Primavera', icon: '🌸' }, { name: 'Verão', icon: '☀️' },
+            { name: 'Outono', icon: '🍂' }, { name: 'Inverno', icon: '❄️' }
+        ];
+        
+        var nasaData = {
+            2015: [
+                { temp: 25, rain: 180, humidity: 75, ndvi: 0.65, soil: 28, radiation: 18.5 },
+                { temp: 28, rain: 220, humidity: 80, ndvi: 0.70, soil: 31, radiation: 22.3 },
+                { temp: 22, rain: 140, humidity: 68, ndvi: 0.58, soil: 24, radiation: 16.2 },
+                { temp: 18, rain: 95, humidity: 62, ndvi: 0.52, soil: 20, radiation: 14.1 }
+            ],
+            2016: [
+                { temp: 24, rain: 160, humidity: 72, ndvi: 0.62, soil: 27, radiation: 17.8 },
+                { temp: 29, rain: 195, humidity: 78, ndvi: 0.68, soil: 32, radiation: 21.5 },
+                { temp: 23, rain: 155, humidity: 70, ndvi: 0.60, soil: 25, radiation: 16.5 },
+                { temp: 19, rain: 110, humidity: 65, ndvi: 0.55, soil: 21, radiation: 14.5 }
+            ],
+            2017: [
+                { temp: 26, rain: 175, humidity: 76, ndvi: 0.66, soil: 29, radiation: 19.0 },
+                { temp: 30, rain: 210, humidity: 82, ndvi: 0.72, soil: 33, radiation: 23.0 },
+                { temp: 21, rain: 145, humidity: 67, ndvi: 0.59, soil: 23, radiation: 15.8 },
+                { temp: 17, rain: 100, humidity: 63, ndvi: 0.53, soil: 19, radiation: 13.8 }
+            ]
+        };
+        
+        var cultures = {
+            soja: { 
+                name: 'Soja', icon: '🌾', profit: 15, duration: 2, seasons: [0, 1],
+                image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=300&h=200&fit=crop&q=80',
+                needs: { temp: [22, 30], rain: [140, 220], humidity: [65, 85], soil: [20, 32], radiation: [16, 24], ndvi: [0.60, 0.75] }
+            },
+            milho: { 
+                name: 'Milho', icon: '🌽', profit: 18, duration: 2, seasons: [0, 1],
+                image: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=300&h=200&fit=crop&q=80',
+                needs: { temp: [24, 32], rain: [160, 240], humidity: [70, 90], soil: [22, 35], radiation: [18, 26], ndvi: [0.65, 0.80] }
+            },
+            trigo: { 
+                name: 'Trigo', icon: '🌾', profit: 12, duration: 2, seasons: [2, 3],
+                image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=300&h=200&fit=crop&q=80',
+                needs: { temp: [15, 24], rain: [80, 150], humidity: [55, 75], soil: [15, 28], radiation: [12, 20], ndvi: [0.50, 0.65] }
+            },
+            feijao: { 
+                name: 'Feijão', icon: '🫘', profit: 14, duration: 1, seasons: [0, 2],
+                image: 'https://images.unsplash.com/photo-1612459411706-7b2df863d2b4?w=300&h=200&fit=crop&q=80',
+                needs: { temp: [18, 28], rain: [120, 180], humidity: [60, 80], soil: [18, 30], radiation: [14, 22], ndvi: [0.55, 0.70] }
+            }
+        };
+
+        var events = [
+            {
+                id: 1, title: '🦗 Invasão de Gafanhotos', icon: '🦗',
+                description: 'Praga de gafanhotos migratórios se aproxima. Ação urgente!',
+                options: [
+                    { text: 'Inseticida químico', desc: 'Pulverização aérea convencional', money: -5, tree: -10, prestige: -3, cropDamage: 0, message: 'Praga eliminada, mas solo contaminado', explanation: 'Produtos químicos foram 100% eficazes matando gafanhotos em 24h. Porém, contaminaram lençóis freáticos (-10 sustentabilidade), custaram caro e prejudicaram reputação por impacto ambiental.' },
+                    { text: 'Biocontrole com fungos', desc: 'Aplicar Metarhizium anisopliae', money: -8, tree: 5, prestige: 7, cropDamage: 12, message: 'Método ecológico demorou, perdas moderadas', explanation: 'Fungo levou 5 dias para infectar gafanhotos, causando 12% de perdas. Custo maior, mas melhorou sustentabilidade e sua reputação como produtor inovador em biocontrole.' },
+                    { text: 'Monitorar população', desc: 'Observar sem intervir', money: 0, tree: 0, prestige: -8, cropDamage: 35, message: 'Infestação devastou as plantações', explanation: 'Gafanhotos consumiram 35% das folhas. Sem custos diretos, mas reputação despencou por negligência. Vizinhos reclamaram que a praga se espalhou para fazendas adjacentes.' }
+                ]
+            },
+            {
+                id: 2, title: '☀️ Veranico Prolongado', icon: '☀️',
+                description: '15 dias sem chuva com 38°C. Stress hídrico iminente!',
+                options: [
+                    { text: 'Irrigação por aspersão', desc: 'Ligar sistema intensivo 24h', money: -12, tree: -6, prestige: 0, cropDamage: 3, message: 'Alto consumo de água salvou colheita', explanation: 'Irrigação consumiu 200mil litros/dia, evaporando 40% por calor. Perdas mínimas (3%), mas custo alto de energia/água e impacto em sustentabilidade hídrica regional.' },
+                    { text: 'Mulching + irrigação noturna', desc: 'Cobertura morta + eficiência', money: -7, tree: 8, prestige: 6, cropDamage: 10, message: 'Gestão inteligente reduziu danos', explanation: 'Palha reteve umidade, irrigação noturna evitou evaporação. Perdas 10% por stress térmico inicial. Método sustentável aumentou prestígio e saúde do solo.' },
+                    { text: 'Aguardar previsão de chuva', desc: 'Confiar na meteorologia', money: 0, tree: 0, prestige: -6, cropDamage: 28, message: 'Chuvas atrasaram, plantas murcharam', explanation: 'Previsão errou 5 dias. Plantas sofreram desidratação severa (28% perdas). Zero custos mas má gestão prejudicou reputação profissional.' }
+                ]
+            },
+            {
+                id: 3, title: '💧 Enchente Repentina', icon: '💧',
+                description: 'Chuva de 180mm em 6h. Alagamento iminente das baixadas!',
+                options: [
+                    { text: 'Drenagem emergencial', desc: 'Abrir valas de escoamento', money: -10, tree: -4, prestige: 2, cropDamage: 8, message: 'Valas salvaram a maior parte', explanation: 'Maquinário abriu canais de drenagem em 12h. Perdas 8% nas áreas mais baixas. Custo alto de combustível, erosão do solo (-4 sustentabilidade), mas boa gestão.' },
+                    { text: 'Colheita antecipada', desc: 'Colher área inundável agora', money: -6, tree: 0, prestige: -5, cropDamage: 22, message: 'Produto imaturo, menor valor', explanation: 'Grãos ainda não atingiram ponto ideal. Perdas de 22% na produtividade e qualidade. Trabalho noturno emergencial custou extra e produto inferior prejudicou reputação.' },
+                    { text: 'Aceitar a inundação', desc: 'Deixar a água escoar naturalmente', money: 0, tree: 3, prestige: -10, cropDamage: 40, message: 'Alagamento destruiu raízes', explanation: 'Água permaneceu 48h, causando hipóxia nas raízes (40% perdas). Sem custos, leve melhora em recarga de aquíferos, mas gestão passiva destruiu credibilidade.' }
+                ]
+            },
+            {
+                id: 4, title: '🌪️ Vendaval Severo', icon: '🌪️',
+                description: 'Meteorologia prevê ventos de 90km/h em 24h. Quebra de caules!',
+                options: [
+                    { text: 'Quebra-ventos emergencial', desc: 'Plantar bambus/instalar telas', money: -11, tree: 12, prestige: 8, cropDamage: 5, message: 'Barreiras protegeram efetivamente', explanation: 'Bambus + telas reduziram velocidade do vento em 60%. Apenas 5% de danos. Alto custo inicial, mas investimento duradouro melhorou sustentabilidade e reputação.' },
+                    { text: 'Amarrar plantas', desc: 'Escorar com estacas', money: -4, tree: 0, prestige: -2, cropDamage: 18, message: 'Trabalho manual parcialmente eficaz', explanation: 'Equipe trabalhou 20h amarrando plantas. Método tradicional evitou parte dos danos (18% perdas), mas foi trabalhoso e visto como improviso por falta de planejamento.' },
+                    { text: 'Confiar na resistência', desc: 'Plantas estão firmes, vai aguentar', money: 0, tree: 0, prestige: -9, cropDamage: 38, message: 'Ventos arrancaram e quebraram', explanation: 'Rajadas de 95km/h quebraram 38% dos caules. Dano irreversível. Falta de preparação foi criticada por técnicos e vizinhos, prejudicando muito sua imagem.' }
+                ]
+            },
+            {
+                id: 5, title: '🦠 Ferrugem Asiática', icon: '🦠',
+                description: 'Fungo Phakopsora se alastra. Manchas nas folhas!',
+                options: [
+                    { text: 'Fungicida triazol', desc: 'Pulverizar química sistêmica', money: -9, tree: -7, prestige: -3, cropDamage: 4, message: 'Doença controlada rapidamente', explanation: 'Triazol penetrou nas plantas e parou a ferrugem em 72h (4% perdas). Custo moderado-alto, impacto ambiental significativo e uso de químicos afetou certificações orgânicas.' },
+                    { text: 'Arrancar plantas doentes', desc: 'Erradicar focos de infecção', money: -5, tree: 4, prestige: 2, cropDamage: 20, message: 'Contenção limitou propagação', explanation: 'Removeu 20% das plantas infectadas, impedindo alastramento total. Método preventivo melhorou sustentabilidade, mas perdas diretas foram significativas.' },
+                    { text: 'Biofungicida (Bacillus)', desc: 'Aplicar controle microbiológico', money: -7, tree: 10, prestige: 9, cropDamage: 14, message: 'Biocontrole eficaz, resultado premium', explanation: 'Bacillus competiu com fungo patogênico. Controle em 7 dias, 14% perdas. Método sustentável virou case de sucesso, elevando muito prestígio regional.' }
+                ]
+            },
+            {
+                id: 6, title: '🐗 Invasão de Javalis', icon: '🐗',
+                description: 'Bando de 30 javalis devastando plantação noturna!',
+                options: [
+                    { text: 'Cerca elétrica', desc: 'Instalar perímetro eletrificado', money: -13, tree: -2, prestige: 3, cropDamage: 2, message: 'Barreira efetiva, javalis repelidos', explanation: 'Cerca de 2km bloqueou acesso (2% perdas residuais). Alto investimento, leve impacto ambiental por consumo elétrico, mas solução profissional reconhecida.' },
+                    { text: 'Caça controlada', desc: 'Autorização para abate seletivo', money: -3, tree: 0, prestige: -6, cropDamage: 12, message: 'Abate reduziu população, polêmica', explanation: 'Eliminou 15 javalis em 3 noites, reduzindo danos a 12%. Baixo custo mas gerou controvérsia com ambientalistas e mídia local, prejudicando imagem.' },
+                    { text: 'Repelentes sonoros', desc: 'Dispositivos de ultrassom', money: -6, tree: 5, prestige: 1, cropDamage: 25, message: 'Javalis se adaptaram ao som', explanation: 'Inicialmente funcionou, mas após 4 dias javalis ignoraram os sons (25% perdas). Método não-letal melhorou sustentabilidade mas foi ineficaz a médio prazo.' }
+                ]
+            },
+            {
+                id: 7, title: '🔥 Incêndio Próximo', icon: '🔥',
+                description: 'Fogo a 2km com vento em sua direção. Risco extremo!',
+                options: [
+                    { text: 'Aceiro e irrigação', desc: 'Criar barreira sem vegetação', money: -8, tree: -3, prestige: 7, cropDamage: 1, message: 'Preparação impediu tragédia', explanation: 'Aceiro de 50m + irrigação formou barreira anti-fogo. Apenas 1% queimado nas bordas. Investimento em segurança foi elogiado por bombeiros e vizinhos.' },
+                    { text: 'Evacuar e rezar', desc: 'Remover equipamentos, esperar', money: -2, tree: 0, prestige: -8, cropDamage: 45, message: 'Fogo avançou sem resistência', explanation: 'Salvou maquinário mas perdeu 45% da lavoura. Falta de ação preventiva foi vista como irresponsável pela comunidade e seguradoras.' },
+                    { text: 'Contra-fogo controlado', desc: 'Queimar perímetro antes', money: -4, tree: -8, prestige: -5, cropDamage: 15, message: 'Técnica arriscada, danos colaterais', explanation: 'Contra-fogo funcionou mas saiu de controle por 2h, queimando 15% além do planejado. Emissões prejudicaram sustentabilidade e técnica controversa afetou imagem.' }
+                ]
+            },
+            {
+                id: 8, title: '❄️ Geada Tardia', icon: '❄️',
+                description: '-2°C previsto em plena primavera. Cristais de gelo!',
+                options: [
+                    { text: 'Aquecedores + ventiladores', desc: 'Aquecer ar sobre plantação', money: -15, tree: -9, prestige: 4, cropDamage: 3, message: 'Tecnologia salvou a safra', explanation: 'Equipamentos mantiveram temperatura acima de 0°C. Perdas mínimas (3%), mas custo altíssimo de combustível/energia e grande pegada de carbono (-9 sustentabilidade).' },
+                    { text: 'Irrigação aspersão', desc: 'Camada de gelo protetor', money: -7, tree: -2, prestige: 6, cropDamage: 8, message: 'Água congelou protegendo plantas', explanation: 'Paradoxalmente, camada de gelo a 0°C protegeu tecidos internos de -2°C externo. Perdas 8%, método inteligente elevou reputação técnica.' },
+                    { text: 'Cobertura com palha', desc: 'Manta térmica natural', money: -3, tree: 6, prestige: 0, cropDamage: 22, message: 'Proteção parcial, várias perdas', explanation: 'Palha isolou parcialmente mas geada penetrou nas áreas descobertas (22% perdas). Baixo custo, sustentável, mas resultado mediano não impressionou.' }
+                ]
+            },
+            {
+                id: 9, title: '🐛 Lagarta-do-Cartucho', icon: '🐛',
+                description: 'Spodoptera frugiperda infestando milho. Folhas destruídas!',
+                options: [
+                    { text: 'Inseticida diamida', desc: 'Produto de última geração', money: -10, tree: -8, prestige: -2, cropDamage: 2, message: 'Controle químico total', explanation: 'Diamida eliminou 98% das lagartas em 48h. Perdas ínfimas (2%), mas custo altíssimo, resistência futura e impacto ambiental severo.' },
+                    { text: 'Trichogramma (vespas)', desc: 'Parasitoides de ovos', money: -6, tree: 11, prestige: 10, cropDamage: 9, message: 'Biocontrole virou referência', explanation: 'Vespinhas parasitaram ovos da lagarta. Controle em 10 dias (9% perdas). Método sustentável se tornou case de sucesso nacional, elevando muito prestígio.' },
+                    { text: 'Bacillus thuringiensis', desc: 'Bioinseticida bacteriano', money: -5, tree: 7, prestige: 5, cropDamage: 12, message: 'Solução orgânica eficiente', explanation: 'Bt toxinas mataram lagartas seletivamente. Perdas 12%, custo médio. Certificação orgânica mantida, boa reputação e melhora ambiental.' }
+                ]
+            },
+            {
+                id: 10, title: '💨 Granizo Anunciado', icon: '💨',
+                description: 'Radar mostra tempestade com granizo em 3h. Impacto físico!',
+                options: [
+                    { text: 'Tela antigranizo', desc: 'Cobrir área com redes', money: -14, tree: 3, prestige: 9, cropDamage: 1, message: 'Proteção eficaz, investimento validado', explanation: 'Telas de 4mm absorveram impacto de pedras de 2cm. Perdas mínimas (1%). Alto investimento mas reutilizável. Vizinhos impressionados com planejamento preventivo.' },
+                    { text: 'Colheita emergencial', desc: 'Colher tudo antes do granizo', money: -5, tree: 0, prestige: -4, cropDamage: 18, message: 'Produto imaturo, preço reduzido', explanation: 'Equipe colheu em 2h, mas grãos com 25% de umidade acima do ideal. Perdas de 18% na qualidade/peso. Decisão apressada prejudicou valor de venda.' },
+                    { text: 'Seguro agrícola', desc: 'Acionar apólice de granizo', money: 8, tree: 0, prestige: -7, cropDamage: 35, message: 'Indenização cobriu, mas perdeu safra', explanation: 'Granizo destruiu 35% da lavoura. Seguro pagou compensação (+8 dinheiro) mas perda produtiva foi grande. Comunidade criticou postura passiva de "deixar acontecer".' }
+                ]
+            },
+            {
+                id: 11, title: '🌾 Cigarrinha-das-Pastagens', icon: '🌾',
+                description: 'Mahanarva fimbriolata sugando seiva. Amarelecimento!',
+                options: [
+                    { text: 'Neonicotinoide', desc: 'Inseticida sistêmico potente', money: -8, tree: -11, prestige: -5, cropDamage: 3, message: 'Praga eliminada, abelhas afetadas', explanation: 'Produto matou cigarrinhas em 24h (3% perdas). Porém, toxicidade para polinizadores causou morte de colmeias vizinhas. Impacto ambiental severo e processo judicial de apicultor.' },
+                    { text: 'Fungo Metarhizium', desc: 'Biopesticida entomopatogênico', money: -6, tree: 9, prestige: 8, cropDamage: 11, message: 'Controle biológico sustentável', explanation: 'Fungo infectou cigarrinhas em 6 dias. Perdas 11%, mas método preservou inimigos naturais. Fazenda certificada como biocontrole exemplar.' },
+                    { text: 'Rotação de pastagem', desc: 'Mover gado, quebrar ciclo', money: -4, tree: 8, prestige: 3, cropDamage: 16, message: 'Manejo integrado, perdas médias', explanation: 'Rotação interrompeu ciclo reprodutivo da praga. Perdas de 16% mas sem químicos. Método tradicional melhorou sustentabilidade a longo prazo.' }
+                ]
+            },
+            {
+                id: 12, title: '🌊 Erosão por Chuvas', icon: '🌊',
+                description: 'Solo vermelho escorrendo. Perda de camada fértil!',
+                options: [
+                    { text: 'Terraços em curva de nível', desc: 'Construir contenções permanentes', money: -12, tree: 15, prestige: 10, cropDamage: 5, message: 'Obra impediu erosão futura', explanation: 'Terraços retiveram solo e água. Perdas 5% durante construção. Investimento permanente tornou fazenda modelo em conservação, elevando muito prestígio.' },
+                    { text: 'Sacos de areia emergencial', desc: 'Barreira temporária', money: -4, tree: 2, prestige: -1, cropDamage: 19, message: 'Contenção parcial, solo perdido', explanation: 'Sacos frearam parte da erosão mas enxurrada levou 19% do solo superficial. Solução improvisada teve resultado mediano e custo de reposição de nutrientes.' },
+                    { text: 'Plantar capim vetiver', desc: 'Raízes profundas fixadoras', money: -5, tree: 12, prestige: 7, cropDamage: 8, message: 'Sistema radicular segurou solo', explanation: 'Vetiver com raízes de 3m formou barreira viva. Perdas 8%, mas solução verde permanente melhorou muito sustentabilidade e virou referência regional.' }
+                ]
+            },
+            {
+                id: 13, title: '🐀 Ratos no Armazém', icon: '🐀',
+                description: 'Infestação consumindo 5% dos grãos armazenados!',
+                options: [
+                    { text: 'Raticida químico', desc: 'Veneno anticoagulante', money: -3, tree: -6, prestige: -4, cropDamage: 2, message: 'Ratos mortos, contaminação residual', explanation: 'Veneno eliminou 90% dos ratos (2% perdas restantes). Porém, predadores naturais morreram ao comer ratos envenenados. Contaminação e morte de corujas prejudicou ecossistema.' },
+                    { text: 'Gatos + corujas', desc: 'Predadores naturais', money: -2, tree: 10, prestige: 9, cropDamage: 7, message: 'Controle natural eficiente', explanation: '4 gatos + 2 caixas-ninho para corujas controlaram população. Perdas 7% iniciais mas solução permanente. Método ecológico virou atração educativa da fazenda.' },
+                    { text: 'Armadilhas mecânicas', desc: 'Ratoeiras em massa', money: -4, tree: 4, prestige: 1, cropDamage: 12, message: 'Captura parcial, trabalho intenso', explanation: '50 armadilhas capturaram metade dos ratos. Perdas 12%, trabalho diário de verificação. Método não-químico mas trabalhoso, resultado mediano.' }
+                ]
+            },
+            {
+                id: 14, title: '🦠 Vírus do Mosaico', icon: '🦠',
+                description: 'Manchas em folhas de tomate/pimentão. Transmissão rápida!',
+                options: [
+                    { text: 'Erradicar plantas infectadas', desc: 'Arrancar e queimar imediatamente', money: -6, tree: -3, prestige: 4, cropDamage: 25, message: 'Vírus contido, perdas severas', explanation: 'Removeu 25% das plantas infectadas, impedindo epidemia total. Decisão rápida e correta tecnicamente reconhecida, mas queima gerou emissões.' },
+                    { text: 'Controlar mosca-branca', desc: 'Eliminar vetor transmissor', money: -7, tree: 5, prestige: 6, cropDamage: 15, message: 'Vetor controlado, propagação freada', explanation: 'Inseticida biológico contra mosca reduziu transmissão. Perdas 15% mas vírus não se alastrou. Abordagem preventiva foi elogiada por extensionistas.' },
+                    { text: 'Variedade resistente', desc: 'Replantar com genética tolerante', money: -15, tree: 6, prestige: 11, cropDamage: 8, message: 'Investimento em genética venceu', explanation: 'Substituiu por cultivar resistente ao vírus. Alto custo inicial mas perdas apenas 8%. Inovação genética tornou fazenda pioneira e aumentou muito prestígio.' }
+                ]
+            },
+            {
+                id: 15, title: '⚡ Queda de Energia', icon: '⚡',
+                description: 'Blackout de 48h. Silos e irrigação parados!',
+                options: [
+                    { text: 'Gerador a diesel', desc: 'Energia emergencial completa', money: -11, tree: -7, prestige: 3, cropDamage: 1, message: 'Operações mantidas, custos altos', explanation: 'Gerador manteve tudo funcionando (1% perdas). Consumo de 500L de diesel custou caro e emissões foram significativas, mas gestão de crise foi profissional.' },
+                    { text: 'Priorizar irrigação manual', desc: 'Salvar cultivos críticos', money: -5, tree: 2, prestige: 0, cropDamage: 16, message: 'Cultivos principais salvos', explanation: 'Equipe bombeou água manualmente para áreas prioritárias. Perdas 16% nas áreas não irrigadas. Esforço físico intenso, resultado parcial mas sustentável.' },
+                    { text: 'Aguardar restabelecimento', desc: 'Esperar energia voltar', money: 0, tree: 0, prestige: -9, cropDamage: 32, message: 'Perdas por falta de planejamento', explanation: '48h sem irrigação em pleno verão causou 32% de perdas. Falta de contingência foi vista como amadorismo pela comunidade agrícola.' }
+                ]
+            }
+        ];
+
+        function getCurrentData() {
+            if (!nasaData[game.year]) return nasaData[2015][0];
+            return nasaData[game.year][game.season];
+        }
+
+        function updateIndicators() {
+            var data = getCurrentData();
+            var indicators = [
+                {
+                    icon: '🌡️',
+                    title: 'Temp. Ar',
+                    value: data.temp + '°C',
+                    desc: 'MODIS Terra',
+                    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=100&h=100&fit=crop&q=80',
+                    tooltip: 'Temperatura do ar medida por satélite MODIS (Moderate Resolution Imaging Spectroradiometer) a bordo do Terra. Crucial para determinar ciclos de crescimento das plantas e evapotranspiração.'
+                },
+                {
+                    icon: '💧',
+                    title: 'Chuva',
+                    value: data.rain + 'mm',
+                    desc: 'GPM',
+                    image: 'https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?w=100&h=100&fit=crop&q=80',
+                    tooltip: 'Precipitação acumulada medida pelo GPM (Global Precipitation Measurement). Essencial para planejamento de irrigação e previsão de disponibilidade hídrica para cultivos.'
+                },
+                {
+                    icon: '💨',
+                    title: 'Umidade',
+                    value: data.humidity + '%',
+                    desc: 'AIRS',
+                    image: 'https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=100&h=100&fit=crop&q=80',
+                    tooltip: 'Umidade relativa do ar obtida pelo AIRS (Atmospheric Infrared Sounder). Afeta diretamente incidência de doenças fúngicas, stress hídrico das plantas e eficiência da irrigação.'
+                },
+                {
+                    icon: '🌿',
+                    title: 'NDVI',
+                    value: data.ndvi.toFixed(2),
+                    desc: 'Landsat 8',
+                    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=100&h=100&fit=crop&q=80',
+                    tooltip: 'Índice de Vegetação por Diferença Normalizada do Landsat 8. Valores entre 0.6-0.8 indicam vegetação saudável. Usado para monitorar vigor das plantas e detectar stress precocemente.'
+                },
+                {
+                    icon: '🌡️',
+                    title: 'Solo',
+                    value: data.soil + '°C',
+                    desc: 'SMAP',
+                    image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=100&h=100&fit=crop&q=80',
+                    tooltip: 'Temperatura do solo medida pelo SMAP (Soil Moisture Active Passive). Determina atividade microbiana, germinação de sementes e absorção de nutrientes pelas raízes.'
+                },
+                {
+                    icon: '☀️',
+                    title: 'Radiação',
+                    value: data.radiation.toFixed(1),
+                    desc: 'CERES MJ/m²',
+                    image: 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=100&h=100&fit=crop&q=80',
+                    tooltip: 'Radiação solar medida por CERES (Clouds and Earth\'s Radiant Energy System). Energia disponível para fotossíntese. Valores baixos (<12) limitam crescimento, valores altos (>25) podem causar stress.'
+                }
+            ];
+            
+            var iconMap = {
+                '🌡️': '🌡️',
+                '💧': '💧', 
+                '💨': '💨',
+                '🌿': '🌿',
+                '☀️': '☀️'
+            };
+            
+            var html = '';
+            indicators.forEach(function(ind) {
+                html += '<div class="indicator">';
+                html += '<div class="indicator-image">' + ind.icon + '</div>';
+                html += '<div class="indicator-info">';
+                html += '<div class="indicator-header">';
+                html += '<div>';
+                html += '<span class="indicator-title">' + ind.title + '</span>';
+                html += '<div class="indicator-desc">' + ind.desc + '</div>';
+                html += '</div>';
+                html += '<div class="indicator-value-container">';
+                html += '<span class="indicator-value">' + ind.value + '</span>';
+                html += '<span class="info-icon">?</span>';
+                html += '<div class="tooltip">' + ind.tooltip + '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+            });
+            
+            document.getElementById('indicators').innerHTML = html;
+        }
+
+        function update() {
+            var moneyPct = Math.min(Math.max(game.money, 0), 100);
+            var treePct = Math.min(Math.max(game.tree, 0), 100);
+            var prestigePct = Math.min(Math.max(game.prestige, 0), 100);
+            
+            document.getElementById('money').style.width = moneyPct + '%';
+            document.getElementById('money').textContent = Math.round(game.money);
+            document.getElementById('tree').style.width = treePct + '%';
+            document.getElementById('tree').textContent = Math.round(game.tree);
+            document.getElementById('prestige').style.width = prestigePct + '%';
+            document.getElementById('prestige').textContent = Math.round(game.prestige);
+            var s = seasons[game.season];
+            document.getElementById('season').textContent = s.icon + ' ' + s.name + ' ' + game.year + ' - Trimestre ' + game.trimester + '/40';
+            updateIndicators();
+        }
+
+        function show(html) {
+            document.getElementById('content').innerHTML = html;
+        }
+
+        function intro() {
+            show('<div class="message"><div class="msg-name">JosIA</div><div class="msg-text">Bem-vindo ao JosIA Farm! 🌱<br><br>Gerencie sua fazenda por 10 anos (40 trimestres) usando dados reais da NASA.<br><br>⚠️ <strong>A cada trimestre você enfrentará um desafio climático ou agrícola.</strong> Suas decisões terão consequências - aprenda com os erros!</div></div><button class="btn" onclick="plantMenu()">🚜 Iniciar Jornada</button>');
+        }
+
+        function plantMenu() {
+            var html = '<div class="message"><div class="msg-name">JosIA</div><div class="msg-text">' + seasons[game.season].name + ' ' + game.year + '. Escolha seu cultivo comparando com os dados NASA! →</div></div>';
+            html += '<div class="culture-grid">';
+            for (var key in cultures) {
+                var c = cultures[key];
+                var canPlant = c.seasons.indexOf(game.season) >= 0;
+                if (canPlant) {
+                    var data = getCurrentData();
+                    var tempOk = data.temp >= c.needs.temp[0] && data.temp <= c.needs.temp[1];
+                    var rainOk = data.rain >= c.needs.rain[0] && data.rain <= c.needs.rain[1];
+                    var humOk = data.humidity >= c.needs.humidity[0] && data.humidity <= c.needs.humidity[1];
+                    var soilOk = data.soil >= c.needs.soil[0] && data.soil <= c.needs.soil[1];
+                    var radOk = data.radiation >= c.needs.radiation[0] && data.radiation <= c.needs.radiation[1];
+                    var ndviOk = data.ndvi >= c.needs.ndvi[0] && data.ndvi <= c.needs.ndvi[1];
+                    var match = tempOk && rainOk && humOk && soilOk && radOk && ndviOk;
+                    
+                    html += '<div class="culture-card" onclick="plant(\'' + key + '\')">';
+                    html += '<div class="culture-image">' + c.icon + '</div>';
+                    html += '<div class="culture-name">' + c.name + '</div>';
+                    html += '<div class="culture-profit">+' + c.profit + ' 💰 | ' + c.duration + ' trim.</div>';
+                    html += '<div class="culture-needs">';
+                    html += '<div class="need-item"><span>🌡️ Temp:</span><strong>' + c.needs.temp[0] + '-' + c.needs.temp[1] + '°C</strong></div>';
+                    html += '<div class="need-item"><span>💧 Chuva:</span><strong>' + c.needs.rain[0] + '-' + c.needs.rain[1] + 'mm</strong></div>';
+                    html += '<div class="need-item"><span>💨 Umidade:</span><strong>' + c.needs.humidity[0] + '-' + c.needs.humidity[1] + '%</strong></div>';
+                    html += '<div class="need-item"><span>🌡️ Solo:</span><strong>' + c.needs.soil[0] + '-' + c.needs.soil[1] + '°C</strong></div>';
+                    html += '<div class="need-item"><span>☀️ Radiação:</span><strong>' + c.needs.radiation[0] + '-' + c.needs.radiation[1] + '</strong></div>';
+                    html += '<div class="need-item"><span>🌿 NDVI:</span><strong>' + c.needs.ndvi[0] + '-' + c.needs.ndvi[1] + '</strong></div>';
+                    html += '</div>';
+                    html += '<div class="' + (match ? 'match-good' : 'match-bad') + '">' + (match ? '✅ Condições ideais' : '⚠️ Fora do ideal') + '</div>';
+                    html += '</div>';
+                }
+            }
+            html += '</div>';
+            show(html);
+        }
+
+        function plant(key) {
+            var c = cultures[key];
+            game.activeCrops.push({ type: key, name: c.name, icon: c.icon, progress: 0, duration: c.duration, profit: c.profit });
+            triggerEvent();
+        }
+
+        function triggerEvent() {
+            var availableEvents = events.filter(function(e) { 
+                return game.usedEvents.indexOf(e.id) === -1; 
+            });
+            
+            if (availableEvents.length === 0) {
+                game.usedEvents = [];
+                availableEvents = events;
+            }
+            
+            var randomEvent = availableEvents[Math.floor(Math.random() * availableEvents.length)];
+            game.usedEvents.push(randomEvent.id);
+            showEvent(randomEvent);
+        }
+
+        function showEvent(event) {
+            var eventImages = {
+                1: 'https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=300&h=200&fit=crop&q=80',
+                2: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=300&h=200&fit=crop&q=80',
+                3: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=300&h=200&fit=crop&q=80',
+                4: 'https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=300&h=200&fit=crop&q=80',
+                5: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=300&h=200&fit=crop&q=80',
+                6: 'https://images.unsplash.com/photo-1560493676-04071c5f467b?w=300&h=200&fit=crop&q=80',
+                7: 'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=300&h=200&fit=crop&q=80',
+                8: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=300&h=200&fit=crop&q=80',
+                9: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=300&h=200&fit=crop&q=80',
+                10: 'https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=300&h=200&fit=crop&q=80',
+                11: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=300&h=200&fit=crop&q=80',
+                12: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=300&h=200&fit=crop&q=80',
+                13: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&h=200&fit=crop&q=80',
+                14: 'https://images.unsplash.com/photo-1592921870583-91b3b6b83c6d?w=300&h=200&fit=crop&q=80',
+                15: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=300&h=200&fit=crop&q=80'
+            };
+            
+            var html = '<div class="message" style="background: linear-gradient(135deg, #fef3c7, #fde68a); border-color: #f59e0b;">';
+            html += '<div class="msg-name" style="color: #92400e;">⚠️ Evento Climático/Agrícola</div>';
+            html += '<div class="msg-text" style="color: #78350f;"><strong>' + event.icon + ' ' + event.title + '</strong><br><br>' + event.description + '</div>';
+            html += '</div>';
+            
+            html += '<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 15px;">';
+            
+            for (var i = 0; i < event.options.length; i++) {
+                var option = event.options[i];
+                html += '<div class="culture-card" onclick="selectEventOption(' + event.id + ', ' + i + ')" style="cursor: pointer; text-align: center; padding: 15px; display: flex; flex-direction: column; align-items: center;">';
+                html += '<div class="culture-image">' + event.icon + '</div>';
+                html += '<div class="culture-name" style="font-size: 1em; margin-bottom: 8px;">' + option.text + '</div>';
+                html += '<div style="font-size: 0.8em; color: #6b7280; line-height: 1.3;">' + option.desc + '</div>';
+                html += '</div>';
+            }
+            
+            html += '</div>';
+            show(html);
+        }
+
+        function selectEventOption(eventId, optionIndex) {
+            var event = events.find(function(e) { return e.id === eventId; });
+            var option = event.options[optionIndex];
+            
+            game.money += option.money;
+            game.tree += option.tree;
+            game.prestige += option.prestige;
+            
+            if (option.cropDamage > 0 && game.activeCrops.length > 0) {
+                game.activeCrops[game.activeCrops.length - 1].damage = option.cropDamage;
+            }
+            
+            var html = '<div class="message" style="background: linear-gradient(135deg, #dbeafe, #e0e7ff); border-color: #3b82f6;">';
+            html += '<div class="msg-name" style="color: #1e40af;">📋 Resultado da Decisão</div>';
+            html += '<div class="msg-text" style="color: #1e3a8a;"><strong>' + option.message + '</strong></div>';
+            html += '</div>';
+            
+            html += '<div class="result-card">';
+            html += '<div class="result-title">Impactos da sua escolha:</div>';
+            html += '<div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; justify-content: space-around;">';
+            
+            if (option.money !== 0) {
+                html += '<div style="text-align: center; flex: 1; min-width: 120px;">';
+                html += '<div style="font-size: 0.85em; color: #6b7280; margin-bottom: 5px;">💰 Dinheiro</div>';
+                html += '<div style="font-size: 1.5em; font-weight: 700; color: ' + (option.money > 0 ? '#10b981' : '#ef4444') + ';">' + (option.money > 0 ? '+' : '') + option.money + '</div>';
+                html += '</div>';
+            }
+            if (option.tree !== 0) {
+                html += '<div style="text-align: center; flex: 1; min-width: 120px;">';
+                html += '<div style="font-size: 0.85em; color: #6b7280; margin-bottom: 5px;">🌳 Sustentabilidade</div>';
+                html += '<div style="font-size: 1.5em; font-weight: 700; color: ' + (option.tree > 0 ? '#10b981' : '#ef4444') + ';">' + (option.tree > 0 ? '+' : '') + option.tree + '</div>';
+                html += '</div>';
+            }
+            if (option.prestige !== 0) {
+                html += '<div style="text-align: center; flex: 1; min-width: 120px;">';
+                html += '<div style="font-size: 0.85em; color: #6b7280; margin-bottom: 5px;">⭐ Prestígio</div>';
+                html += '<div style="font-size: 1.5em; font-weight: 700; color: ' + (option.prestige > 0 ? '#10b981' : '#ef4444') + ';">' + (option.prestige > 0 ? '+' : '') + option.prestige + '</div>';
+                html += '</div>';
+            }
+            if (option.cropDamage > 0) {
+                html += '<div style="text-align: center; flex: 1; min-width: 120px;">';
+                html += '<div style="font-size: 0.85em; color: #6b7280; margin-bottom: 5px;">🌾 Dano à Colheita</div>';
+                html += '<div style="font-size: 1.5em; font-weight: 700; color: #ef4444;">-' + option.cropDamage + '%</div>';
+                html += '</div>';
+            }
+            
+            html += '</div>';
+            html += '</div>';
+            
+            html += '<div class="message" style="margin-top: 15px;">';
+            html += '<div class="msg-name">🎓 Análise da Decisão</div>';
+            html += '<div class="msg-text">' + option.explanation + '</div>';
+            html += '</div>';
+            
+            html += '<button class="btn" onclick="showTrimesterResults()">Continuar →</button>';
+            show(html);
+            update();
+        }
+
+        function showTrimesterResults() {
+            var data = getCurrentData();
+            var html = '<div class="message"><div class="msg-name">JosIA</div><div class="msg-text">📋 Resultados do Trimestre ' + game.trimester + '</div></div>';
+            
+            if (game.activeCrops.length === 0) {
+                html += '<div class="result-card"><div class="result-title">⚠️ Nenhum cultivo ativo</div><div class="msg-text">Você não plantou nada neste trimestre.</div></div>';
+            }
+            
+            html += '<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">';
+            
+            for (var i = 0; i < game.activeCrops.length; i++) {
+                var crop = game.activeCrops[i];
+                crop.progress++;
+                var progressPct = (crop.progress / crop.duration * 100).toFixed(0);
+                var c = cultures[crop.type];
+                var d = getCurrentData();
+                var compatibility = 0;
+                
+                if (d.temp >= c.needs.temp[0] && d.temp <= c.needs.temp[1]) { compatibility += 1; }
+                if (d.rain >= c.needs.rain[0] && d.rain <= c.needs.rain[1]) { compatibility += 1; }
+                if (d.humidity >= c.needs.humidity[0] && d.humidity <= c.needs.humidity[1]) { compatibility += 1; }
+                if (d.soil >= c.needs.soil[0] && d.soil <= c.needs.soil[1]) { compatibility += 1; }
+                if (d.radiation >= c.needs.radiation[0] && d.radiation <= c.needs.radiation[1]) { compatibility += 1; }
+                if (d.ndvi >= c.needs.ndvi[0] && d.ndvi <= c.needs.ndvi[1]) { compatibility += 1; }
+                
+                var compatibilityPct = Math.round((compatibility / 6) * 100);
+                
+                var growthImpact = (compatibilityPct / 100 * 5).toFixed(1);
+                game.tree += parseFloat(growthImpact);
+                
+                html += '<div class="result-card">';
+                html += '<div class="result-title">';
+                html += '<span>' + crop.icon + ' ' + crop.name + '</span>';
+                html += '<div class="result-progress-container">';
+                html += '<div class="progress-label">Desenvolvimento</div>';
+                html += '<div class="progress-bar"><div class="progress-fill" style="width:' + progressPct + '%">' + progressPct + '%</div></div>';
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="result-grid">';
+                html += '<div class="result-item"><div class="result-label">Compatibilidade</div><div class="result-value ' + (compatibilityPct >= 75 ? 'positive' : 'negative') + '">' + compatibilityPct + '%</div></div>';
+                html += '<div class="result-item"><div class="result-label">Crescimento</div><div class="result-value positive">+' + growthImpact + ' 🌳</div></div>';
+                html += '</div>';
+                
+                if (crop.progress >= crop.duration) {
+                    var damageReduction = crop.damage ? (crop.damage / 100) : 0;
+                    var finalProfit = Math.round(crop.profit * (compatibilityPct / 100) * (1 - damageReduction));
+                    game.money += finalProfit;
+                    game.prestige += Math.round(compatibilityPct / 20);
+                    
+                    var harvestMsg = '✅ Colheita completa! +' + finalProfit + ' 💰, +' + Math.round(compatibilityPct / 20) + ' ⭐';
+                    if (crop.damage) {
+                        harvestMsg += '<br><small>⚠️ Produção reduzida em ' + crop.damage + '% por eventos</small>';
+                    }
+                    html += '<div style="background:#d1fae5;padding:10px;border-radius:8px;margin-top:10px;color:#065f46;font-weight:600;">' + harvestMsg + '</div>';
+                    game.activeCrops.splice(i, 1);
+                    i--;
+                }
+                html += '</div>';
+            }
+            
+            html += '</div>';
+            
+            html += '<button class="btn" onclick="nextTrimester()">Próximo Trimestre →</button>';
+            show(html);
+            update();
+        }
+
+        function nextTrimester() {
+            game.trimester++;
+            game.season++;
+            if (game.season >= 4) {
+                game.season = 0;
+                game.year++;
+            }
+            
+            if (game.trimester > 40) {
+                endGame();
+                return;
+            }
+            
+            update();
+            plantMenu();
+        }
+
+        function endGame() {
+            var finalScore = Math.round((game.money + game.tree + game.prestige) / 3);
+            var rating = '';
+            if (finalScore >= 80) rating = '🏆 Excelente!';
+            else if (finalScore >= 60) rating = '🥈 Muito Bom!';
+            else if (finalScore >= 40) rating = '🥉 Bom!';
+            else rating = '📈 Continue praticando!';
+            
+            show('<div class="message"><div class="msg-name">JosIA</div><div class="msg-text"><h2>🎉 Jornada Completa!</h2><p>10 anos (2015-2025) gerenciados!</p><br><p><strong>Pontuação: ' + finalScore + '/100</strong></p><p>' + rating + '</p><br><p>💰 Dinheiro: ' + Math.round(game.money) + '</p><p>🌳 Sustentabilidade: ' + Math.round(game.tree) + '</p><p>⭐ Prestígio: ' + Math.round(game.prestige) + '</p></div></div><button class="btn" onclick="location.reload()">🌱 Nova Jornada</button>');
+        }
+
+        update();
+        intro();
+    </script>
+</body>
+</html>

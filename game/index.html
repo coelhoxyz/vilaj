@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 AgriSpace Quest - Journey Through Satellite Agriculture</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="screen active">
+        <div class="loading-content">
+            <h1>🛰️ AgriSpace Quest</h1>
+            <div class="loading-spinner"></div>
+            <p id="loading-text">Launching into space...</p>
+        </div>
+    </div>
+
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen">
+        <div class="welcome-content">
+            <h1>🌍 AgriSpace Quest</h1>
+            <p class="tagline">Journey Through the Universe of Satellite Agriculture</p>
+            
+            <div class="mission-brief">
+                <h2>🚀 Your Mission</h2>
+                <p>Navigate through space, collect satellite data orbs, and answer questions about how satellites help farmers feed the world!</p>
+            </div>
+
+            <div class="controls-info">
+                <h3>🎮 Controls</h3>
+                <ul>
+                    <li><strong>Mouse:</strong> Look around in 3D space</li>
+                    <li><strong>Click Orbs:</strong> Answer questions</li>
+                    <li><strong>WASD / Arrow Keys:</strong> Navigate (optional)</li>
+                </ul>
+            </div>
+
+            <div class="difficulty-selector">
+                <h3>Choose Your Difficulty:</h3>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn" data-difficulty="easy">
+                        <span class="emoji">🌱</span>
+                        <span class="title">Easy</span>
+                        <span class="desc">Perfect for beginners</span>
+                    </button>
+                    <button class="difficulty-btn" data-difficulty="medium">
+                        <span class="emoji">🌿</span>
+                        <span class="title">Medium</span>
+                        <span class="desc">Ready for a challenge</span>
+                    </button>
+                    <button class="difficulty-btn" data-difficulty="hard">
+                        <span class="emoji">🌳</span>
+                        <span class="title">Hard</span>
+                        <span class="desc">Expert level</span>
+                    </button>
+                    <button class="difficulty-btn selected" data-difficulty="all">
+                        <span class="emoji">🌈</span>
+                        <span class="title">All Levels</span>
+                        <span class="desc">Mixed challenge</span>
+                    </button>
+                </div>
+            </div>
+
+            <button id="start-game-btn" class="btn btn-primary btn-large">
+                Launch Mission 🚀
+            </button>
+        </div>
+    </div>
+
+    <!-- Game HUD -->
+    <div id="game-hud" class="hidden">
+        <!-- Top Bar -->
+        <div class="hud-top">
+            <div class="stat-card">
+                <span class="stat-label">Score</span>
+                <span id="score" class="stat-value">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Streak</span>
+                <span id="streak" class="stat-value">0🔥</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Progress</span>
+                <span id="progress" class="stat-value">0/100</span>
+            </div>
+        </div>
+
+        <!-- Center Crosshair -->
+        <div class="crosshair">
+            <div class="crosshair-inner"></div>
+        </div>
+
+        <!-- Instructions -->
+        <div id="game-instructions" class="game-instructions">
+            <p>👆 Click on the glowing orbs to answer questions!</p>
+        </div>
+    </div>
+
+    <!-- Question Modal -->
+    <div id="question-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="question-header">
+                <span id="question-difficulty" class="badge">Easy</span>
+                <span id="question-category" class="badge badge-category">Category</span>
+            </div>
+            
+            <h2 id="question-text" class="question-text"></h2>
+            
+            <div id="options-container" class="options-container">
+                <!-- Options will be inserted here -->
+            </div>
+
+            <div id="answer-feedback" class="answer-feedback hidden">
+                <div class="feedback-icon"></div>
+                <div class="feedback-message"></div>
+                <div class="feedback-explanation"></div>
+            </div>
+
+            <button id="continue-btn" class="btn btn-primary hidden">
+                Continue Your Journey →
+            </button>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="results-content">
+            <h1>🎉 Mission Complete! 🎉</h1>
+            
+            <div class="final-score-display">
+                <div class="score-big" id="final-score">0</div>
+                <div class="score-label">Total Score</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-number" id="correct-count">0</div>
+                    <div class="stat-title">Correct Answers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">❌</div>
+                    <div class="stat-number" id="incorrect-count">0</div>
+                    <div class="stat-title">Incorrect Answers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-number" id="max-streak-count">0</div>
+                    <div class="stat-title">Best Streak</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-number" id="accuracy">0%</div>
+                    <div class="stat-title">Accuracy</div>
+                </div>
+            </div>
+
+            <div class="achievement-card" id="achievement-card">
+                <div class="achievement-icon">🏆</div>
+                <div class="achievement-content">
+                    <h3 id="achievement-title">Outstanding Performance!</h3>
+                    <p id="achievement-message">You're a satellite agriculture expert!</p>
+                </div>
+            </div>
+
+            <div class="results-actions">
+                <button id="play-again-btn" class="btn btn-primary">Play Again 🔄</button>
+                <button id="view-stats-btn" class="btn btn-secondary">View Detailed Stats 📊</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Import Three.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.150.0/build/three.min.js"></script>
+    
+    <!-- Game Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
