@@ -226,12 +226,21 @@
         }
         
         .nasa-panel-title {
-            font-size: 0.9em;
+            font-size: 1em;
             font-weight: bold;
             color: var(--roxin);
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 0 var(--haiti);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .nasa-panel-title::before {
+            content: '🛰️';
+            font-size: 1.5em;
         }
         
         .nasa-data-row {
@@ -242,13 +251,14 @@
         
         .nasa-data-item {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             background: rgba(12, 12, 53, 0.6);
             border: 2px solid rgba(79, 75, 219, 0.3);
-            padding: 10px;
+            padding: 10px 12px;
             border-radius: 8px;
             transition: all 0.2s;
+            gap: 10px;
         }
         
         .nasa-data-item:hover {
@@ -258,20 +268,31 @@
         }
         
         .nasa-icon {
-            font-size: 1.5em;
-            margin-bottom: 5px;
+            font-size: 1.8em;
+            flex-shrink: 0;
+        }
+        
+        .nasa-data-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1;
+            min-width: 0;
         }
         
         .nasa-label {
             font-size: 0.7em;
             color: rgba(209, 195, 246, 0.7);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .nasa-value {
-            font-size: 0.85em;
+            font-size: 0.9em;
             font-weight: bold;
             color: var(--verdin);
+            text-shadow: 0 0 5px rgba(119, 195, 7, 0.5);
         }
         
         /* Crop Comparison Styles */
@@ -371,6 +392,33 @@
             padding: 20px;
             background: var(--haiti);
             height: 0; /* Force flex to work properly */
+        }
+        
+        /* Custom Scrollbar Styling */
+        .game-content::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        .game-content::-webkit-scrollbar-track {
+            background: rgba(12, 12, 53, 0.5);
+            border-left: 2px solid var(--royal-blue);
+        }
+        
+        .game-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--royal-blue), var(--roxin));
+            border-radius: 6px;
+            border: 2px solid rgba(12, 12, 53, 0.5);
+        }
+        
+        .game-content::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--roxin), var(--royal-blue));
+            box-shadow: 0 0 10px var(--royal-blue);
+        }
+        
+        /* Firefox Scrollbar */
+        .game-content {
+            scrollbar-width: thin;
+            scrollbar-color: var(--royal-blue) rgba(12, 12, 53, 0.5);
         }
         
         .crop-grid {
@@ -1351,8 +1399,9 @@
 <body>
     <!-- Loading Screen -->
     <div id="loading-screen">
+        <img src="game/assets/JosIA Farm Logo.png" alt="Vilaj Farm Logo" style="max-width: 300px; margin-bottom: 20px; border-radius: 15px;">
         <div class="loading-spinner">🌾</div>
-        <p style="margin-top: 20px; font-size: 0.8em;">Loading JosIA Farm...</p>
+        <p style="margin-top: 20px; font-size: 0.8em;">Loading Vilaj Farm...</p>
     </div>
     
     <div id="app" v-cloak>
@@ -1427,37 +1476,49 @@
 
                         <!-- NASA Current Data Display -->
                         <div class="nasa-data-panel">
-                            <div class="nasa-panel-title">🛰️ Current NASA Satellite Data</div>
+                            <div class="nasa-panel-title">Current NASA Satellite Data</div>
                             <div class="nasa-data-row">
                                 <div class="nasa-data-item">
                                     <span class="nasa-icon">🌡️</span>
-                                    <span class="nasa-label">Temp</span>
-                                    <span class="nasa-value">{{ currentData.temp }}°C</span>
+                                    <div class="nasa-data-text">
+                                        <span class="nasa-label">Air Temp</span>
+                                        <span class="nasa-value">{{ currentData.temp }}°C</span>
+                                    </div>
                                 </div>
                                 <div class="nasa-data-item">
                                     <span class="nasa-icon">💧</span>
-                                    <span class="nasa-label">Rain</span>
-                                    <span class="nasa-value">{{ currentData.rain }}mm</span>
+                                    <div class="nasa-data-text">
+                                        <span class="nasa-label">Rainfall</span>
+                                        <span class="nasa-value">{{ currentData.rain }}mm</span>
+                                    </div>
                                 </div>
                                 <div class="nasa-data-item">
                                     <span class="nasa-icon">💨</span>
-                                    <span class="nasa-label">Humidity</span>
-                                    <span class="nasa-value">{{ currentData.humidity }}%</span>
+                                    <div class="nasa-data-text">
+                                        <span class="nasa-label">Humidity</span>
+                                        <span class="nasa-value">{{ currentData.humidity }}%</span>
+                                    </div>
                                 </div>
                                 <div class="nasa-data-item">
                                     <span class="nasa-icon">🌿</span>
-                                    <span class="nasa-label">NDVI</span>
-                                    <span class="nasa-value">{{ currentData.ndvi.toFixed(2) }}</span>
+                                    <div class="nasa-data-text">
+                                        <span class="nasa-label">NDVI</span>
+                                        <span class="nasa-value">{{ currentData.ndvi.toFixed(2) }}</span>
+                                    </div>
                                 </div>
                                 <div class="nasa-data-item">
                                     <span class="nasa-icon">🌡️</span>
-                                    <span class="nasa-label">Soil</span>
-                                    <span class="nasa-value">{{ currentData.soil }}°C</span>
+                                    <div class="nasa-data-text">
+                                        <span class="nasa-label">Soil Temp</span>
+                                        <span class="nasa-value">{{ currentData.soil }}°C</span>
+                                    </div>
                                 </div>
                                 <div class="nasa-data-item">
                                     <span class="nasa-icon">☀️</span>
-                                    <span class="nasa-label">Radiation</span>
-                                    <span class="nasa-value">{{ currentData.radiation.toFixed(1) }}</span>
+                                    <div class="nasa-data-text">
+                                        <span class="nasa-label">Radiation</span>
+                                        <span class="nasa-value">{{ currentData.radiation.toFixed(1) }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
