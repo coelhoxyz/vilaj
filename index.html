@@ -1909,65 +1909,42 @@
                         </div>
                     </div>
 
-                    <!-- Learning Context Phase - Teach Before Asking -->
-                    <div v-if="gamePhase === 'learnContext' && currentQuestion" style="padding: 20px;">
-                        <div style="background: linear-gradient(135deg, rgba(79, 75, 219, 0.3), rgba(119, 195, 7, 0.2)); border: 4px solid var(--verdin); padding: 30px; border-radius: 15px; text-align: center; position: relative; overflow: hidden;">
-                            <div style="position: absolute; top: -50px; right: -50px; font-size: 15em; opacity: 0.1;">💡</div>
-                            <div style="font-size: 3em; margin-bottom: 20px; animation: bounce 1s infinite;">💡</div>
-                            <div style="font-size: 1.8em; font-weight: bold; color: var(--verdin); margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                                QUICK LESSON
-                            </div>
-                            <div style="font-size: 1.1em; line-height: 1.8; background: rgba(0, 0, 0, 0.5); padding: 25px; border-radius: 10px; margin: 20px 0; border: 2px solid var(--royal-blue);">
-                                {{ currentQuestion.educational_context }}
-                            </div>
-                            <button @click="continueToQuestion()" class="game-button" style="font-size: 1.3em; padding: 20px 40px; margin-top: 20px; animation: pulse 1s infinite;">
-                                🎯 READY TO WIN
-                            </button>
+                    <!-- Learning Context Phase -->
+                    <div v-if="gamePhase === 'learnContext' && currentQuestion">
+                        <div class="message-box" style="padding: 25px; margin-bottom: 20px; line-height: 1.7;">
+                            {{ currentQuestion.educational_context }}
                         </div>
+                        <button @click="continueToQuestion()" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1em;">
+                            Continue
+                        </button>
                     </div>
 
-                    <!-- Question Phase - BETTING STYLE -->
-                    <div v-if="gamePhase === 'question' && currentQuestion" style="padding: 20px;">
-                        <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(79, 75, 219, 0.3)); border: 4px solid #ffd700; padding: 25px; border-radius: 15px; margin-bottom: 20px; text-align: center; position: relative; overflow: hidden; animation: slideIn 0.5s;">
-                            <div style="position: absolute; top: -30px; left: -30px; font-size: 12em; opacity: 0.05;">❓</div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                                <span style="background: #ffd700; color: #000; padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 0.9em;">
-                                    🎰 {{ currentQuestion.category }}
-                                </span>
-                                <span v-if="game.multiplier > 1" style="background: var(--verdin); color: #000; padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 0.9em; animation: pulse 1s infinite;">
-                                    🔥 {{ game.multiplier.toFixed(1) }}x BET
-                                </span>
+                    <!-- Question Phase -->
+                    <div v-if="gamePhase === 'question' && currentQuestion">
+                        <div class="message-box" style="padding: 20px; margin-bottom: 25px;">
+                            <div style="font-size: 0.9em; color: var(--roxin); margin-bottom: 10px; text-transform: uppercase; opacity: 0.8;">
+                                {{ currentQuestion.category }}
                             </div>
-                            <div style="font-size: 1.4em; font-weight: bold; line-height: 1.6; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 20px 0;">
+                            <div style="font-size: 1.25em; font-weight: bold; line-height: 1.5; margin-bottom: 15px;">
                                 {{ currentQuestion.question }}
                             </div>
-                            <div style="background: rgba(0, 0, 0, 0.5); padding: 15px; border-radius: 10px; margin-top: 15px;">
-                                <div style="font-size: 1.1em; color: #ffd700;">💰 POTENTIAL WIN: +{{ Math.round(20 * game.multiplier) }}</div>
+                            <div style="font-size: 1em; color: #ffd700;">
+                                +{{ Math.round(20 * game.multiplier) }}
                             </div>
                         </div>
 
-                        <div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 25px;">
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 12px;">
                             <div v-for="(option, index) in currentQuestion.options" :key="index"
                                  @click="selectAnswer(option.charAt(0))"
-                                 :class="{ 'selected-bet': selectedAnswer === option.charAt(0) }"
-                                 style="background: linear-gradient(135deg, rgba(12, 12, 53, 0.8), rgba(79, 75, 219, 0.3)); border: 3px solid var(--royal-blue); padding: 20px; border-radius: 12px; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden;"
-                                 :style="selectedAnswer === option.charAt(0) ? 'border-color: #ffd700; background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(79, 75, 219, 0.3)); box-shadow: 0 0 20px #ffd700;' : ''"
-                                 @mouseenter="$event.target.style.transform='scale(1.02)'"
-                                 @mouseleave="$event.target.style.transform='scale(1)'">
-                                <div style="display: flex; justify-content: space-between; align-items: center;">
-                                    <div style="font-size: 1.1em; font-weight: bold; flex: 1; text-align: left;">
-                                        {{ option }}
-                                    </div>
-                                    <div v-if="selectedAnswer === option.charAt(0)" style="background: #ffd700; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-left: 10px;">
-                                        ✓ SELECTED
-                                    </div>
-                                </div>
+                                 style="background: rgba(12, 12, 53, 0.7); border: 2px solid var(--royal-blue); padding: 18px 20px; border-radius: 10px; cursor: pointer; transition: all 0.3s; font-size: 1.05em;"
+                                 :style="selectedAnswer === option.charAt(0) ? 'border-color: #ffd700; background: rgba(255, 215, 0, 0.15);' : ''">
+                                {{ option }}
                             </div>
                         </div>
 
-                        <div v-if="selectedAnswer" style="text-align: center; margin-top: 25px;">
-                            <button @click="submitAnswer()" class="game-button" style="font-size: 1.5em; padding: 25px 60px; background: linear-gradient(135deg, #ffd700, #ffed4e); color: #000; border: 4px solid #ffd700; box-shadow: 0 0 30px #ffd700; animation: pulse 1s infinite;">
-                                🎲 PLACE BET
+                        <div v-if="selectedAnswer" style="margin-top: 20px;">
+                            <button @click="submitAnswer()" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1em;">
+                                Submit Answer
                             </button>
                         </div>
                     </div>
