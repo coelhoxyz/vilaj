@@ -10,6 +10,12 @@
     ],
     "correct": "B",
     "explanation": "Changing land can affect water and animals. Think about protecting your farm's resources and the environment around you. The forest used to absorb a lot of water, now that water will run into your farm more easily.",
+    "option_explanations": {
+      "A": "This isn't the most important consideration. Simply copying your neighbor's crop choice doesn't address the environmental changes that occurred when the forest was removed.",
+      "B": "Correct! Changing land can affect water and animals. The forest used to absorb a lot of water, and now that water will run into your farm more easily. You need to think about how this impacts drainage, wildlife habitats, and your farm's ecosystem.",
+      "C": "Building a fence doesn't address the real environmental impact. The loss of the forest affects water drainage, wildlife, and the entire ecosystem - a fence won't solve these issues.",
+      "D": "While networking is helpful, the priority should be understanding the environmental impact of the land change on YOUR farm, not just asking for growing advice."
+    },
     "difficulty": "medium",
     "category": "Land Cover"
   },
@@ -24,6 +30,12 @@
     ],
     "correct": "B",
     "explanation": "A low LAI means your corn has fewer leaves. You should check if your corn has enough water and nutrients to grow healthy leaves. Less leaves means that the corn plant cannot soak up as much sunshine to grow.",
+    "option_explanations": {
+      "A": "This is backwards! A low LAI of 1.0 actually indicates SLOWER growth compared to your neighbor's LAI of 4.0. More leaves (higher LAI) means better growth.",
+      "B": "Correct! A low LAI means your corn has fewer leaves and might not be growing as well. You should check if your corn has enough water and nutrients. Less leaves means the plant cannot soak up as much sunshine to grow.",
+      "C": "This is misleading. While your corn might receive sunlight, having fewer leaves (low LAI) means it can't effectively USE that sunlight for photosynthesis and growth.",
+      "D": "This is incorrect. A low LAI often indicates the plant ISN'T getting enough water or nutrients, which is why it has fewer leaves. It likely needs MORE water, not less."
+    },
     "difficulty": "medium",
     "category": "Crop Health Monitoring"
   },
@@ -38,6 +50,12 @@
     ],
     "correct": "B",
     "explanation": "Planting a cover crop creates shade. Shading the soil will lower the temperature and stop water from evaporating quickly. Mulch might help too, but light-colored mulch would be best!",
+    "option_explanations": {
+      "A": "This would make the problem worse! Dark-colored mulch absorbs MORE heat, not less. You want light-colored mulch to reflect sunlight and keep the soil cooler.",
+      "B": "Correct! Planting a cover crop creates shade, which will lower the soil temperature and stop water from evaporating quickly. This protects your plants and conserves moisture.",
+      "C": "This is the opposite of what you should do! Removing plants exposes MORE soil to direct sunlight, making it even hotter. Plants actually provide shade and help cool the soil.",
+      "D": "Fertilizer doesn't cool soil. In fact, using too much fertilizer on hot days can stress plants even more and potentially burn their roots. This doesn't address the temperature issue."
+    },
     "difficulty": "medium",
     "category": "Soil Health"
   },
@@ -52,6 +70,12 @@
     ],
     "correct": "B",
     "explanation": "Your animals' safety is always the most important! Move them to a safe area to avoid getting hurt by the fire. Make sure that all people are safe too.",
+    "option_explanations": {
+      "A": "This is not the priority when there's a fire danger! Safety comes first. You can't plant crops if your animals or family are in danger from the fire.",
+      "B": "Correct! Your animals' safety is always the most important! Move them to a safe area to avoid getting hurt by the fire. Make sure that all people are safe too.",
+      "C": "This is dangerous! Satellite maps are reliable tools. Ignoring fire warnings could put your animals, family, and property at serious risk. Always take fire warnings seriously.",
+      "D": "This is extremely dangerous! Waiting for a fire to come closer gives you less time to react and could trap you. Always evacuate early when there's a fire threat."
+    },
     "difficulty": "easy",
     "category": "Climate Impact"
   },
@@ -66,6 +90,12 @@
     ],
     "correct": "B",
     "explanation": "A lower NDVI means the wheat is not as green or healthy. It might need more water, fertilizer, or have a disease.",
+    "option_explanations": {
+      "A": "Ladybugs are beneficial insects that eat pests! They wouldn't cause low NDVI. A low NDVI indicates unhealthy plants, not the presence of helpful insects.",
+      "B": "Correct! A lower NDVI means the wheat is not as green or healthy. It might need more water, fertilizer, or have a disease. NDVI measures plant health through greenness.",
+      "C": "Modern satellites are very reliable and calibrated regularly. It's much more likely that your crops are experiencing stress than the satellite malfunctioning.",
+      "D": "What your neighbor plants doesn't affect YOUR field's NDVI. NDVI measures the health of vegetation in your specific field, independent of neighboring fields."
+    },
     "difficulty": "medium",
     "category": "Crop Health Monitoring"
   },
@@ -80,6 +110,12 @@
     ],
     "correct": "B",
     "explanation": "High temperatures can damage the potatoes. You might need to water them more or find a way to shade the ground.",
+    "option_explanations": {
+      "A": "High temperatures actually STRESS plants rather than help them grow. Potatoes grow best in moderate temperatures, not extreme heat.",
+      "B": "Correct! High temperatures can damage the potatoes. They might get burned or dry out. You might need to water them more or find a way to shade the ground.",
+      "C": "Soil temperature doesn't directly attract bees. Bees are attracted to flowers, not hot soil. This doesn't address the real problem of heat stress on your potatoes.",
+      "D": "Potatoes don't turn blue from heat! This is not a real effect. High temperatures cause actual damage like drying out and burning, not color changes."
+    },
     "difficulty": "easy",
     "category": "Climate Impact"
   },
@@ -94,6 +130,12 @@
     ],
     "correct": "B",
     "explanation": "Cover crops protect the soil from wind and rain, add nutrients, and keep weeds from growing. Leaving soil bare will cause erosion.",
+    "option_explanations": {
+      "A": "This is bad for soil! Leaving soil bare exposes it to erosion from wind and rain. Bare soil loses nutrients, moisture, and structure. Always keep soil covered.",
+      "B": "Correct! Cover crops protect the soil from wind and rain, add nutrients, prevent erosion, and keep weeds from growing. This is a sustainable farming practice.",
+      "C": "Burning stalks releases nutrients too quickly, pollutes the air, and can damage soil structure. It's better to leave organic matter to decompose naturally or use cover crops.",
+      "D": "This makes no sense! You can't move all your soil, and doing so would destroy your field. The solution is to protect the soil in place, not relocate it."
+    },
     "difficulty": "medium",
     "category": "Soil Health"
   },
@@ -109,7 +151,13 @@
     "correct": "A",
     "explanation": "The MOD12Q1 product gives you information on different types of land! This can help you make an informed decision.",
     "difficulty": "easy",
-    "category": "Land Cover"
+    "category": "Land Cover",
+    "option_explanations": {
+      "A": "Correct! The MOD12Q1 product gives you information on different types of land! This can help you make an informed decision.",
+      "B": "This is not correct. The MOD12Q1 product gives you information on different types of land! This can help you make an informed decision.",
+      "C": "This is not correct. The MOD12Q1 product gives you information on different types of land! This can help you make an informed decision.",
+      "D": "This is not correct. The MOD12Q1 product gives you information on different types of land! This can help you make an informed decision."
+    }
   },
   {
     "educational_context": "Plants soak up sunlight to help them grow! The fraction of Photosynthetically Active Radiation (FPAR) shows how much sunlight plants are absorbing!",
@@ -123,7 +171,13 @@
     "correct": "B",
     "explanation": "A low FPAR score means that your plants are not able to soak up sunlight! More sunlight might help your plants grow!",
     "difficulty": "medium",
-    "category": "Crop Health Monitoring"
+    "category": "Crop Health Monitoring",
+    "option_explanations": {
+      "A": "This is not correct. A low FPAR score means that your plants are not able to soak up sunlight! More sunlight might help your plants grow!",
+      "B": "Correct! A low FPAR score means that your plants are not able to soak up sunlight! More sunlight might help your plants grow!",
+      "C": "This is not correct. A low FPAR score means that your plants are not able to soak up sunlight! More sunlight might help your plants grow!",
+      "D": "This is not correct. A low FPAR score means that your plants are not able to soak up sunlight! More sunlight might help your plants grow!"
+    }
   },
   {
     "educational_context": "Sometimes plants need to be rotated! Rotating plants allows you to use more sustainable practices to help with the growth and health of your crops!",
@@ -137,7 +191,13 @@
     "correct": "C",
     "explanation": "Rotating crops helps control pests and disease, improves soil health and can also help with water management!",
     "difficulty": "medium",
-    "category": "Sustainable Farming Practices"
+    "category": "Sustainable Farming Practices",
+    "option_explanations": {
+      "A": "This is not correct. Rotating crops helps control pests and disease, improves soil health and can also help with water management!",
+      "B": "This is not correct. Rotating crops helps control pests and disease, improves soil health and can also help with water management!",
+      "C": "Correct! Rotating crops helps control pests and disease, improves soil health and can also help with water management!",
+      "D": "This is not correct. Rotating crops helps control pests and disease, improves soil health and can also help with water management!"
+    }
   },
   {
     "educational_context": "NDVI, or Normalized Difference Vegetation Index, helps measure the health of a plant by measuring its greenness! It's like a report card for plant health.",
@@ -151,7 +211,13 @@
     "correct": "B",
     "explanation": "NDVI values of -1 can indicate water or snow! This is because these surfaces reflect different wavelengths of light!",
     "difficulty": "medium",
-    "category": "Crop Health Monitoring"
+    "category": "Crop Health Monitoring",
+    "option_explanations": {
+      "A": "This is not correct. NDVI values of -1 can indicate water or snow! This is because these surfaces reflect different wavelengths of light!",
+      "B": "Correct! NDVI values of -1 can indicate water or snow! This is because these surfaces reflect different wavelengths of light!",
+      "C": "This is not correct. NDVI values of -1 can indicate water or snow! This is because these surfaces reflect different wavelengths of light!",
+      "D": "This is not correct. NDVI values of -1 can indicate water or snow! This is because these surfaces reflect different wavelengths of light!"
+    }
   },
   {
     "educational_context": "Land Surface Temperature (LST) tells you how hot the ground is. If the ground is too hot, plants may not have enough moisture!",
@@ -165,7 +231,13 @@
     "correct": "C",
     "explanation": "If your LST values are high, then you should water your plants more! The water can help cool down the plants, making them more healthy!",
     "difficulty": "easy",
-    "category": "Water Management"
+    "category": "Water Management",
+    "option_explanations": {
+      "A": "This is not correct. If your LST values are high, then you should water your plants more! The water can help cool down the plants, making them more healthy!",
+      "B": "This is not correct. If your LST values are high, then you should water your plants more! The water can help cool down the plants, making them more healthy!",
+      "C": "Correct! If your LST values are high, then you should water your plants more! The water can help cool down the plants, making them more healthy!",
+      "D": "This is not correct. If your LST values are high, then you should water your plants more! The water can help cool down the plants, making them more healthy!"
+    }
   },
   {
     "educational_context": "Fire and Thermal Anomalies allow for real time fire detection. This is useful in order to prevent massive fires!",
@@ -179,7 +251,13 @@
     "correct": "A",
     "explanation": "By tracking fire activity, you are able to prevent major outbreaks from starting!",
     "difficulty": "easy",
-    "category": "Climate Impact"
+    "category": "Climate Impact",
+    "option_explanations": {
+      "A": "Correct! By tracking fire activity, you are able to prevent major outbreaks from starting!",
+      "B": "This is not correct. By tracking fire activity, you are able to prevent major outbreaks from starting!",
+      "C": "This is not correct. By tracking fire activity, you are able to prevent major outbreaks from starting!",
+      "D": "This is not correct. By tracking fire activity, you are able to prevent major outbreaks from starting!"
+    }
   },
   {
     "educational_context": "Leaf Area Index (LAI) is super important for crops! The amount of leaves helps determine how much sunlight plants are soaking up.",
@@ -192,6 +270,12 @@
     ],
     "correct": "B",
     "explanation": "If there are little to no leaves on the plants, then the Leaf Area Index (LAI) for these plants decreases!",
+    "option_explanations": {
+      "A": "This is incorrect. When plants have little to no leaves, their LAI would not increase. LAI measures leaf area, so fewer leaves means a lower LAI value, not higher!",
+      "B": "Correct! If there are little to no leaves on the plants, then the Leaf Area Index (LAI) for these plants decreases! LAI directly measures the amount of leaf area, so less leaves = lower LAI.",
+      "C": "This is incorrect. The LAI cannot stay constant when the number of leaves changes dramatically. Since the plants now have little to no leaves, the LAI must change - specifically, it decreases.",
+      "D": "This is incorrect. The lack of leaves has a direct and significant effect on LAI values. LAI specifically measures leaf area, so having little to no leaves will definitely decrease the LAI value."
+    },
     "difficulty": "medium",
     "category": "Crop Health Monitoring"
   },
@@ -207,7 +291,13 @@
     "correct": "A",
     "explanation": "Light soils have a higher albedo, allowing them to stay cooler because they reflect more light! This is good in sunny locations!",
     "difficulty": "medium",
-    "category": "Soil Health"
+    "category": "Soil Health",
+    "option_explanations": {
+      "A": "Correct! Light soils have a higher albedo, allowing them to stay cooler because they reflect more light! This is good in sunny locations!",
+      "B": "This is not correct. Light soils have a higher albedo, allowing them to stay cooler because they reflect more light! This is good in sunny locations!",
+      "C": "This is not correct. Light soils have a higher albedo, allowing them to stay cooler because they reflect more light! This is good in sunny locations!",
+      "D": "This is not correct. Light soils have a higher albedo, allowing them to stay cooler because they reflect more light! This is good in sunny locations!"
+    }
   },
   {
     "educational_context": "MODIS can help with water management! Soil moisture is super important for crops, since it determines if plants are able to grow!",
@@ -221,7 +311,13 @@
     "correct": "B",
     "explanation": "You should start to water your plants more! Soil moisture is low, meaning that your plants do not have enough water!",
     "difficulty": "easy",
-    "category": "Water Management"
+    "category": "Water Management",
+    "option_explanations": {
+      "A": "This is not correct. You should start to water your plants more! Soil moisture is low, meaning that your plants do not have enough water!",
+      "B": "Correct! You should start to water your plants more! Soil moisture is low, meaning that your plants do not have enough water!",
+      "C": "This is not correct. You should start to water your plants more! Soil moisture is low, meaning that your plants do not have enough water!",
+      "D": "This is not correct. You should start to water your plants more! Soil moisture is low, meaning that your plants do not have enough water!"
+    }
   },
   {
     "educational_context": "Vegetation Indices are used to calculate how green an area is! This is a good indicator of how healthy your plants are!",
@@ -235,7 +331,13 @@
     "correct": "A",
     "explanation": "A low value in Vegetation Indices can mean that there are less leaves on your plants! This could mean they are unhealthy!",
     "difficulty": "medium",
-    "category": "Crop Health Monitoring"
+    "category": "Crop Health Monitoring",
+    "option_explanations": {
+      "A": "Correct! A low value in Vegetation Indices can mean that there are less leaves on your plants! This could mean they are unhealthy!",
+      "B": "This is not correct. A low value in Vegetation Indices can mean that there are less leaves on your plants! This could mean they are unhealthy!",
+      "C": "This is not correct. A low value in Vegetation Indices can mean that there are less leaves on your plants! This could mean they are unhealthy!",
+      "D": "This is not correct. A low value in Vegetation Indices can mean that there are less leaves on your plants! This could mean they are unhealthy!"
+    }
   },
   {
     "educational_context": "Land Surface Temperature can help indicate different weather patterns that can affect your crops! Very hot weather can affect the amount of water and nutrients your crops need!",
@@ -249,7 +351,13 @@
     "correct": "D",
     "explanation": "If the Land Surface Temperature is low, this can indicate a frost! You need to watch out to see if this affects your crops!",
     "difficulty": "medium",
-    "category": "Climate Impact"
+    "category": "Climate Impact",
+    "option_explanations": {
+      "A": "This is not correct. If the Land Surface Temperature is low, this can indicate a frost! You need to watch out to see if this affects your crops!",
+      "B": "This is not correct. If the Land Surface Temperature is low, this can indicate a frost! You need to watch out to see if this affects your crops!",
+      "C": "This is not correct. If the Land Surface Temperature is low, this can indicate a frost! You need to watch out to see if this affects your crops!",
+      "D": "Correct! If the Land Surface Temperature is low, this can indicate a frost! You need to watch out to see if this affects your crops!"
+    }
   },
   {
     "educational_context": "Land cover data helps identify what type of land something is! With this knowledge, you can pick the best plants that match the type of land!",
@@ -262,7 +370,12 @@
     "correct": "C",
     "explanation": "You should NOT cut down all the trees and plant crops! This is not good land cover for crops, and you would be destroying the environment!",
     "difficulty": "easy",
-    "category": "Land Cover"
+    "category": "Land Cover",
+    "option_explanations": {
+      "A": "This is not correct. You should NOT cut down all the trees and plant crops! This is not good land cover for crops, and you would be destroying the environment!",
+      "B": "This is not correct. You should NOT cut down all the trees and plant crops! This is not good land cover for crops, and you would be destroying the environment!",
+      "C": "Correct! You should NOT cut down all the trees and plant crops! This is not good land cover for crops, and you would be destroying the environment!"
+    }
   },
   {
     "educational_context": "Fires can be very detrimental to plants and crops! Fire monitoring can help determine if there has been an affected area so you can prevent larger fires and damage!",
@@ -276,7 +389,13 @@
     "correct": "D",
     "explanation": "If a land has been burned, it affects everything! Animals are displaced, soil health is affected, and air quality is compromised!",
     "difficulty": "medium",
-    "category": "Climate Impact"
+    "category": "Climate Impact",
+    "option_explanations": {
+      "A": "This is not correct. If a land has been burned, it affects everything! Animals are displaced, soil health is affected, and air quality is compromised!",
+      "B": "This is not correct. If a land has been burned, it affects everything! Animals are displaced, soil health is affected, and air quality is compromised!",
+      "C": "This is not correct. If a land has been burned, it affects everything! Animals are displaced, soil health is affected, and air quality is compromised!",
+      "D": "Correct! If a land has been burned, it affects everything! Animals are displaced, soil health is affected, and air quality is compromised!"
+    }
   },
   {
     "educational_context": "Different areas bounce off different amounts of sunlight! Areas with snow bounce off more light and stay cooler!",
@@ -290,7 +409,13 @@
     "correct": "A",
     "explanation": "The snow covered land has the highest albedo because it bounces off the most amount of sunlight!",
     "difficulty": "easy",
-    "category": "Soil Health"
+    "category": "Soil Health",
+    "option_explanations": {
+      "A": "Correct! The snow covered land has the highest albedo because it bounces off the most amount of sunlight!",
+      "B": "This is not correct. The snow covered land has the highest albedo because it bounces off the most amount of sunlight!",
+      "C": "This is not correct. The snow covered land has the highest albedo because it bounces off the most amount of sunlight!",
+      "D": "This is not correct. The snow covered land has the highest albedo because it bounces off the most amount of sunlight!"
+    }
   },
   {
     "educational_context": "NDVI is a plant health score! It is important to keep these values high, since that means that your plants are healthy!",
@@ -304,7 +429,13 @@
     "correct": "B",
     "explanation": "You can plant plants! This helps increase the NDVI score, and helps with the erosion on your land!",
     "difficulty": "medium",
-    "category": "Sustainable Farming Practices"
+    "category": "Sustainable Farming Practices",
+    "option_explanations": {
+      "A": "This is not correct. You can plant plants! This helps increase the NDVI score, and helps with the erosion on your land!",
+      "B": "Correct! You can plant plants! This helps increase the NDVI score, and helps with the erosion on your land!",
+      "C": "This is not correct. You can plant plants! This helps increase the NDVI score, and helps with the erosion on your land!",
+      "D": "This is not correct. You can plant plants! This helps increase the NDVI score, and helps with the erosion on your land!"
+    }
   },
   {
     "educational_context": "Sometimes it is hard to detect fires on land. MODIS is a great tool for detecting fires from above!",
@@ -318,7 +449,13 @@
     "correct": "C",
     "explanation": "You should call authorities! This is important because you do not want the fire to spread further!",
     "difficulty": "easy",
-    "category": "Climate Impact"
+    "category": "Climate Impact",
+    "option_explanations": {
+      "A": "This is not correct. You should call authorities! This is important because you do not want the fire to spread further!",
+      "B": "This is not correct. You should call authorities! This is important because you do not want the fire to spread further!",
+      "C": "Correct! You should call authorities! This is important because you do not want the fire to spread further!",
+      "D": "This is not correct. You should call authorities! This is important because you do not want the fire to spread further!"
+    }
   },
   {
     "educational_context": "Plant leaves can indicate health. If the leaves are dark green, this means that plants are healthy. Less leaves can be an indicator of soil moisture content, amount of sunlight, or the plant's health!",
@@ -332,7 +469,13 @@
     "correct": "A",
     "explanation": "You should start to investigate the soil moisture! Plants need water to grow! If they do not have water, their leaves will be browning!",
     "difficulty": "medium",
-    "category": "Water Management"
+    "category": "Water Management",
+    "option_explanations": {
+      "A": "Correct! You should start to investigate the soil moisture! Plants need water to grow! If they do not have water, their leaves will be browning!",
+      "B": "This is not correct. You should start to investigate the soil moisture! Plants need water to grow! If they do not have water, their leaves will be browning!",
+      "C": "This is not correct. You should start to investigate the soil moisture! Plants need water to grow! If they do not have water, their leaves will be browning!",
+      "D": "This is not correct. You should start to investigate the soil moisture! Plants need water to grow! If they do not have water, their leaves will be browning!"
+    }
   },
   {
     "educational_context": "Sometimes different parts of a land can be dry or wet. MODIS can help indicate this! It is important to identify these spots, since you can apply fertilizer or water as needed!",
@@ -346,7 +489,13 @@
     "correct": "D",
     "explanation": "MODIS, NDVI, and LST are all data products that can help identify dry spots! LST shows land temperature, while NDVI shows plant health. MODIS gives a general overview!",
     "difficulty": "medium",
-    "category": "Crop Health Monitoring"
+    "category": "Crop Health Monitoring",
+    "option_explanations": {
+      "A": "This is not correct. MODIS, NDVI, and LST are all data products that can help identify dry spots! LST shows land temperature, while NDVI shows plant health. MODIS gives a general overview!",
+      "B": "This is not correct. MODIS, NDVI, and LST are all data products that can help identify dry spots! LST shows land temperature, while NDVI shows plant health. MODIS gives a general overview!",
+      "C": "This is not correct. MODIS, NDVI, and LST are all data products that can help identify dry spots! LST shows land temperature, while NDVI shows plant health. MODIS gives a general overview!",
+      "D": "Correct! MODIS, NDVI, and LST are all data products that can help identify dry spots! LST shows land temperature, while NDVI shows plant health. MODIS gives a general overview!"
+    }
   },
   {
     "educational_context": "Land is always changing! The uses of the land can also change, with some being forests, urbanized, or used for agriculture. It is important to know these!",
@@ -360,7 +509,13 @@
     "correct": "C",
     "explanation": "This could cause a loss of habitat for animals in that area! Since forests used to be there, a wide array of animals can be affected!",
     "difficulty": "easy",
-    "category": "Land Cover"
+    "category": "Land Cover",
+    "option_explanations": {
+      "A": "This is not correct. This could cause a loss of habitat for animals in that area! Since forests used to be there, a wide array of animals can be affected!",
+      "B": "This is not correct. This could cause a loss of habitat for animals in that area! Since forests used to be there, a wide array of animals can be affected!",
+      "C": "Correct! This could cause a loss of habitat for animals in that area! Since forests used to be there, a wide array of animals can be affected!",
+      "D": "This is not correct. This could cause a loss of habitat for animals in that area! Since forests used to be there, a wide array of animals can be affected!"
+    }
   },
   {
     "educational_context": "Different types of soils absorb different amounts of light! This means that the temperature of different soils will also be different! Darker soils tend to absorb more light, while lighter soils tend to deflect more light!",
@@ -374,7 +529,13 @@
     "correct": "C",
     "explanation": "The darker the soil, the more light it absorbs! This also means that the soil will be hotter!",
     "difficulty": "easy",
-    "category": "Soil Health"
+    "category": "Soil Health",
+    "option_explanations": {
+      "A": "This is not correct. The darker the soil, the more light it absorbs! This also means that the soil will be hotter!",
+      "B": "This is not correct. The darker the soil, the more light it absorbs! This also means that the soil will be hotter!",
+      "C": "Correct! The darker the soil, the more light it absorbs! This also means that the soil will be hotter!",
+      "D": "This is not correct. The darker the soil, the more light it absorbs! This also means that the soil will be hotter!"
+    }
   },
   {
     "educational_context": "Sometimes plants can need more sunlight! The LAI (Leaf Area Index) can determine how many leaves a plant has, and how well it absorbs sunlight!",
@@ -388,7 +549,13 @@
     "correct": "B",
     "explanation": "Low LAI means less leaves! You need more sunlight in order to help your plants grow more leaves!",
     "difficulty": "medium",
-    "category": "Crop Health Monitoring"
+    "category": "Crop Health Monitoring",
+    "option_explanations": {
+      "A": "This is not correct. Low LAI means less leaves! You need more sunlight in order to help your plants grow more leaves!",
+      "B": "Correct! Low LAI means less leaves! You need more sunlight in order to help your plants grow more leaves!",
+      "C": "This is not correct. Low LAI means less leaves! You need more sunlight in order to help your plants grow more leaves!",
+      "D": "This is not correct. Low LAI means less leaves! You need more sunlight in order to help your plants grow more leaves!"
+    }
   },
   {
     "educational_context": "Sometimes we need to determine the use of land. Certain data products are useful for this! MODIS can help determine the use of land!",
@@ -402,7 +569,13 @@
     "correct": "A",
     "explanation": "MOD12Q1 (Land Cover Type) is useful for determining the amount of different types of land! It can help you identify how much land has transitioned to agricultural use!",
     "difficulty": "medium",
-    "category": "Land Cover"
+    "category": "Land Cover",
+    "option_explanations": {
+      "A": "Correct! MOD12Q1 (Land Cover Type) is useful for determining the amount of different types of land! It can help you identify how much land has transitioned to agricultural use!",
+      "B": "This is not correct. MOD12Q1 (Land Cover Type) is useful for determining the amount of different types of land! It can help you identify how much land has transitioned to agricultural use!",
+      "C": "This is not correct. MOD12Q1 (Land Cover Type) is useful for determining the amount of different types of land! It can help you identify how much land has transitioned to agricultural use!",
+      "D": "This is not correct. MOD12Q1 (Land Cover Type) is useful for determining the amount of different types of land! It can help you identify how much land has transitioned to agricultural use!"
+    }
   },
   {
     "educational_context": "MODIS detects fire! This can help you be aware of dangers and help prevent large fires! It is very important to manage risks and call authorities if necessary!",
@@ -416,6 +589,12 @@
     "correct": "B",
     "explanation": "You should contact authorities! This is important in order to prevent the spread of fires!",
     "difficulty": "easy",
-    "category": "Climate Impact"
+    "category": "Climate Impact",
+    "option_explanations": {
+      "A": "This is not correct. You should contact authorities! This is important in order to prevent the spread of fires!",
+      "B": "Correct! You should contact authorities! This is important in order to prevent the spread of fires!",
+      "C": "This is not correct. You should contact authorities! This is important in order to prevent the spread of fires!",
+      "D": "This is not correct. You should contact authorities! This is important in order to prevent the spread of fires!"
+    }
   }
 ]

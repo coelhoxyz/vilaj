@@ -1335,7 +1335,7 @@
                             </button>
                         </div>
 
-                        <!-- Show Explanation after submission -->
+                        <!-- Show Explanation for selected answer -->
                         <div v-if="selectedAnswer && gamePhase === 'question'" 
                              class="message-box" 
                              style="margin-top: 20px; border-color: var(--roxin); background: rgba(209, 195, 246, 0.1);">
@@ -1343,7 +1343,7 @@
                                 💡 Explanation
                             </div>
                             <div class="message-text" style="font-size: 0.85em;">
-                                {{ currentQuestion.explanation }}
+                                {{ currentQuestion.option_explanations && currentQuestion.option_explanations[selectedAnswer] ? currentQuestion.option_explanations[selectedAnswer] : currentQuestion.explanation }}
                             </div>
                         </div>
                     </div>
