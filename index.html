@@ -1889,6 +1889,12 @@
                             </div>
                         </div>
 
+                        <div style="background: rgba(119, 195, 7, 0.15); border: 2px solid var(--verdin); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                            <div style="font-size: 0.95em; line-height: 1.6; opacity: 0.9;">
+                                💡 <strong>How to choose:</strong> Match crops to current conditions for better yields. The golden dot (●) shows the best match based on NASA satellite data.
+                            </div>
+                        </div>
+
                         <div class="crop-grid">
                             <div v-for="(crop, key) in availableCrops" :key="key"
                                  @click="plantCrop(key)"
@@ -1898,7 +1904,8 @@
                                 <div style="font-size: 4em; filter: drop-shadow(0 0 10px currentColor);">{{ crop.icon }}</div>
                                 
                                 <div style="flex: 1;">
-                                    <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 8px; color: #fff;">{{ crop.name }}</div>
+                                    <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 4px; color: #fff;">{{ crop.name }}</div>
+                                    <div style="font-size: 0.85em; opacity: 0.7; margin-bottom: 8px;">{{ crop.description || 'Choose wisely based on conditions' }}</div>
                                     <div style="font-size: 1.8em; font-weight: bold; color: #ffd700;">
                                         +{{ Math.round(crop.profit * game.multiplier) }}
                                     </div>
@@ -1911,17 +1918,26 @@
 
                     <!-- Learning Context Phase -->
                     <div v-if="gamePhase === 'learnContext' && currentQuestion">
-                        <div class="message-box" style="padding: 25px; margin-bottom: 20px; line-height: 1.7;">
+                        <div style="background: rgba(79, 75, 219, 0.2); border: 2px solid var(--royal-blue); padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                            <div style="font-size: 2em; margin-bottom: 15px;">📚</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: var(--roxin); margin-bottom: 10px;">Learn Before You Answer</div>
+                        </div>
+                        <div class="message-box" style="padding: 25px; margin-bottom: 20px; line-height: 1.8; font-size: 1.05em;">
                             {{ currentQuestion.educational_context }}
                         </div>
+                        <div style="background: rgba(119, 195, 7, 0.15); border: 2px solid var(--verdin); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                            <div style="font-size: 0.95em; line-height: 1.6;">
+                                💡 <strong>Remember this:</strong> The next question will test what you just learned. Take your time to read!
+                            </div>
+                        </div>
                         <button @click="continueToQuestion()" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1em;">
-                            Continue
+                            I'm Ready - Show Question
                         </button>
                     </div>
 
                     <!-- Question Phase -->
                     <div v-if="gamePhase === 'question' && currentQuestion">
-                        <div class="message-box" style="padding: 20px; margin-bottom: 25px;">
+                        <div class="message-box" style="padding: 20px; margin-bottom: 20px;">
                             <div style="font-size: 0.9em; color: var(--roxin); margin-bottom: 10px; text-transform: uppercase; opacity: 0.8;">
                                 {{ currentQuestion.category }}
                             </div>
@@ -1930,6 +1946,12 @@
                             </div>
                             <div style="font-size: 1em; color: #ffd700;">
                                 +{{ Math.round(20 * game.multiplier) }}
+                            </div>
+                        </div>
+
+                        <div v-if="currentQuestion.hint" style="background: rgba(119, 195, 7, 0.15); border: 2px solid var(--verdin); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                            <div style="font-size: 0.95em; line-height: 1.6;">
+                                💡 <strong>Hint:</strong> {{ currentQuestion.hint }}
                             </div>
                         </div>
 
@@ -2054,6 +2076,11 @@
                             </div>
                             <div style="font-size: 1.15em; line-height: 1.7; margin: 25px 0; opacity: 0.9;">
                                 {{ resultMessage }}
+                            </div>
+                            
+                            <div v-if="lastAnswerExplanation" style="background: rgba(79, 75, 219, 0.2); border: 2px solid var(--royal-blue); padding: 20px; border-radius: 8px; margin: 25px 0; text-align: left;">
+                                <div style="font-size: 1em; font-weight: bold; margin-bottom: 10px; color: var(--roxin);">📖 What You Learned:</div>
+                                <div style="font-size: 0.95em; line-height: 1.7; opacity: 0.9;">{{ lastAnswerExplanation }}</div>
                             </div>
                             
                             <div style="background: rgba(0, 0, 0, 0.4); border-radius: 12px; overflow: hidden; height: 8px; margin: 30px 0;">
