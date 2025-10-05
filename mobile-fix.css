@@ -72,14 +72,14 @@
     /* Top stats - compact and fixed */
     .top-stats {
         flex-shrink: 0 !important;
-        padding: 10px !important;
+        padding: 8px !important;
         background: rgba(12, 12, 53, 0.98) !important;
         border-bottom: 2px solid var(--royal-blue) !important;
     }
     
     .season-display {
-        font-size: 0.85rem !important;
-        margin-bottom: 8px !important;
+        font-size: 0.75rem !important;
+        margin-bottom: 6px !important;
         text-align: center !important;
         font-weight: bold !important;
     }
@@ -216,35 +216,41 @@
     /* Buttons - touch friendly */
     .btn, .game-button {
         width: 100% !important;
-        padding: 16px 20px !important;
-        font-size: 0.9rem !important;
-        margin: 8px 0 !important;
+        padding: 14px 16px !important;
+        font-size: 0.8rem !important;
+        margin: 6px 0 !important;
         border-width: 2px !important;
         box-sizing: border-box !important;
-        min-height: 50px !important;
+        min-height: 48px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         touch-action: manipulation !important;
+        line-height: 1.2 !important;
     }
     
     .btn-large {
-        padding: 18px 25px !important;
-        font-size: 0.95rem !important;
-        min-height: 56px !important;
+        padding: 16px 20px !important;
+        font-size: 0.85rem !important;
+        min-height: 52px !important;
     }
     
     .btn-secondary {
-        margin-top: 5px !important;
+        margin-top: 4px !important;
+    }
+    
+    .game-button::before {
+        margin-right: 6px !important;
+        font-size: 0.9em !important;
     }
     
     /* Input fields */
     input[type="text"], .form-input {
         width: 100% !important;
-        padding: 16px !important;
+        padding: 14px 12px !important;
         font-size: 16px !important;
         border-width: 2px !important;
-        border-radius: 10px !important;
+        border-radius: 8px !important;
         box-sizing: border-box !important;
         -webkit-appearance: none !important;
     }
