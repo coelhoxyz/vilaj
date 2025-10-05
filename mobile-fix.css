@@ -1,0 +1,555 @@
+/* COMPREHENSIVE MOBILE FIX */
+/* This file contains all mobile-specific overrides */
+
+/* Use CSS variable for viewport height */
+:root {
+    --vh: 1vh;
+}
+
+@media only screen and (max-width: 768px) {
+    /* Reset and base */
+    * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        box-sizing: border-box;
+    }
+    
+    html {
+        font-size: 16px !important;
+        height: 100%;
+        height: calc(var(--vh, 1vh) * 100);
+        width: 100%;
+        overflow: hidden;
+        position: fixed;
+    }
+    
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        width: 100vw;
+        overflow: hidden;
+        position: fixed;
+        background: linear-gradient(135deg, #1a1a3e, #0c0c35);
+        overscroll-behavior: none;
+    }
+    
+    #app {
+        height: 100%;
+        height: calc(var(--vh, 1vh) * 100);
+        width: 100%;
+        position: fixed;
+        overflow: hidden;
+    }
+    
+    /* Game container - full screen */
+    .game-container {
+        width: 100vw !important;
+        height: 100vh !important;
+        height: calc(var(--vh, 1vh) * 100) !important;
+        max-height: 100vh !important;
+        max-height: calc(var(--vh, 1vh) * 100) !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        display: flex !important;
+    }
+    
+    /* Main game area */
+    .main-game {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+    }
+    
+    /* Top stats - compact and fixed */
+    .top-stats {
+        flex-shrink: 0 !important;
+        padding: 10px !important;
+        background: rgba(12, 12, 53, 0.98) !important;
+        border-bottom: 2px solid var(--royal-blue) !important;
+    }
+    
+    .season-display {
+        font-size: 0.85rem !important;
+        margin-bottom: 8px !important;
+        text-align: center !important;
+        font-weight: bold !important;
+    }
+    
+    .stats-row {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+    }
+    
+    .stat-card {
+        padding: 8px 4px !important;
+        min-height: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .stat-icon {
+        font-size: 1.5rem !important;
+        line-height: 1 !important;
+    }
+    
+    .stat-label {
+        font-size: 0.6rem !important;
+        margin: 3px 0 !important;
+    }
+    
+    .stat-value {
+        font-size: 0.75rem !important;
+        font-weight: bold !important;
+    }
+    
+    .stat-bar {
+        width: 100% !important;
+        height: 6px !important;
+        margin-top: 4px !important;
+    }
+    
+    /* Game content - scrollable area */
+    .game-content {
+        flex: 1 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 12px 10px 80px 10px !important;
+        height: 0 !important;
+    }
+    
+    /* Welcome/Initial screens */
+    .screen {
+        width: 100vw !important;
+        height: 100vh !important;
+        height: calc(var(--vh, 1vh) * 100) !important;
+        padding: 20px 15px !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overscroll-behavior: contain !important;
+    }
+    
+    .welcome-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .welcome-content h1 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .tagline {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .mission-brief {
+        padding: 15px !important;
+        margin-bottom: 15px !important;
+        border-width: 2px !important;
+    }
+    
+    .mission-brief h2 {
+        font-size: 1rem !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .mission-brief p {
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Message boxes */
+    .message-box {
+        padding: 15px !important;
+        margin: 10px 0 !important;
+        border-width: 2px !important;
+    }
+    
+    .message-title {
+        font-size: 1rem !important;
+        margin-bottom: 8px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .message-text {
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Buttons - touch friendly */
+    .btn, .game-button {
+        width: 100% !important;
+        padding: 16px 20px !important;
+        font-size: 0.85rem !important;
+        margin: 8px 0 !important;
+        border-width: 2px !important;
+        box-sizing: border-box !important;
+        min-height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        touch-action: manipulation !important;
+    }
+    
+    .btn-large {
+        padding: 18px 25px !important;
+        font-size: 0.95rem !important;
+        min-height: 56px !important;
+    }
+    
+    .btn-secondary {
+        margin-top: 5px !important;
+    }
+    
+    /* Input fields */
+    input[type="text"], .form-input {
+        width: 100% !important;
+        padding: 16px !important;
+        font-size: 16px !important;
+        border-width: 2px !important;
+        border-radius: 10px !important;
+        box-sizing: border-box !important;
+        -webkit-appearance: none !important;
+    }
+    
+    /* NASA Data Panel */
+    .nasa-data-panel {
+        padding: 12px !important;
+        margin-bottom: 12px !important;
+        border-width: 2px !important;
+    }
+    
+    .nasa-panel-title {
+        font-size: 0.9rem !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .nasa-data-row {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+    }
+    
+    .nasa-data-item {
+        padding: 8px 6px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .nasa-icon {
+        font-size: 1.5rem !important;
+        margin-bottom: 3px !important;
+    }
+    
+    .nasa-data-text {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .nasa-label {
+        font-size: 0.65rem !important;
+        margin-bottom: 2px !important;
+    }
+    
+    .nasa-value {
+        font-size: 0.8rem !important;
+        font-weight: bold !important;
+    }
+    
+    /* Crop cards */
+    .crop-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+    
+    .crop-card {
+        padding: 15px !important;
+        border-width: 2px !important;
+        touch-action: manipulation !important;
+    }
+    
+    .crop-icon {
+        font-size: 2.5rem !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .crop-name {
+        font-size: 0.95rem !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .crop-profit {
+        font-size: 0.75rem !important;
+        padding: 6px 10px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .crop-comparison {
+        margin-top: 10px !important;
+        padding: 10px !important;
+    }
+    
+    .comparison-title {
+        font-size: 0.75rem !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .comparison-item {
+        font-size: 0.7rem !important;
+        padding: 6px !important;
+        margin: 3px 0 !important;
+        display: grid !important;
+        grid-template-columns: 80px 1fr auto !important;
+        gap: 8px !important;
+        align-items: center !important;
+    }
+    
+    .comp-label {
+        text-align: left !important;
+    }
+    
+    .comp-need {
+        text-align: center !important;
+    }
+    
+    .comp-current {
+        text-align: right !important;
+        font-weight: bold !important;
+    }
+    
+    .match-status {
+        font-size: 0.75rem !important;
+        padding: 6px !important;
+        margin-top: 8px !important;
+    }
+    
+    /* Event cards */
+    .event-options {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+    
+    .event-option-card {
+        padding: 15px !important;
+        border-width: 2px !important;
+        touch-action: manipulation !important;
+    }
+    
+    .event-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px !important;
+    }
+    
+    .event-icon-main {
+        font-size: 2.5rem !important;
+    }
+    
+    .event-icon-extra {
+        font-size: 1.5rem !important;
+    }
+    
+    .option-impacts {
+        gap: 6px !important;
+        margin-top: 8px !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .impact-badge {
+        font-size: 0.7rem !important;
+        padding: 4px 8px !important;
+    }
+    
+    /* Result panels */
+    .result-panel {
+        padding: 15px !important;
+        margin: 10px 0 !important;
+        border-width: 2px !important;
+    }
+    
+    .impacts-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .impact-item {
+        padding: 10px !important;
+    }
+    
+    .impact-label {
+        font-size: 0.65rem !important;
+    }
+    
+    .impact-value {
+        font-size: 1.2rem !important;
+    }
+    
+    /* Progress bar */
+    .progress-bar {
+        height: 24px !important;
+        border-width: 2px !important;
+    }
+    
+    .progress-fill {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Farmer character */
+    .farmer-character {
+        width: 60px !important;
+        height: 80px !important;
+        bottom: 10px !important;
+        right: 10px !important;
+        z-index: 100 !important;
+        pointer-events: none !important;
+    }
+    
+    .farmer-character::before {
+        width: 35px !important;
+        height: 45px !important;
+        bottom: 12px !important;
+    }
+    
+    .farmer-character::after {
+        font-size: 45px !important;
+        bottom: 45px !important;
+    }
+    
+    /* Speech bubble */
+    .farmer-speech {
+        position: fixed !important;
+        bottom: 95px !important;
+        left: 10px !important;
+        right: 10px !important;
+        max-width: calc(100vw - 20px) !important;
+        padding: 12px 15px !important;
+        font-size: 0.85rem !important;
+        z-index: 101 !important;
+    }
+    
+    /* Loading screen */
+    #loading-screen {
+        width: 100vw !important;
+        height: 100vh !important;
+        height: calc(var(--vh, 1vh) * 100) !important;
+        padding: 20px !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+    
+    #loading-screen h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .loading-spinner {
+        font-size: 3rem !important;
+    }
+    
+    #loading-screen p {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Touch feedback */
+    .game-button:active,
+    .btn:active,
+    .crop-card:active,
+    .event-option-card:active,
+    .message-box[onclick]:active {
+        opacity: 0.7 !important;
+        transform: scale(0.98) !important;
+    }
+    
+    /* Scrollbar */
+    .game-content::-webkit-scrollbar {
+        width: 3px !important;
+    }
+    
+    .game-content::-webkit-scrollbar-thumb {
+        background: rgba(79, 75, 219, 0.5) !important;
+        border-radius: 3px !important;
+    }
+}
+
+/* Small phones */
+@media only screen and (max-width: 400px) {
+    html {
+        font-size: 15px !important;
+    }
+    
+    .stat-icon {
+        font-size: 1.3rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.55rem !important;
+    }
+    
+    .stat-value {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Landscape mode */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    html {
+        font-size: 14px !important;
+    }
+    
+    .top-stats {
+        padding: 8px !important;
+    }
+    
+    .stats-row {
+        gap: 4px !important;
+    }
+    
+    .stat-card {
+        padding: 6px 3px !important;
+    }
+    
+    .game-content {
+        padding: 10px 8px 60px 8px !important;
+    }
+    
+    .farmer-character {
+        width: 50px !important;
+        height: 70px !important;
+    }
+    
+    .farmer-character::after {
+        font-size: 40px !important;
+        bottom: 35px !important;
+    }
+    
+    .farmer-speech {
+        bottom: 75px !important;
+        font-size: 0.75rem !important;
+    }
+}

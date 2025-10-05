@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#0c0c35">
+    <meta name="color-scheme" content="dark">
     <title>🌾 Vilaj Farm - Learn Agriculture with NASA Data</title>
     <link rel="icon" type="image/png" href="game/assets/JosIA Farm Logo.png">
     
@@ -15,6 +18,7 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     
     <link rel="stylesheet" href="game/css/style.css">
+    <link rel="stylesheet" href="mobile-fix.css">
     <style>
         /* Custom Color Palette */
         :root {
@@ -25,13 +29,27 @@
         }
         
         /* Additional styles for farm simulator */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+        
         body {
             background: linear-gradient(135deg, #1a1a3e, #0c0c35);
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         
         .game-container {
@@ -166,6 +184,20 @@
             min-height: 100vh;
             background: var(--haiti);
             padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .screen {
+                padding: max(15px, env(safe-area-inset-top)) max(15px, env(safe-area-inset-right)) max(15px, env(safe-area-inset-bottom)) max(15px, env(safe-area-inset-left));
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+                height: 100vh;
+                height: -webkit-fill-available;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
         }
         
         .screen.active {
@@ -335,16 +367,21 @@
         
         .comp-label {
             color: var(--roxin);
+            text-align: left;
+            white-space: nowrap;
         }
         
         .comp-need {
             color: rgba(209, 195, 246, 0.7);
             font-size: 0.9em;
+            text-align: center;
         }
         
         .comp-current {
             font-weight: bold;
             color: var(--verdin);
+            text-align: right;
+            white-space: nowrap;
         }
         
         .comparison-item.match-no .comp-current {
@@ -467,6 +504,17 @@
             box-shadow: 
                 2px 2px 0 var(--haiti),
                 0 0 15px rgba(119, 195, 7, 0.6);
+        }
+        
+        /* Better mobile touch feedback */
+        @media only screen and (max-width: 768px) {
+            .game-button:active,
+            .btn:active,
+            .crop-card:active,
+            .event-option-card:active {
+                opacity: 0.8;
+                transform: scale(0.98);
+            }
         }
         
         .game-button::before {
@@ -939,54 +987,109 @@
         @media only screen and (max-width: 768px) {
             /* Base font size for mobile */
             html {
-                font-size: 12px;
+                font-size: 14px;
+            }
+            
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            html {
+                height: 100vh;
+                height: -webkit-fill-available;
             }
             
             body {
-                padding: 10px;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+                height: 100vh;
+                height: -webkit-fill-available;
             }
             
             .game-container {
-                width: 100%;
-                height: 90vh;
-                border-radius: 8px;
-                border-width: 2px;
+                width: 100vw;
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+                height: 100vh;
+                height: -webkit-fill-available;
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+                /* Safe area padding for notched phones */
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
             }
             
             /* NASA Panel responsive */
+            .nasa-data-panel {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .nasa-panel-title {
+                font-size: 0.9em;
+                margin-bottom: 12px;
+            }
+            
             .nasa-data-row {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 6px;
+                gap: 8px;
             }
             
             .nasa-data-item {
-                padding: 6px;
+                padding: 10px 8px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
             
             .nasa-icon {
-                font-size: 1.2em;
+                font-size: 1.8em;
+                margin-bottom: 4px;
+            }
+            
+            .nasa-data-text {
+                align-items: center;
             }
             
             .nasa-label {
-                font-size: 0.6em;
-            }
-            
-            .nasa-value {
                 font-size: 0.7em;
             }
             
+            .nasa-value {
+                font-size: 0.85em;
+            }
+            
             .comparison-item {
-                font-size: 0.6em;
-                grid-template-columns: 40px 1fr auto;
+                font-size: 0.75em;
+                grid-template-columns: 45px 1fr auto;
+                padding: 6px;
+            }
+            
+            .crop-comparison {
+                margin-top: 15px;
+                padding: 12px;
+            }
+            
+            .comparison-title {
+                font-size: 0.8em;
+                margin-bottom: 10px;
             }
             
             /* Game container - Stack vertically on mobile */
             .game-container {
                 flex-direction: column !important;
-                height: auto !important;
+                height: 100vh !important;
                 min-height: 100vh;
+                max-height: 100vh;
                 padding: 0;
                 margin: 0;
+                overflow: hidden;
             }
             
             /* Sidebar - Full width on mobile */
@@ -1036,92 +1139,116 @@
             
             /* Top stats bar */
             .top-stats {
-                padding: 12px;
+                padding: 15px 10px;
                 border-bottom-width: 3px;
+                flex-shrink: 0;
             }
             
             .season-display {
-                font-size: 0.7em;
-                margin-bottom: 8px;
+                font-size: 0.9em;
+                margin-bottom: 10px;
+                font-weight: bold;
             }
             
             .stats-row {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
                 gap: 8px;
             }
             
             .stat-card {
-                padding: 10px 12px;
+                padding: 12px 8px;
                 border-width: 2px;
+                flex-direction: column;
+                min-height: 0;
             }
             
             .stat-icon {
-                font-size: 1.2em;
+                font-size: 1.8em;
             }
             
             .stat-label {
-                font-size: 0.55em;
+                font-size: 0.65em;
+                margin-top: 4px;
             }
             
             .stat-value {
-                font-size: 0.75em;
+                font-size: 0.85em;
+                white-space: nowrap;
             }
             
             .stat-bar {
-                height: 6px;
-                margin-top: 4px;
+                height: 8px;
+                margin-top: 6px;
+                width: 100%;
             }
             
             /* Game content */
             .game-content {
-                padding: 12px;
+                padding: 15px 10px;
+                flex: 1;
+                overflow-y: auto;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+                height: 0;
             }
             
             /* Welcome screen */
             .welcome-content {
-                padding: 20px;
+                padding: 20px 15px;
                 max-width: 100%;
+                width: 100%;
+                box-sizing: border-box;
             }
             
             .welcome-content h1 {
-                font-size: 1.5em !important;
+                font-size: 2em !important;
                 margin-bottom: 15px;
+                line-height: 1.2;
             }
             
             .tagline {
-                font-size: 0.7em !important;
-                margin-bottom: 20px;
+                font-size: 0.9em !important;
+                margin-bottom: 25px;
+                line-height: 1.4;
             }
             
             .mission-brief {
-                padding: 20px;
+                padding: 20px 15px;
                 margin-bottom: 20px;
                 border-width: 3px;
             }
             
             .mission-brief h2 {
-                font-size: 0.9em;
+                font-size: 1.1em;
                 margin-bottom: 12px;
             }
             
             .mission-brief p {
-                font-size: 0.65em;
+                font-size: 0.85em;
                 line-height: 1.6;
             }
             
             /* Buttons - Make larger for touch */
             .btn, .game-button {
                 width: 100% !important;
-                padding: 15px 20px !important;
-                font-size: 0.7em !important;
-                margin: 8px 0 !important;
+                padding: 18px 25px !important;
+                font-size: 0.85em !important;
+                margin: 10px 0 !important;
                 box-sizing: border-box;
                 border-width: 3px !important;
+                min-height: 48px;
+                touch-action: manipulation;
+                cursor: pointer;
             }
             
             .btn-large {
-                padding: 18px 25px !important;
-                font-size: 0.8em !important;
+                padding: 22px 30px !important;
+                font-size: 0.95em !important;
+                min-height: 56px;
+            }
+            
+            .btn-secondary {
+                margin-top: 5px !important;
             }
             
             .game-button::before {
@@ -1130,67 +1257,84 @@
             
             /* Message boxes */
             .message-box {
-                padding: 15px !important;
-                margin: 12px 0 !important;
+                padding: 18px 15px !important;
+                margin: 15px 0 !important;
                 border-width: 3px !important;
             }
             
             .message-title {
-                font-size: 0.75em !important;
-                margin-bottom: 8px;
+                font-size: 1em !important;
+                margin-bottom: 10px;
+                line-height: 1.3;
             }
             
             .message-text {
-                font-size: 0.6em !important;
+                font-size: 0.85em !important;
                 line-height: 1.6 !important;
+            }
+            
+            /* Input fields - Mobile optimized */
+            input[type="text"], .form-input {
+                font-size: 16px !important;
+                padding: 18px !important;
+                border-width: 3px !important;
+                border-radius: 12px !important;
+                box-sizing: border-box;
+                width: 100%;
+                -webkit-appearance: none;
+                appearance: none;
             }
             
             /* Crop grid - Single column on mobile */
             .crop-grid {
                 grid-template-columns: 1fr !important;
-                gap: 12px !important;
+                gap: 15px !important;
             }
             
             .crop-card {
-                padding: 12px !important;
+                padding: 18px !important;
                 border-width: 3px !important;
+                touch-action: manipulation;
+                min-height: 48px;
             }
             
             .crop-icon {
-                font-size: 2.5em;
-                margin-bottom: 8px;
+                font-size: 3em;
+                margin-bottom: 10px;
             }
             
             .crop-name {
-                font-size: 0.75em !important;
-                margin-bottom: 8px;
+                font-size: 1em !important;
+                margin-bottom: 10px;
             }
             
             .crop-profit {
-                font-size: 0.6em;
-                padding: 6px 8px;
-                margin-bottom: 8px;
+                font-size: 0.8em;
+                padding: 8px 10px;
+                margin-bottom: 10px;
             }
             
             .crop-needs {
-                font-size: 0.55em !important;
+                font-size: 0.75em !important;
                 line-height: 1.5;
             }
             
             .match-status {
-                font-size: 0.6em;
-                padding: 6px;
-                margin-top: 8px;
+                font-size: 0.8em;
+                padding: 8px;
+                margin-top: 10px;
             }
             
             /* Event cards */
             .event-options {
                 grid-template-columns: 1fr !important;
-                gap: 12px !important;
+                gap: 15px !important;
             }
             
             .event-option-card {
-                padding: 12px !important;
+                padding: 18px !important;
+                min-height: 48px;
+                touch-action: manipulation;
             }
             
             .event-header {
@@ -1262,36 +1406,42 @@
             
             /* Farmer character - smaller on mobile */
             .farmer-character {
-                bottom: 10px;
-                right: 10px;
-                transform: scale(1.3) !important;
+                width: 70px;
+                height: 90px;
+                bottom: 15px;
+                right: 15px;
+                z-index: 100;
+                pointer-events: none;
+            }
+            
+            .farmer-character::before {
+                width: 40px;
+                height: 50px;
+                bottom: 15px;
+            }
+            
+            .farmer-character::after {
+                font-size: 50px;
+                bottom: 50px;
             }
             
             .farmer-character.flip {
-                transform: scale(-1.3, 1.3) !important;
+                transform: scaleX(-1) !important;
             }
             
             /* Speech bubble */
             .farmer-speech {
-                bottom: 150px;
+                bottom: 110px;
                 right: 10px;
-                left: auto;
-                max-width: 280px;
-                padding: 15px 18px;
+                left: 10px;
+                max-width: calc(100vw - 20px);
+                padding: 12px 15px;
                 font-size: 0.85em !important;
+                z-index: 101;
             }
             
-            .farmer-character {
-                width: 100px;
-                height: 130px;
-                bottom: 15px;
-                right: 20px;
-                padding-top: 25px;
-            }
-            
-            .farmer-character::after {
-                font-size: 80px;
-                bottom: 10px;
+            .farmer-speech::after {
+                right: 15px;
             }
             
             /* Hide scanlines on mobile for better performance */
@@ -1302,21 +1452,37 @@
             /* Loading screen */
             #loading-screen {
                 padding: 20px;
+                width: 100vw;
+                height: 100vh;
+            }
+            
+            #loading-screen h1 {
+                font-size: 1.8em !important;
             }
             
             .loading-spinner {
-                font-size: 2.5em;
+                font-size: 3em;
             }
             
             #loading-screen p {
-                font-size: 0.65em !important;
+                font-size: 0.9em !important;
+            }
+            
+            /* Better scrolling on mobile */
+            .game-content::-webkit-scrollbar {
+                width: 4px;
+            }
+            
+            /* Prevent iOS rubber band effect */
+            .game-content {
+                overscroll-behavior: contain;
             }
         }
         
         /* Extra small phones (< 400px) */
         @media only screen and (max-width: 400px) {
             html {
-                font-size: 10px;
+                font-size: 13px;
             }
             
             .sidebar-panel {
@@ -1325,60 +1491,89 @@
             }
             
             .sidebar-panel h2 {
-                font-size: 0.7em;
+                font-size: 0.8em;
             }
             
             .indicator {
-                padding: 6px;
+                padding: 8px;
             }
             
             .indicator-image {
-                width: 30px;
-                height: 30px;
-                font-size: 1em;
+                width: 35px;
+                height: 35px;
+                font-size: 1.2em;
             }
             
             .indicator-title {
-                font-size: 0.6em;
+                font-size: 0.7em;
             }
             
             .indicator-desc {
-                font-size: 0.45em;
+                font-size: 0.55em;
             }
             
             .indicator-value {
-                font-size: 0.65em;
+                font-size: 0.75em;
             }
             
             .welcome-content h1 {
-                font-size: 1.2em !important;
+                font-size: 1.8em !important;
             }
             
             .btn, .game-button {
-                font-size: 0.65em !important;
-                padding: 12px 15px !important;
+                font-size: 0.8em !important;
+                padding: 16px 20px !important;
             }
             
             .btn-large {
-                font-size: 0.7em !important;
+                font-size: 0.9em !important;
             }
             
             .farmer-character {
-                transform: scale(1.1) !important;
+                transform: scale(1.2) !important;
             }
             
             .farmer-character.flip {
-                transform: scale(-1.1, 1.1) !important;
+                transform: scale(-1.2, 1.2) !important;
             }
             
             .farmer-speech {
-                max-width: 220px;
-                font-size: 0.75em !important;
+                max-width: 250px;
+                font-size: 0.85em !important;
             }
         }
         
         /* Landscape phones */
         @media only screen and (max-width: 768px) and (orientation: landscape) {
+            html {
+                font-size: 12px;
+            }
+            
+            .game-container {
+                height: 100vh;
+            }
+            
+            .top-stats {
+                padding: 10px;
+            }
+            
+            .season-display {
+                font-size: 0.75em;
+                margin-bottom: 6px;
+            }
+            
+            .stats-row {
+                gap: 6px;
+            }
+            
+            .stat-card {
+                padding: 8px 6px;
+            }
+            
+            .game-content {
+                padding: 10px;
+            }
+            
             .sidebar-panel {
                 max-height: 50vh;
             }
@@ -1386,15 +1581,17 @@
             .farmer-character {
                 bottom: 5px;
                 right: 5px;
-                transform: scale(1) !important;
+                transform: scale(0.8) !important;
             }
             
             .farmer-character.flip {
-                transform: scale(-1, 1) !important;
+                transform: scale(-0.8, 0.8) !important;
             }
             
             .farmer-speech {
-                bottom: 50px;
+                bottom: 80px;
+                max-width: 220px;
+                font-size: 0.75em !important;
             }
         }
     </style>
@@ -1549,7 +1746,11 @@
                                 💡 Minimum 3 characters
                             </div>
                             
-                            <div v-else-if="locationSearch.toLowerCase().includes('florianopolis') || locationSearch.toLowerCase().includes('florianópolis') || locationSearch.toLowerCase().includes('floripa')" 
+                            <div v-else-if="'florianopolis'.startsWith(locationSearch.toLowerCase()) || 
+                                            'florianópolis'.startsWith(locationSearch.toLowerCase()) || 
+                                            'floripa'.startsWith(locationSearch.toLowerCase()) ||
+                                            locationSearch.toLowerCase().includes('flor') ||
+                                            locationSearch.toLowerCase().includes('floripa')" 
                                  class="message-box" 
                                  @click="selectLocation"
                                  style="margin-top: 10px; cursor: pointer; border-color: var(--verdin); transition: all 0.3s;"
@@ -1558,7 +1759,7 @@
                                 <div class="message-title" style="font-size: 1.1em;">📍 Florianópolis</div>
                                 <div class="message-text">
                                     Santa Catarina, Brazil<br>
-                                    <small>🌡️ Humid subtropical climate | 📊 Data: 2015-2017</small>
+                                    <small>🌡️ Humid subtropical climate | 📊 Real-time NASA Data</small>
                                 </div>
                             </div>
                             
@@ -1575,14 +1776,29 @@
                     <div v-if="gamePhase === 'welcome'">
                         <div class="message-box" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(167, 243, 208, 0.2)); border-color: var(--verdin);">
                             <div class="message-title" style="color: var(--verdin);">✅ Location Confirmed</div>
-                            <div class="message-text">
+                            <div class="message-text" v-if="locationData">
+                                <strong>Excellent choice, {{ playerName }}!</strong><br><br>
+                                📍 <strong>{{ locationData.name }}, {{ locationData.state }}</strong><br>
+                                📊 <strong>Real Location Data:</strong><br>
+                                • Coordinates: {{ locationData.lat }}°S, {{ Math.abs(locationData.lon) }}°W<br>
+                                • Climate: {{ locationData.climate }}<br>
+                                • Population: {{ locationData.population }}<br>
+                                • Area: {{ locationData.area }}<br>
+                                • Elevation: {{ locationData.elevation }}<br>
+                                • Timezone: {{ locationData.timezone }}<br><br>
+                                🌤️ <strong>Current Weather Conditions:</strong><br>
+                                • Temperature: {{ locationData.currentTemp }}°C<br>
+                                • Humidity: {{ locationData.currentHumidity }}%<br>
+                                • Precipitation: {{ locationData.currentPrecipitation }} mm<br>
+                                • Wind Speed: {{ locationData.currentWindSpeed }} km/h<br><br>
+                                You'll manage this farm for <strong>10 years (40 quarters)</strong>. Your decisions will impact: 💰 Profit, 🌳 Sustainability, and ⭐ Prestige.<br><br>
+                                Use NASA climate data to make smart decisions!
+                            </div>
+                            <div class="message-text" v-else>
                                 <strong>Excellent choice, {{ playerName }}!</strong><br><br>
                                 📍 <strong>Florianópolis, Santa Catarina</strong><br>
-                                Coordinates: -27.59°S, -48.55°W<br>
-                                Climate: Humid subtropical<br>
-                                Period: 2015-2017 (NASA Data)<br><br>
-                                You'll manage this farm for <strong>10 years (40 quarters)</strong>. Your decisions will impact: 💰 Profit, 🌳 Sustainability, and ⭐ Prestige.<br><br>
-                                Use NASA climate data (in the sidebar) to make smart decisions!
+                                Loading location data...<br><br>
+                                You'll manage this farm for <strong>10 years (40 quarters)</strong>. Your decisions will impact: 💰 Profit, 🌳 Sustainability, and ⭐ Prestige.
                             </div>
                         </div>
                         <button class="btn btn-primary btn-large" @click="startPlanting">
@@ -1949,12 +2165,42 @@
     </style>
     
     <script>
+    // Mobile viewport height fix for iOS Safari
+    function setMobileHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    // Set on load
+    setMobileHeight();
+    
+    // Update on resize and orientation change
+    window.addEventListener('resize', setMobileHeight);
+    window.addEventListener('orientationchange', function() {
+        setTimeout(setMobileHeight, 100);
+    });
+    
+    // Prevent pull-to-refresh on mobile
+    document.body.addEventListener('touchmove', function(e) {
+        if (e.target.closest('.game-content') || e.target.closest('.screen')) {
+            // Allow scrolling in game content
+            return;
+        }
+        e.preventDefault();
+    }, { passive: false });
+    
     // Hide loading screen once page is fully loaded
     window.addEventListener('load', function() {
         setTimeout(function() {
             document.getElementById('loading-screen').classList.add('hidden');
         }, 500);
     });
+    
+    // Detect mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+        document.body.classList.add('is-mobile');
+    }
     </script>
 </body>
 </html>
