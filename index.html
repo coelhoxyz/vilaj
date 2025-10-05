@@ -1920,8 +1920,8 @@
                                     </div>
                                 </div>
                                 
-                                <div class="crop-comparison">
-                                    <div class="comparison-title">🎯 Crop Needs vs NASA Data</div>
+                                <div class="crop-comparison" style="display: block !important;">
+                                    <div class="comparison-title" style="font-size: 0.85em; font-weight: bold; margin-bottom: 8px;">🎯 DATA MATCH</div>
                                     <div class="comparison-item" :class="currentData.temp >= crop.needs.temp[0] && currentData.temp <= crop.needs.temp[1] ? 'match-yes' : 'match-no'">
                                         <span class="comp-label">🌡️ Temp:</span>
                                         <span class="comp-need">{{ crop.needs.temp[0] }}-{{ crop.needs.temp[1] }}°C</span>
