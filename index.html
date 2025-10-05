@@ -1751,9 +1751,10 @@
                                             'floripa'.startsWith(locationSearch.toLowerCase()) ||
                                             locationSearch.toLowerCase().includes('flor') ||
                                             locationSearch.toLowerCase().includes('floripa')" 
-                                 class="message-box" 
+                                 class="message-box location-card" 
                                  @click="selectLocation"
-                                 style="margin-top: 10px; cursor: pointer; border-color: var(--verdin); transition: all 0.3s;"
+                                 @touchend.prevent="selectLocation"
+                                 style="margin-top: 10px; cursor: pointer; border-color: var(--verdin); transition: all 0.3s; user-select: none; -webkit-user-select: none;"
                                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(119,195,7,0.2)'"
                                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
                                 <div class="message-title" style="font-size: 1.1em;">📍 Florianópolis</div>

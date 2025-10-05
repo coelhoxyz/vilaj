@@ -289,21 +289,50 @@ createApp({
             // Método será chamado pelo input em tempo real
         },
         
-        async selectLocation() {
+        selectLocation() {
             this.playerLocation = 'Florianópolis, Santa Catarina, Brasil';
-            this.farmerSay(`Buscando dados reais de Florianópolis...`, 3000);
             
-            // Fetch real location data
-            await this.fetchLocationData();
+            // Set default location data immediately
+            this.locationData = {
+                name: 'Florianópolis',
+                state: 'Santa Catarina',
+                country: 'Brasil',
+                lat: '-27.59',
+                lon: '-48.55',
+                currentTemp: '24',
+                currentHumidity: '75',
+                currentPrecipitation: '0.0',
+                currentWindSpeed: '15.0',
+                climate: 'Humid Subtropical (Cfa)',
+                population: '~500,000',
+                area: '675 km²',
+                elevation: '~3m above sea level',
+                timezone: 'America/Sao_Paulo'
+            };
             
+            // Move to next phase immediately (don't block)
             this.gamePhase = 'welcome';
             this.farmerSay(`Excelente escolha, ${this.playerName}! Florianópolis tem ótimas condições!`, 4000);
+            
+            // Fetch real location data in background (non-blocking)
+            this.fetchLocationData().catch(err => {
+                console.log('Using default location data due to:', err);
+            });
         },
         
         async fetchLocationData() {
             try {
                 // Use OpenStreetMap Nominatim for geocoding (free, no API key needed)
-                const geoResponse = await fetch('https://nominatim.openstreetmap.org/search?q=Florianopolis,Santa+Catarina,Brazil&format=json&limit=1');
+                const geoResponse = await fetch('https://nominatim.openstreetmap.org/search?q=Florianopolis,Santa+Catarina,Brazil&format=json&limit=1', {
+                    headers: {
+                        'User-Agent': 'VilajFarmGame/1.0'
+                    }
+                });
+                
+                if (!geoResponse.ok) {
+                    throw new Error('Geocoding API failed');
+                }
+                
                 const geoData = await geoResponse.json();
                 
                 if (geoData && geoData.length > 0) {
@@ -313,50 +342,33 @@ createApp({
                     
                     // Fetch current weather data from Open-Meteo (free, no API key needed)
                     const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&timezone=America/Sao_Paulo`);
+                    
+                    if (!weatherResponse.ok) {
+                        throw new Error('Weather API failed');
+                    }
+                    
                     const weatherData = await weatherResponse.json();
                     
-                    // Store the real data
-                    this.locationData = {
-                        name: 'Florianópolis',
-                        state: 'Santa Catarina',
-                        country: 'Brasil',
-                        lat: lat.toFixed(2),
-                        lon: lon.toFixed(2),
-                        currentTemp: weatherData.current ? Math.round(weatherData.current.temperature_2m) : 'N/A',
-                        currentHumidity: weatherData.current ? Math.round(weatherData.current.relative_humidity_2m) : 'N/A',
-                        currentPrecipitation: weatherData.current ? weatherData.current.precipitation.toFixed(1) : 'N/A',
-                        currentWindSpeed: weatherData.current ? weatherData.current.wind_speed_10m.toFixed(1) : 'N/A',
-                        climate: 'Humid Subtropical (Cfa)',
-                        population: '~500,000',
-                        area: '675 km²',
-                        elevation: '~3m above sea level',
-                        timezone: weatherData.timezone || 'America/Sao_Paulo'
-                    };
+                    // Update location data with real values
+                    this.locationData.lat = lat.toFixed(2);
+                    this.locationData.lon = lon.toFixed(2);
                     
-                    console.log('✓ Real location data fetched:', this.locationData);
-                } else {
-                    throw new Error('Location not found');
+                    if (weatherData.current) {
+                        this.locationData.currentTemp = Math.round(weatherData.current.temperature_2m);
+                        this.locationData.currentHumidity = Math.round(weatherData.current.relative_humidity_2m);
+                        this.locationData.currentPrecipitation = weatherData.current.precipitation.toFixed(1);
+                        this.locationData.currentWindSpeed = weatherData.current.wind_speed_10m.toFixed(1);
+                    }
+                    
+                    if (weatherData.timezone) {
+                        this.locationData.timezone = weatherData.timezone;
+                    }
+                    
+                    console.log('✓ Real location data updated:', this.locationData);
                 }
             } catch (error) {
-                console.error('Error fetching location data:', error);
-                // Fallback to default data
-                this.locationData = {
-                    name: 'Florianópolis',
-                    state: 'Santa Catarina',
-                    country: 'Brasil',
-                    lat: '-27.59',
-                    lon: '-48.55',
-                    currentTemp: '24',
-                    currentHumidity: '75',
-                    currentPrecipitation: '0.0',
-                    currentWindSpeed: '15.0',
-                    climate: 'Humid Subtropical (Cfa)',
-                    population: '~500,000',
-                    area: '675 km²',
-                    elevation: '~3m above sea level',
-                    timezone: 'America/Sao_Paulo'
-                };
-                this.farmerSay('Using default location data', 2000);
+                console.log('Using default location data:', error.message);
+                // Data already set to defaults, no need to do anything
             }
         },
         
