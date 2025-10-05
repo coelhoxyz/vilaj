@@ -691,74 +691,142 @@
             }
         }
         
-        /* Farmer Character Sprite */
+        /* Happy Farmer Character - CSS Animated */
         .farmer-character {
             position: fixed;
             bottom: 40px;
             right: 40px;
-            width: 60px;
-            height: 46px;
-            background-image: url('game/assets/farmer-sprite.png');
-            background-size: 540px 230px;
-            image-rendering: pixelated;
+            width: 80px;
+            height: 100px;
             z-index: 50;
-            transform: scale(2);
-            transform-origin: bottom right;
+            transform-origin: bottom center;
         }
         
-        /* Idle Animation (Row 1) */
+        /* Farmer Body */
+        .farmer-character::before {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 60px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            border-radius: 25px 25px 10px 10px;
+            box-shadow: inset -5px 0 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Farmer Head */
+        .farmer-character::after {
+            content: '👨‍🌾';
+            position: absolute;
+            bottom: 65px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 45px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        /* Idle Animation - Gentle bounce */
         .farmer-character.idle {
-            animation: sprite-idle 1s steps(9) infinite;
+            animation: farmer-idle 2s ease-in-out infinite;
         }
         
-        @keyframes sprite-idle {
-            from { background-position: 0 0; }
-            to { background-position: -540px 0; }
+        @keyframes farmer-idle {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.02); }
         }
         
-        /* Walking Animation (Row 2) */
+        /* Walking Animation - Side to side movement */
         .farmer-character.walking {
-            animation: sprite-walk 0.8s steps(9) infinite;
+            animation: farmer-walk 0.8s ease-in-out infinite;
         }
         
-        @keyframes sprite-walk {
-            from { background-position: 0 -46px; }
-            to { background-position: -540px -46px; }
+        @keyframes farmer-walk {
+            0%, 100% { 
+                transform: translateY(0) rotate(-3deg);
+            }
+            25% { 
+                transform: translateY(-8px) rotate(0deg);
+            }
+            50% { 
+                transform: translateY(0) rotate(3deg);
+            }
+            75% { 
+                transform: translateY(-8px) rotate(0deg);
+            }
         }
         
-        /* Running Animation (Row 3) */
+        /* Running Animation - Faster movement */
         .farmer-character.running {
-            animation: sprite-run 0.6s steps(9) infinite;
+            animation: farmer-run 0.4s ease-in-out infinite;
         }
         
-        @keyframes sprite-run {
-            from { background-position: 0 -92px; }
-            to { background-position: -540px -92px; }
+        @keyframes farmer-run {
+            0%, 100% { 
+                transform: translateY(0) rotate(-5deg) scale(1.05);
+            }
+            50% { 
+                transform: translateY(-12px) rotate(5deg) scale(1.05);
+            }
         }
         
-        /* Jump Animation (Row 4) */
+        /* Jumping Animation - Big jump */
         .farmer-character.jumping {
-            animation: sprite-jump 0.5s steps(9) 1;
+            animation: farmer-jump 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1;
         }
         
-        @keyframes sprite-jump {
-            from { background-position: 0 -138px; }
-            to { background-position: -540px -138px; }
+        @keyframes farmer-jump {
+            0% { 
+                transform: translateY(0) scale(1, 1);
+            }
+            30% { 
+                transform: translateY(-40px) scale(1.1, 0.9);
+            }
+            50% { 
+                transform: translateY(-50px) scale(0.95, 1.05) rotate(10deg);
+            }
+            70% { 
+                transform: translateY(-40px) scale(1.05, 0.95);
+            }
+            100% { 
+                transform: translateY(0) scale(1, 1);
+            }
         }
         
-        /* Dead/Sad Animation (Row 5) */
+        /* Sad Animation - Slump down */
         .farmer-character.sad {
-            animation: sprite-sad 1.2s steps(9) infinite;
+            animation: farmer-sad 2s ease-in-out infinite;
         }
         
-        @keyframes sprite-sad {
-            from { background-position: 0 -184px; }
-            to { background-position: -540px -184px; }
+        .farmer-character.sad::after {
+            content: '😔';
+        }
+        
+        @keyframes farmer-sad {
+            0%, 100% { 
+                transform: translateY(10px) scale(0.95);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(15px) scale(0.93);
+                opacity: 0.7;
+            }
         }
         
         /* Flip character to face left */
         .farmer-character.flip {
-            transform: scale(-2, 2);
+            transform: scaleX(-1);
+        }
+        
+        .farmer-character.flip.idle {
+            animation: farmer-idle 2s ease-in-out infinite;
+            transform: scaleX(-1);
+        }
+        
+        .farmer-character.flip.walking {
+            animation: farmer-walk 0.8s ease-in-out infinite;
+            transform: scaleX(-1);
         }
         
         /* Character speech bubble */
@@ -1319,10 +1387,10 @@
                     <!-- Welcome Screen -->
                     <div v-if="gamePhase === 'welcome'">
                         <div class="message-box">
-                            <div class="message-title">🌱 JosIA</div>
+                            <div class="message-title">🌱 Josia</div>
                             <div class="message-text">
-                                Welcome to AgriSpace Quest!<br><br>
-                                Manage your farm for 10 years (40 quarters) using real NASA satellite data.<br><br>
+                                Welcome to Vilaj Farm!<br><br>
+                                I'm Josia (José da Inteligência Agrícola) and I'll help you manage your farm for 10 years (40 quarters) using real NASA satellite data.<br><br>
                                 ⚠️ Each quarter you'll face climate & agricultural challenges. Your decisions have consequences!
                             </div>
                         </div>
@@ -1334,7 +1402,7 @@
                     <!-- Planting Phase -->
                     <div v-if="gamePhase === 'planting'">
                         <div class="message-box">
-                            <div class="message-title">🌱 JosIA</div>
+                            <div class="message-title">🌱 Josia</div>
                             <div class="message-text">
                                 {{ currentSeason.name }} {{ game.year }}. Choose your crop by comparing with NASA data! →
                             </div>
@@ -1617,12 +1685,12 @@
         <!-- Initial Loading/Welcome -->
         <div v-if="!gameStarted" class="screen active">
             <div class="welcome-content">
-                <h1>🌾 AgriSpace Quest</h1>
-                <p class="tagline">NASA Farm Simulator with Real Satellite Data</p>
+                <h1>🌾 Vilaj Farm</h1>
+                <p class="tagline">NASA Farm Simulator with Real Satellite Data - Powered by Josia AI</p>
                 
                 <div class="mission-brief">
                     <h2>🚀 Your Mission</h2>
-                    <p>Manage a farm for 10 years using real NASA satellite data. Make smart decisions about crops, handle climate events, and balance money, sustainability, and prestige!</p>
+                    <p>I'm Josia (José da Inteligência Agrícola), your farming assistant! Together we'll manage a farm for 10 years using real NASA satellite data. Make smart decisions about crops, handle climate events, and balance money, sustainability, and prestige!</p>
                 </div>
 
                 <button class="btn btn-primary btn-large" @click="gameStarted = true">
