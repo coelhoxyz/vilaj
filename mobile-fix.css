@@ -126,8 +126,16 @@
         overflow-y: auto !important;
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch !important;
-        padding: 10px 8px 80px 8px !important;
-        height: 0 !important;
+        padding: 10px 8px 100px 8px !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+    
+    /* Force visibility of content */
+    .game-content > div {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     /* Welcome/Initial screens */

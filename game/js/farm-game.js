@@ -307,11 +307,11 @@ createApp({
         // Player name and location methods
         savePlayerName() {
             if (!this.playerName || this.playerName.trim().length < 2) {
-                alert('Por favor, digite um nome válido (mínimo 2 caracteres)');
+                alert('Please enter a valid name (minimum 2 characters)');
                 return;
             }
             this.gamePhase = 'locationSelect';
-            this.farmerSay(`Bem-vindo, ${this.playerName}! Vamos escolher a localização da sua fazenda.`);
+            this.farmerSay(`Welcome ${this.playerName}! Choose your farm location.`);
         },
         
         handleLocationSearch() {
@@ -341,7 +341,7 @@ createApp({
             
             // Move to next phase immediately (don't block)
             this.gamePhase = 'welcome';
-            this.farmerSay(`Excelente escolha, ${this.playerName}! Florianópolis tem ótimas condições!`, 4000);
+            this.farmerSay(`Great choice ${this.playerName}! Florianópolis has excellent conditions!`, 4000);
             
             // Fetch real location data in background (non-blocking)
             this.fetchLocationData().catch(err => {
@@ -402,8 +402,8 @@ createApp({
         },
         
         skipIntroduction() {
-            this.playerName = 'Fazendeiro';
-            this.playerLocation = 'Florianópolis, SC, Brasil';
+            this.playerName = 'Farmer';
+            this.playerLocation = 'Florianópolis, SC, Brazil';
             this.gamePhase = 'welcome';
         },
         
