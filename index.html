@@ -2073,7 +2073,7 @@
 
                     <!-- Game Over -->
                     <div v-if="gamePhase === 'gameover'">
-                        <div class="message-box" style="background: linear-gradient(135deg, rgba(119, 195, 7, 0.3), rgba(79, 75, 219, 0.2)); border: 4px solid var(--verdin); text-align: center; position: relative; overflow: hidden;">
+                        <div class="message-box" style="padding: 35px; text-align: center;">
                             <div v-if="isNewRecord" style="position: absolute; top: 10px; right: 10px; background: #ffd700; color: #000; padding: 8px 15px; font-size: 0.8em; font-weight: bold; border-radius: 20px; animation: bounce 1s infinite;">
                                 🏆 NEW RECORD!
                             </div>
@@ -2115,8 +2115,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-large" @click="restartGame" style="font-size: 1.2em; padding: 25px 40px;">
-                            🔥 PLAY AGAIN
+                        <button class="btn btn-primary" @click="restartGame" style="width: 100%; padding: 15px; font-size: 1.1em; margin-top: 20px;">
+                            Play Again
                         </button>
                     </div>
                 </div>
