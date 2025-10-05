@@ -188,9 +188,6 @@ createApp({
         availableCrops() {
             const crops = {};
             const data = this.currentData;
-            const seasonIndex = (this.game.round - 1) % 4;
-            
-            console.log('Computing available crops for season:', seasonIndex);
             
             for (const [key, crop] of Object.entries(this.cultures)) {
                 // Make all crops available all the time
@@ -205,7 +202,6 @@ createApp({
                 };
             }
             
-            console.log('Available crops:', crops);
             return crops;
         },
         
