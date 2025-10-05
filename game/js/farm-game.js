@@ -188,21 +188,24 @@ createApp({
         availableCrops() {
             const crops = {};
             const data = this.currentData;
+            const seasonIndex = (this.game.round - 1) % 4;
+            
+            console.log('Computing available crops for season:', seasonIndex);
             
             for (const [key, crop] of Object.entries(this.cultures)) {
-                if (crop.seasons.includes(this.game.season)) {
-                    const tempOk = data.temp >= crop.needs.temp[0] && data.temp <= crop.needs.temp[1];
-                    const rainOk = data.rain >= crop.needs.rain[0] && data.rain <= crop.needs.rain[1];
-                    const humOk = data.humidity >= crop.needs.humidity[0] && data.humidity <= crop.needs.humidity[1];
-                    const ndviOk = data.ndvi >= crop.needs.ndvi[0] && data.ndvi <= crop.needs.ndvi[1];
-                    
-                    crops[key] = {
-                        ...crop,
-                        isMatch: tempOk && rainOk && humOk && ndviOk
-                    };
-                }
+                // Make all crops available all the time
+                const tempOk = data.temp >= crop.needs.temp[0] && data.temp <= crop.needs.temp[1];
+                const rainOk = data.rain >= crop.needs.rain[0] && data.rain <= crop.needs.rain[1];
+                const humOk = data.humidity >= crop.needs.humidity[0] && data.humidity <= crop.needs.humidity[1];
+                const ndviOk = data.ndvi >= crop.needs.ndvi[0] && data.ndvi <= crop.needs.ndvi[1];
+                
+                crops[key] = {
+                    ...crop,
+                    isMatch: tempOk && rainOk && humOk && ndviOk
+                };
             }
             
+            console.log('Available crops:', crops);
             return crops;
         },
         
