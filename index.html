@@ -25,13 +25,24 @@
         
         /* Additional styles for farm simulator */
         body {
-            background: var(--haiti);
+            background: linear-gradient(135deg, #1a1a3e, #0c0c35);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
         
         .game-container {
             display: flex;
-            height: 100vh;
+            max-width: 1400px;
+            width: 100%;
+            max-height: 90vh;
             background: var(--haiti);
+            border: 4px solid var(--royal-blue);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(79, 75, 219, 0.3);
+            overflow: hidden;
         }
         
         .stat-card {
@@ -203,6 +214,119 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+        }
+        
+        /* NASA Data Panel */
+        .nasa-data-panel {
+            background: rgba(79, 75, 219, 0.1);
+            border: 3px solid var(--royal-blue);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .nasa-panel-title {
+            font-size: 0.9em;
+            font-weight: bold;
+            color: var(--roxin);
+            text-align: center;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 0 var(--haiti);
+        }
+        
+        .nasa-data-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+        
+        .nasa-data-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(12, 12, 53, 0.6);
+            border: 2px solid rgba(79, 75, 219, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        
+        .nasa-data-item:hover {
+            border-color: var(--royal-blue);
+            background: rgba(79, 75, 219, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nasa-icon {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        
+        .nasa-label {
+            font-size: 0.7em;
+            color: rgba(209, 195, 246, 0.7);
+            margin-bottom: 3px;
+        }
+        
+        .nasa-value {
+            font-size: 0.85em;
+            font-weight: bold;
+            color: var(--verdin);
+        }
+        
+        /* Crop Comparison Styles */
+        .crop-comparison {
+            margin-top: 12px;
+            padding: 10px;
+            background: rgba(12, 12, 53, 0.4);
+            border-radius: 6px;
+        }
+        
+        .comparison-title {
+            font-size: 0.65em;
+            color: var(--roxin);
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .comparison-item {
+            display: grid;
+            grid-template-columns: 50px 1fr auto;
+            gap: 5px;
+            align-items: center;
+            font-size: 0.65em;
+            padding: 4px;
+            margin: 3px 0;
+            border-radius: 4px;
+        }
+        
+        .comparison-item.match-yes {
+            background: rgba(119, 195, 7, 0.15);
+            border-left: 3px solid var(--verdin);
+        }
+        
+        .comparison-item.match-no {
+            background: rgba(219, 75, 75, 0.15);
+            border-left: 3px solid #db4b4b;
+        }
+        
+        .comp-label {
+            color: var(--roxin);
+        }
+        
+        .comp-need {
+            color: rgba(209, 195, 246, 0.7);
+            font-size: 0.9em;
+        }
+        
+        .comp-current {
+            font-weight: bold;
+            color: var(--verdin);
+        }
+        
+        .comparison-item.match-no .comp-current {
+            color: #db4b4b;
         }
         
         .top-stats {
@@ -686,8 +810,40 @@
             }
             
             body {
-                padding: 0;
-                overflow-x: hidden;
+                padding: 10px;
+            }
+            
+            .game-container {
+                max-height: 95vh;
+                border-radius: 8px;
+                border-width: 2px;
+            }
+            
+            /* NASA Panel responsive */
+            .nasa-data-row {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 6px;
+            }
+            
+            .nasa-data-item {
+                padding: 6px;
+            }
+            
+            .nasa-icon {
+                font-size: 1.2em;
+            }
+            
+            .nasa-label {
+                font-size: 0.6em;
+            }
+            
+            .nasa-value {
+                font-size: 0.7em;
+            }
+            
+            .comparison-item {
+                font-size: 0.6em;
+                grid-template-columns: 40px 1fr auto;
             }
             
             /* Game container - Stack vertically on mobile */
@@ -1172,6 +1328,43 @@
                             </div>
                         </div>
 
+                        <!-- NASA Current Data Display -->
+                        <div class="nasa-data-panel">
+                            <div class="nasa-panel-title">🛰️ Current NASA Satellite Data</div>
+                            <div class="nasa-data-row">
+                                <div class="nasa-data-item">
+                                    <span class="nasa-icon">🌡️</span>
+                                    <span class="nasa-label">Temp</span>
+                                    <span class="nasa-value">{{ currentData.temp }}°C</span>
+                                </div>
+                                <div class="nasa-data-item">
+                                    <span class="nasa-icon">💧</span>
+                                    <span class="nasa-label">Rain</span>
+                                    <span class="nasa-value">{{ currentData.rain }}mm</span>
+                                </div>
+                                <div class="nasa-data-item">
+                                    <span class="nasa-icon">💨</span>
+                                    <span class="nasa-label">Humidity</span>
+                                    <span class="nasa-value">{{ currentData.humidity }}%</span>
+                                </div>
+                                <div class="nasa-data-item">
+                                    <span class="nasa-icon">🌿</span>
+                                    <span class="nasa-label">NDVI</span>
+                                    <span class="nasa-value">{{ currentData.ndvi.toFixed(2) }}</span>
+                                </div>
+                                <div class="nasa-data-item">
+                                    <span class="nasa-icon">🌡️</span>
+                                    <span class="nasa-label">Soil</span>
+                                    <span class="nasa-value">{{ currentData.soil }}°C</span>
+                                </div>
+                                <div class="nasa-data-item">
+                                    <span class="nasa-icon">☀️</span>
+                                    <span class="nasa-label">Radiation</span>
+                                    <span class="nasa-value">{{ currentData.radiation.toFixed(1) }}</span>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="crop-grid">
                             <div v-for="(crop, key) in availableCrops" :key="key"
                                  class="crop-card"
@@ -1179,12 +1372,31 @@
                                 <div class="crop-icon">{{ crop.icon }}</div>
                                 <div class="crop-name">{{ crop.name }}</div>
                                 <div class="crop-profit">+{{ crop.profit }} 💰 | {{ crop.duration }} quarters</div>
-                                <div class="crop-needs">
-                                    🌡️ Temp: {{ crop.needs.temp[0] }}-{{ crop.needs.temp[1] }}°C<br>
-                                    💧 Rain: {{ crop.needs.rain[0] }}-{{ crop.needs.rain[1] }}mm<br>
-                                    💨 Humidity: {{ crop.needs.humidity[0] }}-{{ crop.needs.humidity[1] }}%<br>
-                                    🌿 NDVI: {{ crop.needs.ndvi[0] }}-{{ crop.needs.ndvi[1] }}
+                                
+                                <div class="crop-comparison">
+                                    <div class="comparison-title">🎯 Crop Needs vs NASA Data</div>
+                                    <div class="comparison-item" :class="currentData.temp >= crop.needs.temp[0] && currentData.temp <= crop.needs.temp[1] ? 'match-yes' : 'match-no'">
+                                        <span class="comp-label">🌡️ Temp:</span>
+                                        <span class="comp-need">{{ crop.needs.temp[0] }}-{{ crop.needs.temp[1] }}°C</span>
+                                        <span class="comp-current">{{ currentData.temp }}°C</span>
+                                    </div>
+                                    <div class="comparison-item" :class="currentData.rain >= crop.needs.rain[0] && currentData.rain <= crop.needs.rain[1] ? 'match-yes' : 'match-no'">
+                                        <span class="comp-label">💧 Rain:</span>
+                                        <span class="comp-need">{{ crop.needs.rain[0] }}-{{ crop.needs.rain[1] }}mm</span>
+                                        <span class="comp-current">{{ currentData.rain }}mm</span>
+                                    </div>
+                                    <div class="comparison-item" :class="currentData.humidity >= crop.needs.humidity[0] && currentData.humidity <= crop.needs.humidity[1] ? 'match-yes' : 'match-no'">
+                                        <span class="comp-label">💨 Humidity:</span>
+                                        <span class="comp-need">{{ crop.needs.humidity[0] }}-{{ crop.needs.humidity[1] }}%</span>
+                                        <span class="comp-current">{{ currentData.humidity }}%</span>
+                                    </div>
+                                    <div class="comparison-item" :class="currentData.ndvi >= crop.needs.ndvi[0] && currentData.ndvi <= crop.needs.ndvi[1] ? 'match-yes' : 'match-no'">
+                                        <span class="comp-label">🌿 NDVI:</span>
+                                        <span class="comp-need">{{ crop.needs.ndvi[0] }}-{{ crop.needs.ndvi[1] }}</span>
+                                        <span class="comp-current">{{ currentData.ndvi.toFixed(2) }}</span>
+                                    </div>
                                 </div>
+                                
                                 <div :class="['match-status', crop.isMatch ? 'match-good' : 'match-bad']">
                                     {{ crop.isMatch ? '✅ Ideal Conditions' : '⚠️ Not Ideal' }}
                                 </div>
