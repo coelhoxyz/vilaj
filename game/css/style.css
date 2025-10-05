@@ -1,6 +1,6 @@
 /* AgriSpace Quest - 16-Bit Retro Pixel Art Style */
 
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Orbitron:wght@500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * {
     margin: 0;
@@ -30,13 +30,11 @@
 }
 
 body {
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
+    font-family: 'Press Start 2P', cursive;
     overflow: hidden;
     background: var(--haiti);
     color: var(--roxin);
-    line-height: 1.6;
-    letter-spacing: 0.5px;
+    line-height: 1.8;
 }
 
 /* Pixel Art Border Effect */
@@ -271,8 +269,7 @@ body::before {
     flex-direction: column;
     gap: 8px;
     color: #666;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
+    font-family: 'Press Start 2P', cursive;
     position: relative;
 }
 
@@ -317,8 +314,7 @@ body::before {
     cursor: pointer;
     transition: all 0.1s;
     font-weight: bold;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
+    font-family: 'Press Start 2P', cursive;
     background: rgba(0, 255, 0, 0.1);
     color: var(--pixel-green);
     text-shadow: 2px 2px 0 #000;
@@ -557,8 +553,7 @@ body::before {
     text-align: left;
     font-size: 0.7em;
     color: #999;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .option-btn:hover:not(.disabled) {
