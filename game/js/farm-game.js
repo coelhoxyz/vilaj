@@ -44,6 +44,7 @@ createApp({
             },
             highScore: 0,
             lastScore: 0,
+            lastAnswerExplanation: '',
             currentEvent: null,
             selectedOption: null,
             
