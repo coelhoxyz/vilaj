@@ -78,18 +78,22 @@ createApp({
             cultures: {
                 soja: {
                     name: 'Soy', icon: '🌾', profit: 15, duration: 2, seasons: [0, 1],
+                    description: 'Thrives in warm, moderate rainfall',
                     needs: { temp: [22, 30], rain: [140, 220], humidity: [65, 85], soil: [20, 32], radiation: [16, 24], ndvi: [0.60, 0.75] }
                 },
                 milho: {
                     name: 'Corn', icon: '🌽', profit: 18, duration: 2, seasons: [0, 1],
+                    description: 'Loves heat and plenty of water',
                     needs: { temp: [24, 32], rain: [160, 240], humidity: [70, 90], soil: [22, 35], radiation: [18, 26], ndvi: [0.65, 0.80] }
                 },
                 trigo: {
                     name: 'Wheat', icon: '🌾', profit: 12, duration: 2, seasons: [2, 3],
+                    description: 'Prefers cooler temperatures',
                     needs: { temp: [15, 24], rain: [80, 150], humidity: [55, 75], soil: [15, 28], radiation: [12, 20], ndvi: [0.50, 0.65] }
                 },
                 feijao: {
                     name: 'Beans', icon: '🫘', profit: 14, duration: 1, seasons: [0, 2],
+                    description: 'Grows well in mild conditions',
                     needs: { temp: [18, 28], rain: [120, 180], humidity: [60, 80], soil: [18, 30], radiation: [14, 22], ndvi: [0.55, 0.70] }
                 }
             },
@@ -490,6 +494,13 @@ createApp({
         // Submit answer and see result
         submitAnswer() {
             const isCorrect = this.selectedAnswer === this.currentQuestion.correct;
+            
+            // Store explanation for results screen
+            if (this.currentQuestion.explanation) {
+                this.lastAnswerExplanation = this.currentQuestion.explanation;
+            } else {
+                this.lastAnswerExplanation = '';
+            }
             
             if (isCorrect) {
                 this.game.streak++;
