@@ -447,37 +447,50 @@
         font-size: 0.7rem !important;
     }
     
-    /* Farmer character */
+    /* Farmer character - minimized on mobile */
     .farmer-character {
-        width: 60px !important;
-        height: 80px !important;
-        bottom: 10px !important;
-        right: 10px !important;
+        width: 40px !important;
+        height: 50px !important;
+        bottom: 5px !important;
+        left: 5px !important;
+        right: auto !important;
         z-index: 100 !important;
         pointer-events: none !important;
+        opacity: 0.7 !important;
     }
     
     .farmer-character::before {
-        width: 35px !important;
-        height: 45px !important;
-        bottom: 12px !important;
+        width: 25px !important;
+        height: 30px !important;
+        bottom: 8px !important;
     }
     
     .farmer-character::after {
-        font-size: 45px !important;
-        bottom: 45px !important;
+        font-size: 32px !important;
+        bottom: 28px !important;
     }
     
-    /* Speech bubble */
+    /* Speech bubble - top positioned to not block content */
     .farmer-speech {
         position: fixed !important;
-        bottom: 95px !important;
+        top: 60px !important;
         left: 10px !important;
         right: 10px !important;
+        bottom: auto !important;
         max-width: calc(100vw - 20px) !important;
-        padding: 12px 15px !important;
-        font-size: 0.85rem !important;
+        padding: 10px 12px !important;
+        font-size: 0.75rem !important;
         z-index: 101 !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    .farmer-speech::after {
+        content: none !important;
+    }
+    
+    /* Hide farmer on small screens when scrolling */
+    .game-content::-webkit-scrollbar-thumb:active ~ .farmer-character {
+        opacity: 0.3 !important;
     }
     
     /* Loading screen */
@@ -541,6 +554,22 @@
     .stat-value {
         font-size: 0.7rem !important;
     }
+    
+    /* Even smaller farmer on tiny screens */
+    .farmer-character {
+        width: 35px !important;
+        height: 45px !important;
+        opacity: 0.6 !important;
+    }
+    
+    .farmer-character::after {
+        font-size: 28px !important;
+    }
+    
+    .farmer-speech {
+        font-size: 0.7rem !important;
+        padding: 8px 10px !important;
+    }
 }
 
 /* Landscape mode */
@@ -565,18 +594,21 @@
         padding: 10px 8px 60px 8px !important;
     }
     
+    /* Even more minimal in landscape */
     .farmer-character {
-        width: 50px !important;
-        height: 70px !important;
+        width: 30px !important;
+        height: 40px !important;
+        opacity: 0.5 !important;
     }
     
     .farmer-character::after {
-        font-size: 40px !important;
-        bottom: 35px !important;
+        font-size: 24px !important;
+        bottom: 20px !important;
     }
     
     .farmer-speech {
-        bottom: 75px !important;
-        font-size: 0.75rem !important;
+        top: 50px !important;
+        font-size: 0.7rem !important;
+        padding: 8px 10px !important;
     }
 }
